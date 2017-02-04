@@ -29,7 +29,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>                        
 					</button>
-					<a href="/home"><img id="navLogo" class="navbar-brand" src="<?= base_url() ?>assets/images/starkscapes.png" alt="starkscapes logo"></a>
+					<div class="navbar-brand">
+						<a href="/home"><img id="navLogo" src="<?= base_url() ?>assets/images/starkscapes.png" alt="starkscapes logo"></a>
+					</div>
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="navList nav navbar-nav navbar-right">
