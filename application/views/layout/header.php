@@ -26,6 +26,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </head>
 <body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1744743855811642";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 	<header>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -43,10 +51,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<ul class="navList nav navbar-nav navbar-right">
 						<li><a class="navLink" href="/home"><i class="fa fa-home"></i> Home</a></li>
 						<li><a class="navLink" href="/about"><i class="fa fa-question-circle-o"></i> About</a></li>
-						<li><a class="navLink" href="/gallery"><i class="fa fa-picture-o"></i> Gallery</a></li>
+						<li><a class="navLink" href="/gallery"><i class="fa fa-camera-retro"></i> Gallery</a></li>
 						<li><a class="navLink" href="/contact"><i class="fa fa-envelope-o"></i> Contact</a></li>
 					</ul>
 				</div>
 			</div>
-		</nav>f
+		</nav>
 	</header>
