@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 
-	<title><?= $page_title ?></title>
+	<title>StarkScapes - <?= $page_title ?></title>
 	<meta charset="utf-8">
 	<meta name="description" content="Write a description for the website here.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +16,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="/carousel.js"></script>
 	<!-- <link href="<?= base_url() ?>assets/css/lightbox.css" rel="stylesheet" type="text/css"> -->
+	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/font-awesome-4.7.0/css/font-awesome.min.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Montserrat">
+
+
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
 
 </head>
@@ -35,12 +41,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="navList nav navbar-nav navbar-right">
-						<li><a class="navLink" href="/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-						<li><a class="navLink" href="/about"><span class="glyphicon glyphicon-question-sign"></span> About</a></li>
-						<li><a class="navLink" href="/gallery"><span class="glyphicon glyphicon-th"></span> Gallery</a></li>
-						<li><a class="navLink" href="/contact"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+						<li><a class="navLink" href="/home"><i class="fa fa-home"></i> Home</a></li>
+						<li><a class="navLink" href="/about"><i class="fa fa-question-circle-o"></i> About</a></li>
+						<li><a class="navLink" href="/gallery"><i class="fa fa-picture-o"></i> Gallery</a></li>
+						<li><a class="navLink" href="/contact"><i class="fa fa-envelope-o"></i> Contact</a></li>
 					</ul>
 				</div>
 			</div>
-		</nav>
+		</nav>f
 	</header>

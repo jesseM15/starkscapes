@@ -17,7 +17,7 @@ class User extends CI_Controller
 
 	public function login()
     {
-        $this->form_validation->set_rules('login_email','E-mail','required|trim');
+        $this->form_validation->set_rules('login_email','Email','required|trim');
         $this->form_validation->set_rules('login_password','Password','required|trim|callback_check_credentials');
 
         //Redirect if validation succeeds
@@ -41,8 +41,6 @@ class User extends CI_Controller
 
     public function register()
     {
-        $this->load->library('form_validation');
-        
         $this->form_validation->set_rules('register_email', 'Email', 'trim|required|valid_email|callback_check_email');
         $this->form_validation->set_rules('register_password', 'Password', 'trim|required');
 

@@ -4,13 +4,23 @@ body {
 	max-width: 100%;
 	background-color: #FFEECC;
 	/*background-color: #33FF11;*/
-	font-family: Helvetica, Arial, sans-serif;
 	background: url('/assets/images/grass_tiling.jpg');
 	background-repeat: repeat;
+	font-family: Montserrat, Helvetica, Arial, sans-serif;
 }
 
 header {
-	padding-top: 50px;
+	padding-top: 31px;
+}
+
+nav {
+	margin: 0;
+	padding: 0;
+}
+
+.fa {
+	margin: 0;
+	padding: 0;
 }
 
 .container-fluid {
@@ -65,10 +75,13 @@ header {
 	/*background: #fff;*/
 	/*background: rgba(255, 255, 255, 0.9);*/
 	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+	/*max-width: 95%;
+	margin: 0 auto;*/
 }
 
 #myCarousel {
-	margin: 0;
 	padding: 0;
 	background: #0f0;
 }
@@ -81,7 +94,7 @@ header {
 #about {
 	margin: 0;
 	width: 100%;
-	background: #0f0;
+	background: #36f900;
 	/*background: rgba(0, 255, 0, 0.9);*/
 	padding: 2%;
 }
@@ -92,20 +105,60 @@ header {
 }
 
 #servicesContent {
-
+	padding-left: 5%;
+	padding-right: 5%;
 }
 
 .service {
-	padding: 5%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	padding: 0 8%;
+	color: #eee;
+	font-size: 200%;
+}
+
+.serviceImage {
+	border-radius: 50%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.9);
+	/*-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);*/
+}
+
+.item {
+	overflow: visible;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.carousel-inner {
+	overflow: visible;
+}
+
+.carousel-caption {
+	top: 50%;
+	transform: translateY(-50%);
+	bottom: initial;
+	text-shadow: 2px 2px 15px #000;
 }
 
 #contact {
 	width: 100%;
 	margin: 0;
-	padding: 0;
-	min-height: 600px;
+	padding: 3% 5%;
+	/*min-height: 600px;*/
 	background: #fff;
-	background: rgba(255, 255, 255, 0.9);
+	/*background: rgba(255, 255, 255, 0.9);*/
+}
+
+#contactContent {
+
+}
+
+.form-control[placeholder]
+{
+    text-align: center;
 }
 
 footer {
