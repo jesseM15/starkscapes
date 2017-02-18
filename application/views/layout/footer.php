@@ -54,5 +54,35 @@
 			</div>
 		</div>
 	</footer>
+
+	<script>
+		$(document).ready(function(){
+			var enabled = false;
+			if (enabled)
+			{
+			    var MEASUREMENTS_ID = 'measurements'; // abstracted-out for convenience in renaming
+			    $("body").append('<div id="'+MEASUREMENTS_ID+'"></div>');
+			    $("#"+MEASUREMENTS_ID).css({
+			        'position': 'fixed',
+			        'bottom': '0',
+			        'right': '0',
+			        'background-color': 'black',
+			        'color': 'white',
+			        'padding': '5px',
+			        'font-size': '12px',
+			        'font-weight': 'bold',
+			        'opacity': '0.8'
+			    });
+			    getDimensions = function(){
+			        return $(window).width() + ' (' + $(document).width() + ') x ' + $(window).height() + ' (' + $(document).height() + ')';
+			    }
+			    $("#"+MEASUREMENTS_ID).text(getDimensions());
+			    $(window).on("resize", function(){
+			        $("#"+MEASUREMENTS_ID).text(getDimensions());
+			    });
+			}
+		});
+	</script>
+
 </body>
 </html>

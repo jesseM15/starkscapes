@@ -70,6 +70,7 @@ nav {
 	border-radius: 0;
 	width: 100%;
 	margin: 0 auto;
+	margin-bottom: 0 !important;
 }
 
 .navbar .navbar-nav {
@@ -155,6 +156,18 @@ nav {
 	margin: 0 auto;*/
 }
 
+@media screen and (max-width: 700px) {
+	#home {
+		padding: 0;
+	}
+}
+
+@media screen and (min-width: 701px) {
+	#home {
+		/*padding: 0 50px;*/
+	}	
+}
+
 #myCarousel {
 	max-width: 1300px;
 	margin: 0 auto;
@@ -181,7 +194,7 @@ nav {
 	padding: 0;
 }
 
-#servicesContent {
+#servicesOverviewContent {
 	padding-left: 5%;
 	padding-right: 5%;
 }
@@ -265,6 +278,33 @@ textarea {
 	resize: none;
 }
 
+#map {
+	background: #36f900;
+}
+
+#gmap {
+	width: 450px;
+	height: 250px;
+	border: 0;
+	margin: 5%;
+}
+
+@media screen and (max-width: 500px) {
+	#gmap {
+		width: 80vw;
+	}	
+}
+
+#county {
+	margin: 5%;
+}
+
+.counties {
+	width: 175px;
+	margin: 5% auto;
+	font-size: 110%;
+}
+
 footer {
 	width: 100%;
 	margin: 0;
@@ -298,21 +338,14 @@ footer {
 
 /*--------*/
 
+/*--SERVICES--*/
 
-
-
-
-
-
-
-@media screen and (max-width: 700px) {
-	#home {
-		padding: 0;
-	}
+#services {
+	margin-top: -20px;
+	background: #fff;
+	padding: 2%;
 }
 
-@media screen and (min-width: 701px) {
-	#home {
-		/*padding: 0 50px;*/
-	}	
-}
+/*------------*/
+
+

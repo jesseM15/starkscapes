@@ -43,15 +43,4 @@ class Home extends CI_Controller {
 		$this->load->view('home', $data);
 		$this->load->view('layout/footer');
 	}
-
-	public function services()
-	{
-
-		$data['page_title'] = 'Services';
-
-		$this->load->view('layout/header', $data);
-		$this->load->view('services', $data);
-		$this->load->view('layout/footer');
-	}
-	
 }

@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/brand-colors.css">
-	<link rel="stylesheet" href="<?= base_url() ?>assets/css/alternate-brand-colors.css">
+	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/css/alternate-brand-colors.css"> -->
 
 </head>
 <body>
