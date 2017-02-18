@@ -1,4 +1,11 @@
-/* Main css file for starkscapes.dev */
+/* 
+	Main css file for starkscapes.dev
+
+	--- Logo colors ---
+
+	Yellowish Green 	#9EC953
+	Forest Green 		#016934
+*/
 
 body {
 	max-width: 100%;
@@ -7,16 +14,15 @@ body {
 	background: url('/assets/images/grass_tiling.jpg');
 	background-repeat: repeat;
 	font-family: Montserrat, Helvetica, Arial, sans-serif;
+	max-width: 1300px;
+	margin: 0 auto;
 }
 
 header {
-	padding-top: 31px;
+	/*padding-top: 50px;*/
 }
 
-nav {
-	margin: 0;
-	padding: 0;
-}
+
 
 .fa {
 	margin: 0;
@@ -33,20 +39,84 @@ nav {
 
 /*--NAVIGATION--*/
 
+.navWrap {
+	/*position: fixed;
+	left: 0;
+	right: 0;*/
+	margin: 0 auto;
+	max-width: 1300px;
+	width: 100%;
+	z-index: 100;
+	overflow: hidden;
+}
+
+nav {
+	/*margin: 0;*/
+	/*padding: 0;*/
+	/*max-width: 1400px;
+	margin: 0 auto;*/
+	/*position: fixed;
+	max-width: 1300px;
+	margin: 0 auto;*/
+}
+
+.navbar {
+	/*background-color: transparent;
+	background: transparent;
+	border-color: transparent;*/
+	background: #000;
+	background: rgba(0, 0, 0, 0.85);
+	border: none;
+	border-radius: 0;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
 .navbar-brand {
-	padding-top: 0;
+	/*padding-top: 0;*/
+}
+
+.logo {
+	/*max-width: 1300px;*/
+	width: 100%;
+	margin: 0 auto;
+	background: #000;
+	background: rgba(0, 0, 0, 0.85);
+	/*position: fixed;*/
+	/*top: 0;*/
+}
+
+#navLogo {
+	width: 100%;
+	max-width: 1300px;
+	margin: 0 auto;
 }
 
 .navList {
-	margin-right: 2%;
+	/*margin-right: 2%;*/
 }
 
 .navLink {
-	margin: 0 2% 0 2%;
+	margin: 0 12%;
+}
+
+.navList li {
+	/*margin-top: 5px;*/
+	margin-bottom: -5px;
 }
 
 .navList li:hover {
-	background: #444444;
+	background: #666;
+	background: rgba(150, 150, 150, 0.3);
 }
 
 /*--------------*/
@@ -75,24 +145,27 @@ nav {
 /*--HOME--*/
 
 #home {
-	/*max-width: 1800px;*/
 	/*background: #fff;*/
 	/*background: rgba(255, 255, 255, 0.9);*/
 	overflow-x: hidden;
-	margin: 0;
 	padding: 0;
-	/*max-width: 95%;
+	/*max-width: 95%;*/
+	/*max-width: 1300px;*/
+	/*max-width: 1300px;
 	margin: 0 auto;*/
 }
 
 #myCarousel {
+	max-width: 1300px;
+	margin: 0 auto;
 	padding: 0;
 	background: #0f0;
+	overflow: hidden;
 }
 
 .carouselImage {
 	width: 100%;
-	/*max-height: 600px;*/
+	max-height: 700px;
 }
 
 #about {
@@ -118,29 +191,47 @@ nav {
 	margin-bottom: 5%;
 	padding: 0 8%;
 	color: #eee;
-	font-size: 200%;
+	font-size: 180%;
 }
 
 .serviceImage {
+	/*max-width: 300px;*/
 	border: 1px solid #555;
 	border-radius: 50%;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.7);
 	/*-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);*/
+	transition: box-shadow 1s;
+	overflow: visible;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
 }
 
 .serviceItem:hover {
+	max-width: 300px;
+	margin: 0 auto;
 	border: 1px solid #777;
 	border-radius: 50%;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
 }
 
 .serviceItem {
+	max-width: 300px;
+	margin: 0 auto;
 	overflow: visible;
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+}
+
+.serviceItem:hover {
+	/*max-width: 300px;
+	margin: 0 auto;
+	border: 1px solid #777;
+	border-radius: 50%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);*/
 }
 
 .carousel-inner {
@@ -149,6 +240,8 @@ nav {
 
 .carousel-caption {
 	top: 50%;
+	left: 0;
+	right: 0;
 	transform: translateY(-50%);
 	bottom: initial;
 	text-shadow: 2px 2px 15px #000;
@@ -163,27 +256,30 @@ nav {
 	/*background: rgba(255, 255, 255, 0.9);*/
 }
 
-#contactContent {
-
-}
-
-.contactWell {
-
-}
-
 .form-control[placeholder]
 {
     text-align: center;
 }
 
+textarea {
+	resize: none;
+}
+
 footer {
 	width: 100%;
 	margin: 0;
-	padding: 1% 8%;
 	color: #fff;
-	/*min-height: 200px;*/
 	background: #000;
-	background: rgba(0, 0, 0, 0.9);
+	background: rgba(0, 0, 0, 0.85);
+	overflow: hidden;
+	/*max-width: 1400px;
+	margin: 0 auto;*/
+	max-width: 1300px;
+	margin: 0 auto;
+}
+
+.footerItem {
+	margin: 30px 0;
 }
 
 .hoursCol {
@@ -191,8 +287,9 @@ footer {
 	padding: 0 15px;
 }
 
-#servicesFooter {
-	padding: 0 7%;
+.serviceList {
+	margin: 0 auto;
+	max-width: 250px;
 }
 
 .serviceFooter {

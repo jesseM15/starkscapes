@@ -18,11 +18,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- <link href="<?= base_url() ?>assets/css/lightbox.css" rel="stylesheet" type="text/css"> -->
 	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/font-awesome-4.7.0/css/font-awesome.min.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css"
-          href="https://fonts.googleapis.com/css?family=Montserrat">
-
-
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/css/brand-colors.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/css/alternate-brand-colors.css">
 
 </head>
 <body>
@@ -35,7 +34,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 	<header>
-		<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navWrap">
+		<div class="logo text-center">
+			<a href="/home"><img id="navLogo" src="<?= base_url() ?>assets/images/starkscapes.png" alt="StarkScapes logo"></a>
+		</div>
+		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -43,12 +46,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>                        
 					</button>
-					<div class="navbar-brand">
-						<a href="/home"><img id="navLogo" src="<?= base_url() ?>assets/images/starkscapes.png" alt="starkscapes logo"></a>
-					</div>
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="navList nav navbar-nav navbar-right">
+					<ul class="navList nav navbar-nav">
 						<li><a class="navLink" href="/home"><i class="fa fa-home"></i> Home</a></li>
 						<li><a class="navLink" href="/about"><i class="fa fa-question-circle-o"></i> About</a></li>
 						<li><a class="navLink" href="/gallery"><i class="fa fa-camera-retro"></i> Gallery</a></li>
@@ -57,4 +57,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		</nav>
+		</div>
 	</header>

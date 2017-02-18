@@ -1,0 +1,33 @@
+/* 
+	Alternate brand colors css file for starkscapes.dev
+
+	--- Logo colors ---
+
+	Yellowish Green 	#9EC953
+	Forest Green 		#016934
+*/
+
+.navbar {
+	background: #9EC953;
+	/*background: rgba(1, 105, 52, 0.85);*/
+}
+
+.navbar .nav > li > a {
+    color:  #111;
+}
+
+.navList li:hover {
+	background: #016934;
+	/*background: rgba(1, 105, 53, 0.5);*/
+}
+
+#about {
+	color: #9EC953;
+	background: #016934;
+}
+
+footer {
+	color: #111;
+	background: #9EC953;
+	/*background: rgba(1, 105, 52, 0.85);*/
+}

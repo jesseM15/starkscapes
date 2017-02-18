@@ -7,7 +7,7 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('url', 'form'));
-		$this->load->library(array('form_validation','session'));
+		$this->load->library(array('form_validation','session', 'email'));
 	}
 
 	public function index()
@@ -20,7 +20,20 @@ class Home extends CI_Controller {
 
 		if($this->form_validation->run())
 		{
-            // redirect(base_url('thank_you'));
+            $config['mailtype'] = 'html';
+			$this->email->initialize($config);
+			$this->email->from('webmaster@starkscapes.com', 'StarkScapes.com');
+			$this->email->to('muddybuzzy@gmail.com');
+			$this->email->subject('Estimate Requested');
+			$message = "";
+			$message .= "Starkscapes.com has received an estimate request.<br />\n";
+			$message .= "<h1>" . $this->input->post('subject') . "</h1><br />\n";
+			$message .= "<p>" . $this->input->post('message') . "</p>\n";
+			$message .= $this->input->post('email') . "<br />\n";
+			$message .= $this->input->post('phone') . "<br />\n";
+			$this->email->message($message);
+
+			$this->email->send();
             $data['success'] = 'Thank you, we will contact you soon.';
         }
         
@@ -28,6 +41,16 @@ class Home extends CI_Controller {
 
 		$this->load->view('layout/header', $data);
 		$this->load->view('home', $data);
+		$this->load->view('layout/footer');
+	}
+
+	public function services()
+	{
+
+		$data['page_title'] = 'Services';
+
+		$this->load->view('layout/header', $data);
+		$this->load->view('services', $data);
 		$this->load->view('layout/footer');
 	}
 	
