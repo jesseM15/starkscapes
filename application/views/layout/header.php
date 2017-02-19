@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="navList nav navbar-nav">
 						<li><a class="navLink" href="/home"><i class="fa fa-home"></i> Home</a></li>
-						<li><a class="navLink" href="/about"><i class="fa fa-question-circle-o"></i> About</a></li>
+						<li><a class="navLink" href="/services"><i class="fa fa-wrench"></i> Services</a></li>
 						<li><a class="navLink" href="/gallery"><i class="fa fa-camera-retro"></i> Gallery</a></li>
 						<li><a class="navLink" href="/contact"><i class="fa fa-envelope-o"></i> Contact</a></li>
 					</ul>
