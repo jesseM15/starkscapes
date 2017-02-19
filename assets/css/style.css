@@ -277,6 +277,11 @@ textarea {
 	resize: none;
 }
 
+.contactSuccess {
+	margin-top: 170px;
+	margin-bottom: 170px;
+}
+
 #map {
 	background: #36f900;
 }
