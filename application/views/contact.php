@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-	<div id="contact" class="center">
-		<section id="contact">
+	<div id="contact">
+		<section id="contact center">
 			<div id="contactContent" class="container text-center">
 				<h1><i class="fa fa-envelope-o"></i> Contact us</h1>
 				<p class="contactWell well col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">

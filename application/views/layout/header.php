@@ -15,7 +15,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="/carousel.js"></script>
-	<!-- <link href="<?= base_url() ?>assets/css/lightbox.css" rel="stylesheet" type="text/css"> -->
+	<script src="<?= base_url() ?>assets/js/lightbox.js"></script>
+	<link href="<?= base_url() ?>assets/css/lightbox.css" rel="stylesheet" type="text/css">
 	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/font-awesome-4.7.0/css/font-awesome.min.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">

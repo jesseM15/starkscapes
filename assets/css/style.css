@@ -259,7 +259,7 @@ nav {
 	text-shadow: 2px 2px 15px #000;
 }
 
-#contact {
+#contactHome {
 	width: 100%;
 	margin: 0;
 	padding: 3% 5%;
@@ -379,4 +379,35 @@ footer {
 
 /*------------*/
 
+/*--GALLERY--*/
 
+#gallery {
+	background: #fff;
+	padding: 2%;
+	min-height: 50vh;
+}
+
+.imgThumbnail {
+	margin: 5% 0;
+}
+
+.imgThumbnail:hover {
+	cursor: pointer;
+}
+
+/*-----------*/
+
+/*--CONTACT--*/
+
+#contact {
+	width: 100%;
+	margin: 0;
+	padding: 3% 5%;
+	background: #fff;
+}
+
+#contactContent {
+	min-height: 51vh;
+}
+
+/*-----------*/
