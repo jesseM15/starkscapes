@@ -41,6 +41,14 @@
 	background: #9EC953;
 }
 
+.pagination {
+	background: #016934;
+}
+
+.pagination-cur {
+	background: #FFF;
+}
+
 footer {
 	background: #016934;
 	/*background: rgba(1, 105, 52, 0.85);*/

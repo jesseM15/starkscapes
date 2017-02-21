@@ -204,6 +204,11 @@ nav {
 	padding: 0 8%;
 	color: #eee;
 	font-size: 180%;
+	text-align: center;
+}
+
+.service a {
+	display: inline-block;
 }
 
 .serviceImage {
@@ -350,21 +355,26 @@ footer {
 }
 
 .service-section {
-	margin: 5%;
-	padding: 3%;
-	color: #111;
-	box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+	padding-top: 2%;
+	background: transparent;
+	border: none;
+	box-shadow: none;
 }
 
-#lawncare {
+.service-panel {
+	color: #111;
+	box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.8);
+}
+
+#lawncare-panel {
 	background: #77c953;
 }
 
-#landscaping {
+#landscaping-panel {
 	background: #c9b953;
 }
 
-#snow-removal {
+#snow-removal-panel {
 	background: #e0eec7;
 }
 
@@ -373,7 +383,7 @@ footer {
 }
 
 .service-image {
-	box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.8);
+	/*box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.8);*/
 	/*max-width: 200px;*/
 }
 
@@ -385,6 +395,7 @@ footer {
 	background: #fff;
 	padding: 2%;
 	min-height: 50vh;
+	position: relative;
 }
 
 .imgThumbnail {
@@ -393,6 +404,36 @@ footer {
 
 .imgThumbnail:hover {
 	cursor: pointer;
+}
+
+#pagination {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+.paginationWrap {
+	
+}
+
+.pagination {
+	margin: 0 -1px;
+	min-width: 30px;
+	font-size: 120%;
+	padding: 1px 8px;
+	background: #000;
+	border-radius: 0;
+	border: 1px #444 solid;
+}
+
+.pagination a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.pagination-cur {
+	color: #000;
+	background: #fff;
 }
 
 /*-----------*/

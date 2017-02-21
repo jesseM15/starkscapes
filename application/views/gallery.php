@@ -17,6 +17,7 @@
 			<?php
 			$n++;
 		}
+
 		?>
 		</div>
 
@@ -72,6 +73,10 @@
 			</div>
 		</div>
 
+			</div>
+			<br />
+			<div id="pagination" class="text-center">
+			<?= $this->pagination->create_links() ?>
 			</div>
 		</section>
 	</div>
