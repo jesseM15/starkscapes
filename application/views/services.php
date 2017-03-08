@@ -2,21 +2,22 @@
 
 <div id="services" class="center">
 	<h1><i class="fa fa-wrench"></i> Services</h1>
-	<section id="lawncare" class="service-section panel">
-		<div id="lawncare-panel" class="service-panel">
+	<?php foreach ($services as $service) : ?>
+	<section id="<?= (!empty($service['category']) ? format_as_class($service['category']) : 'lawncare') ?>" class="service-section panel">
+		<div id="<?= (!empty($service['category']) ? format_as_class($service['category']) : 'lawncare') ?>-panel" class="service-panel">
 			<div class="panel-heading text-center">
-				<h2><i class="fa fa-sun-o"></i> Lawncare</h2>
+				<h2><?= (!empty($service['icon']) ? $service['icon'] : '') ?> <?= (!empty($service['category']) ? $service['category'] : '') ?></h2>
 			</div>
 			<div class="panel-body">
 				<div class="col-sm-3">
-					<img class="service-image img-responsive" src="<?= $services['lawncare-image'] ?>" alt="<?= $services['lawncare-image-alt'] ?>" />
+					<img class="service-image img-responsive" src="<?= base_url() . $service['image']['path'] ?>" alt="<?= $service['image']['text'] ?>" />
 				</div>
 				<div class="col-sm-9">
 					<div class="services">
-						<?php foreach ($services['lawncare'] as $service => $message) : ?>
-						<h3><?= $service ?></h3>
+						<?php foreach ($service['service'] as $heading => $content) : ?>
+						<h3><?= $heading ?></h3>
 						<div class="service-message">
-							<?= $message ?>
+							<?= $content ?>
 						</div>
 						<?php endforeach ?>
 					</div>
@@ -24,74 +25,29 @@
 			</div>
 		</div>
 	</section>
-
-	<section id="landscaping" class="service-section panel">
-		<div id="landscaping-panel" class="service-panel">
-			<div class="panel-heading text-center">
-				<h2><i class="fa fa-leaf"></i> Landscaping</h2>
-			</div>
-			<div class="panel-body">
-				<div class="col-sm-3">
-					<img class="service-image img-responsive" src="<?= $services['landscaping-image'] ?>" alt="<?= $services['landscaping-image-alt'] ?>" />
-				</div>
-				<div class="col-sm-9">
-					<div class="services">
-						<?php foreach ($services['landscaping'] as $service => $message) : ?>
-						<h3><?= $service ?></h3>
-						<div class="service-message">
-							<?= $message ?>
-						</div>
-						<?php endforeach ?>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="snow-removal" class="service-section panel">
-		<div id="snow-removal-panel" class="service-panel">
-			<div class="panel-heading text-center">
-				<h2><i class="fa fa-snowflake-o"></i> Snow Removal &amp; Ice Management</h2>
-			</div>
-			<div class="panel-body">
-				<div class="col-sm-3">
-					<img class="service-image img-responsive" src="<?= $services['snow-removal-image'] ?>" alt="<?= $services['snow-removal-image-alt'] ?>" />
-				</div>
-				<div class="col-sm-9">
-					<div class="services">
-						<?php foreach ($services['snow-removal'] as $service => $message) : ?>
-						<h3><?= $service ?></h3>
-						<div class="service-message">
-							<?= $message ?>
-						</div>
-						<?php endforeach ?>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<?php endforeach; ?>
 </div>
 
 <script>
 $(document).ready(function(){
 	window.onscroll = function (e) {  
-		$("#lawncare").fadeTo("slow", 1);
+		$("#lawn-care").fadeTo("slow", 1);
 		$("#landscaping").fadeTo("slow", 1);
 		$("#snow-removal").fadeTo("slow", 1);
 	} 
-	if (window.location.href.includes("#lawncare"))
+	if (window.location.href.includes("#lawn-care"))
 	{
 		$("#landscaping").fadeTo("slow", 0.5);
 		$("#snow-removal").fadeTo("slow", 0.5);
 	}
 	if (window.location.href.includes("#landscaping"))
 	{
-		$("#lawncare").fadeTo("slow", 0.5);
+		$("#lawn-care").fadeTo("slow", 0.5);
 		$("#snow-removal").fadeTo("slow", 0.5);
 	}
 	if (window.location.href.includes("#snow-removal"))
 	{
-		$("#lawncare").fadeTo("slow", 0.5);
+		$("#lawn-care").fadeTo("slow", 0.5);
 		$("#landscaping").fadeTo("slow", 0.5);
 	}
 });

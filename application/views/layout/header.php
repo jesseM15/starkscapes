@@ -21,8 +21,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
-	<link rel="stylesheet" href="<?= base_url() ?>assets/css/brand-colors.css">
+	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/css/brand-colors.css"> -->
 	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/css/alternate-brand-colors.css"> -->
+	<!-- Include stylesheet -->
+	<link href="https://cdn.quilljs.com/1.2.0/quill.snow.css" rel="stylesheet">
+	<!-- Include the Quill library -->
+	<script src="https://cdn.quilljs.com/1.2.0/quill.js"></script>
 
 </head>
 <body>
@@ -50,10 +54,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="navList nav navbar-nav">
-						<li><a class="navLink" href="/home"><i class="fa fa-home"></i> Home</a></li>
-						<li><a class="navLink" href="/services"><i class="fa fa-wrench"></i> Services</a></li>
-						<li><a class="navLink" href="/gallery"><i class="fa fa-camera-retro"></i> Gallery</a></li>
-						<li><a class="navLink" href="/contact"><i class="fa fa-envelope-o"></i> Contact</a></li>
+						<li<?= $this->uri->segment(1) == 'home' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>home"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+						<li<?= $this->uri->segment(1) == 'services' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>services"><i class="fa fa-wrench"></i>&nbsp;Services</a></li>
+						<li<?= $this->uri->segment(1) == 'gallery' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>gallery"><i class="fa fa-camera-retro"></i>&nbsp;Gallery</a></li>
+						<li<?= $this->uri->segment(1) == 'contact' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>contact"><i class="fa fa-envelope-o"></i>&nbsp;Contact</a></li>
 					</ul>
 				</div>
 			</div>

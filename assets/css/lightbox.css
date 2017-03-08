@@ -47,29 +47,44 @@ body {
   max-width: 1200px;
 }
 
-/* The Close Button */
-.closeModal {
+.modalButton {
   cursor: pointer;
   position: absolute;
-  top: 1%;
-  right: 1%;
   width: auto;
-  padding: 8px 16px;
-  /*margin-top: -50px;*/
-  color: white;
+  /*color: #36f900;*/
+  color: #EEEEEE;
   font-weight: bold;
-  font-size: 20px;
   transition: 0.6s ease;
-  border-radius: 3px;
   user-select: none;
   -webkit-user-select: none;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.modalButton:hover {
+  /*color: #36f900;*/
+  color: #FFFFFF;
+}
+
+/* The Close Button */
+.closeModal {
+  top: 1%;
+  right: 1%;
+  padding: 8px 16px;
+  font-size: 20px;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 700px) {
+  .closeModal {
+    padding: 4px 8px;
+  }
 }
 
 .closeModal:hover,
 .closeModal:focus {
   /*color: #FFFFFF;*/
   text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.8);  
+  background: rgba(0, 0, 0, 0.8);  
 }
 
 .mySlides {
@@ -83,19 +98,17 @@ body {
 /* Next & previous buttons */
 .prevModal,
 .nextModal {
-  cursor: pointer;
-  position: absolute;
-  top: 45%;
-  width: auto;
+  top: 47.5%;
   padding: 16px;
-  /*margin-top: -50px;*/
-  color: white;
-  font-weight: bold;
   font-size: 20px;
-  transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
+}
+
+@media screen and (max-width: 700px) {
+  .prevModal, 
+  .nextModal {
+    padding: 8px;
+  }
 }
 
 /* Position the "prev button" to the left */
@@ -112,22 +125,31 @@ body {
 /* On hover, add a black background color with a little bit see-through */
 .prevModal:hover,
 .nextModal:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 /* Number text (1/3 etc) */
 .numbertext {
+  cursor: pointer;
   position: absolute;
-  top: 1%;
   width: auto;
-  padding: 12px;
-  color: white;
+  /*color: #36f900;*/
+  color: #FFFFFF;
   font-weight: bold;
-  font-size: 16px;
   transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
   user-select: none;
   -webkit-user-select: none;
+  background: rgba(0, 0, 0, 0.3);
+  top: 1%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 0 3px 3px 0;
+}
+
+@media screen and (max-width: 700px) {
+  .numbertext {
+    padding: 6px;
+  }
 }
 
 .numbertext:hover {

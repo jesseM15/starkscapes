@@ -5,13 +5,18 @@
 
 	Yellowish Green 	#9EC953
 	Forest Green 		#016934
+
+	Neon Green 			#36f900
 */
 
 body {
 	max-width: 100%;
 	background: #000;
 	background: url('/assets/images/grass_tiling.jpg');
-	background-repeat: repeat;
+	/*background-repeat: repeat;*/
+	background: url('/assets/images/Forest.jpg');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 	font-family: Montserrat, Helvetica, Arial, sans-serif;
 	max-width: 1300px;
 	margin: 0 auto;
@@ -64,7 +69,7 @@ nav {
 	background: transparent;
 	border-color: transparent;*/
 	background: #000;
-	background: rgba(0, 0, 0, 0.85);
+	/*background: rgba(0, 0, 0, 0.85);*/
 	border: none;
 	border-radius: 0;
 	width: 100%;
@@ -107,16 +112,52 @@ nav {
 
 .navLink {
 	margin: 0 12%;
+	color: #FFF;
 }
 
 .navList li {
 	/*margin-top: 5px;*/
+	background: #000;
 	margin-bottom: -5px;
+}
+
+.navbar .nav > li > a {
+    color:  #FFF;
+    display: block;
+    margin: 0;
+    padding: 0 25px;
+    line-height: 50px;
+}
+
+.navbar .nav > .active > a {
+	background: #FFF;
+    color:  #000;
+}
+
+.navbar .nav > .active {
+	background: #FFF;
+}
+
+.navbar .nav > li:hover a {
+	background: transparent;
+    color:  #FFF;
+}
+
+.navbar .nav > .active:hover a {
+	background: transparent;
+    color:  #FFF;
 }
 
 .navList li:hover {
 	background: #666;
-	background: rgba(150, 150, 150, 0.3);
+	background: rgba(150, 150, 150, 0.7);
+	background: #016934;
+}
+
+.navList .active:hover {
+	background: #666;
+	background: rgba(150, 150, 150, 0.7);
+	background: #016934;
 }
 
 /*--------------*/
@@ -193,6 +234,11 @@ nav {
 	padding: 0;
 }
 
+#servicesOverview {
+	background: url('/assets/images/grass_tiling.jpg');
+	background-repeat: repeat;
+}
+
 #servicesOverviewContent {
 	padding-left: 5%;
 	padding-right: 5%;
@@ -264,7 +310,7 @@ nav {
 	text-shadow: 2px 2px 15px #000;
 }
 
-#contactHome {
+#contact {
 	width: 100%;
 	margin: 0;
 	padding: 3% 5%;
@@ -319,7 +365,7 @@ footer {
 	margin: 0;
 	color: #fff;
 	background: #000;
-	background: rgba(0, 0, 0, 0.85);
+	/*background: rgba(0, 0, 0, 0.85);*/
 	overflow: hidden;
 	/*max-width: 1400px;
 	margin: 0 auto;*/
@@ -331,9 +377,13 @@ footer {
 	margin: 30px 0;
 }
 
-.hoursCol {
-	text-align: left;
-	padding: 0 15px;
+.hours {
+	width: 45%;
+	margin: 0 auto;
+}
+
+.greenText {
+	color: #36f900;
 }
 
 .serviceList {
@@ -351,6 +401,7 @@ footer {
 
 #services {
 	background: #fff;
+	background: #e0eec7;
 	padding: 2%;
 }
 
@@ -366,16 +417,19 @@ footer {
 	box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.8);
 }
 
-#lawncare-panel {
+#lawn-care-panel {
 	background: #77c953;
+	background: #9EC953;
 }
 
 #landscaping-panel {
 	background: #c9b953;
+	background: #016934;
 }
 
 #snow-removal-panel {
 	background: #e0eec7;
+	background: #fff;
 }
 
 .services {
@@ -396,6 +450,43 @@ footer {
 	padding: 2%;
 	min-height: 50vh;
 	position: relative;
+}
+
+#categories {
+	background: #000;
+	margin: 2% -2.1% 0;
+}
+
+.categories {
+	margin: 0;
+	padding: 0;
+}
+
+.categories a {
+	padding: 5px;
+}
+
+.categories:hover {
+	background: #016934;
+}
+
+.categories:hover a {
+	color: #FFF;
+}
+
+.categories a {
+	color: #FFF;
+	text-decoration: none;
+	font-weight: 900;
+	display: block;
+}
+
+.activeCategory {
+	background: #FFF;
+}
+
+.activeCategory a {
+	color: #000;
 }
 
 .imgThumbnail {
@@ -440,15 +531,15 @@ footer {
 
 /*--CONTACT--*/
 
-#contact {
+#contactPage {
 	width: 100%;
 	margin: 0;
 	padding: 3% 5%;
 	background: #fff;
 }
 
-#contactContent {
-	min-height: 51vh;
+#contactPageContent {
+	min-height: 52vh;
 }
 
 /*-----------*/
