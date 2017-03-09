@@ -51,5 +51,11 @@ class Home_model extends CI_Model{
 
         return $result;
     }
+
+    public function getMarquee()
+    {
+        $result = $this->db->get('marquee')->result_array();
+        return $result;
+    }
     
 }

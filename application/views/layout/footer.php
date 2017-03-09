@@ -58,29 +58,54 @@
 	<script>
 		$(document).ready(function(){
 			var enabled = false;
-			// var enabled = true;
-			if (enabled)
+			window.onkeypress = function(event) {
+			   if (event.keyCode == 46) {
+			      if (enabled == false)
+			      {
+			      	enabled = true;
+			      }
+			      else
+			      {
+			      	enabled = false;
+			      }
+			      browsersize();
+			   }
+			   // alert(event.keyCode);
+			}
+			
+			function browsersize()
 			{
-			    var MEASUREMENTS_ID = 'measurements'; // abstracted-out for convenience in renaming
-			    $("body").append('<div id="'+MEASUREMENTS_ID+'"></div>');
-			    $("#"+MEASUREMENTS_ID).css({
-			        'position': 'fixed',
-			        'bottom': '0',
-			        'right': '0',
-			        'background-color': 'black',
-			        'color': 'white',
-			        'padding': '5px',
-			        'font-size': '12px',
-			        'font-weight': 'bold',
-			        'opacity': '0.8'
-			    });
-			    getDimensions = function(){
-			        return $(window).width() + ' (' + $(document).width() + ') x ' + $(window).height() + ' (' + $(document).height() + ')';
-			    }
-			    $("#"+MEASUREMENTS_ID).text(getDimensions());
-			    $(window).on("resize", function(){
-			        $("#"+MEASUREMENTS_ID).text(getDimensions());
-			    });
+				if (enabled)
+				{
+				    var MEASUREMENTS_ID = 'measurements'; // abstracted-out for convenience in renaming
+				    $("body").append('<div id="'+MEASUREMENTS_ID+'"></div>');
+				    $("#"+MEASUREMENTS_ID).css({
+				        'position': 'fixed',
+				        'bottom': '0',
+				        'right': '0',
+				        'background-color': 'black',
+				        'color': 'white',
+				        'padding': '5px',
+				        'font-size': '12px',
+				        'font-weight': 'bold',
+				        'opacity': '0.8',
+				        'display': 'block',
+				        'display': 'initial'
+				    });
+				    getDimensions = function(){
+				        return $(window).width() + ' (' + $(document).width() + ') x ' + $(window).height() + ' (' + $(document).height() + ')';
+				    }
+				    $("#"+MEASUREMENTS_ID).text(getDimensions());
+				    $(window).on("resize", function(){
+				        $("#"+MEASUREMENTS_ID).text(getDimensions());
+				    });
+				}
+				else
+				{
+					$("#measurements").css({
+						'display': 'none'
+					});
+				}
 			}
 		});
 	</script>

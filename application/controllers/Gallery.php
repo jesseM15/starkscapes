@@ -8,7 +8,7 @@ class Gallery extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url', 'utility'));
 		$this->load->library(array('session', 'pagination'));
-		$this->load->model(array('image_model'));
+		$this->load->model(array('home_model', 'image_model'));
 	}
 
 	public function index()
@@ -27,6 +27,7 @@ class Gallery extends CI_Controller {
 		$this->pagination->initialize($config);
 
         $data['page_title'] = 'Gallery';
+        $data['marquee'] = $data['marquee'] = $this->home_model->getMarquee();
 
         $data['images'] = $this->image_model->getImages('gallery', $category, $start);
 

@@ -41,6 +41,22 @@ header {
 	margin: 1% 1%;
 }
 
+.marquee {
+	/*margin: 0 10%;*/
+	white-space: nowrap;
+	font-weight: bold;
+}
+
+marquee ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+marquee ul li {
+	display: inline;
+}
+
 /*--NAVIGATION--*/
 
 .navWrap {
@@ -450,6 +466,7 @@ footer {
 	padding: 2%;
 	min-height: 50vh;
 	position: relative;
+	overflow: hidden;
 }
 
 #categories {
@@ -460,6 +477,13 @@ footer {
 .categories {
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+	#categories {
+		padding: 10px;
+	}
 }
 
 .categories a {

@@ -39,6 +39,7 @@ class Home extends CI_Controller {
         }
         
         $data['page_title'] = 'Home';
+        $data['marquee'] = $data['marquee'] = $this->home_model->getMarquee();
 
 		$data['carouselImages'] = $this->image_model->getImages('Home', 'Carousel');
 		$data['about'] = $this->home_model->getAbout();

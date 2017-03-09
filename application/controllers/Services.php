@@ -8,7 +8,7 @@ class Services extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url', 'utility'));
 		$this->load->library(array('session'));
-		$this->load->model(array('service_model', 'image_model'));
+		$this->load->model(array('home_model', 'service_model', 'image_model'));
 	}
 
 	public function index()
@@ -24,6 +24,7 @@ class Services extends CI_Controller {
 
 		$data['services'] = $services;
 		$data['page_title'] = 'Services';
+		$data['marquee'] = $data['marquee'] = $this->home_model->getMarquee();
 
 		$this->load->view('layout/header', $data);
 		$this->load->view('services', $data);

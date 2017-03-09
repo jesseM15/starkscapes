@@ -8,6 +8,7 @@ class Contact extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url', 'form'));
 		$this->load->library(array('form_validation','session', 'email'));
+		$this->load->model(array('home_model'));
 	}
 
 	public function index()
@@ -38,6 +39,7 @@ class Contact extends CI_Controller {
         }
         
         $data['page_title'] = 'Contact';
+        $data['marquee'] = $this->home_model->getMarquee();
 
 		$data['contactMessage'] = 'Call us at <a href="tel:3302656058">330-265-6058</a> or fill out the form below for a free estimate within 24 hours.';
 

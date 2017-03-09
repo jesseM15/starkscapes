@@ -39,6 +39,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 	<header>
+		<?php if (!empty($marquee)) : ?>
+		<div style="background:#000;color:#FFF;">
+			<marquee scrollamount="10" onmouseover="this.stop()" onmouseout="this.start()">
+				<ul>
+				<?php 
+				foreach($marquee as $m)
+				{
+					echo '<li><span class="marquee">' . $m['text'] . '</span></li>';
+					// super ugly hack
+					echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+				}
+				?>
+				</ul>
+			</marquee>
+		</div>
+		<?php endif; ?>
 		<div class="navWrap">
 		<div class="logo text-center">
 			<a href="/home"><img id="navLogo" src="<?= base_url() ?>assets/images/starkscapes.png" alt="StarkScapes logo"></a>
@@ -54,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="navList nav navbar-nav">
-						<li<?= $this->uri->segment(1) == 'home' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>home"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+						<li<?= empty($this->uri->segment(1)) || $this->uri->segment(1) == 'home' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>home"><i class="fa fa-home"></i>&nbsp;Home</a></li>
 						<li<?= $this->uri->segment(1) == 'services' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>services"><i class="fa fa-wrench"></i>&nbsp;Services</a></li>
 						<li<?= $this->uri->segment(1) == 'gallery' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>gallery"><i class="fa fa-camera-retro"></i>&nbsp;Gallery</a></li>
 						<li<?= $this->uri->segment(1) == 'contact' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>contact"><i class="fa fa-envelope-o"></i>&nbsp;Contact</a></li>
