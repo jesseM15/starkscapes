@@ -12,11 +12,17 @@
 body {
 	max-width: 100%;
 	background: #000;
-	background: url('/assets/images/grass_tiling.jpg');
+	/*background: url('/assets/images/grass_tiling.jpg');*/
 	/*background-repeat: repeat;*/
-	background: url('/assets/images/Forest.jpg');
-	background-size: 100% 100%;
+	/*background: url('/assets/images/Forest.jpg');*/
+	background: url('/assets/images/field.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	/*background-size: cover;
 	background-repeat: no-repeat;
+	background-position: 50% 50%;*/
 	font-family: Montserrat, Helvetica, Arial, sans-serif;
 	max-width: 1300px;
 	margin: 0 auto;
@@ -25,8 +31,6 @@ body {
 header {
 	/*padding-top: 50px;*/
 }
-
-
 
 .fa {
 	margin: 0;
@@ -42,19 +46,63 @@ header {
 }
 
 .marquee {
-	/*margin: 0 10%;*/
+	height: 20px;	
+	overflow: hidden;
 	white-space: nowrap;
-	font-weight: bold;
+	position: relative;
+	background: #000;
 }
-
-marquee ul {
-	list-style-type: none;
-	padding: 0;
+.marquee p {
+	font-size: 18px;
+	color: #FFF;
+	position: absolute;
+	width: 100%;
+	height: 100%;
 	margin: 0;
+	line-height: 18px;
+	text-align: center;
+	/* Starting position */
+	-moz-transform:translateX(100%);
+	-webkit-transform:translateX(100%);	
+	transform:translateX(100%);
+	/* Apply animation to this element */	
+	-moz-animation: marquee 15s linear infinite;
+	-webkit-animation: marquee 15s linear infinite;
+	animation: marquee 15s linear infinite;
 }
 
-marquee ul li {
-	display: inline;
+.marquee p:hover {
+	-moz-animation-play-state: paused;
+	-webkit-animation-play-state: paused;
+	animation-play-state: paused;
+ }
+
+.marquee p span {
+	margin: 0 5%;
+}
+
+/* Move it (define the animation) */
+@-moz-keyframes marquee {
+	0%   { -moz-transform: translateX(100%); }
+	100% { -moz-transform: translateX(-100%); }
+}
+
+@-webkit-keyframes marquee {
+	0%   { -webkit-transform: translateX(100%); }
+	100% { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes marquee {
+	0%   { 
+	-moz-transform: translateX(100%); /* Firefox bug fix */
+	-webkit-transform: translateX(100%); /* Firefox bug fix */
+	transform: translateX(100%); 		
+	}
+	100% { 
+	-moz-transform: translateX(-100%); /* Firefox bug fix */
+	-webkit-transform: translateX(-100%); /* Firefox bug fix */
+	transform: translateX(-100%); 
+	}
 }
 
 /*--NAVIGATION--*/
@@ -75,14 +123,11 @@ nav {
 	/*padding: 0;*/
 	/*max-width: 1400px;
 	margin: 0 auto;*/
-	/*position: fixed;
 	max-width: 1300px;
-	margin: 0 auto;*/
 }
 
 .navbar {
-	/*background-color: transparent;
-	background: transparent;
+	/*background: transparent;
 	border-color: transparent;*/
 	background: #000;
 	/*background: rgba(0, 0, 0, 0.85);*/
@@ -148,6 +193,14 @@ nav {
 .navbar .nav > .active > a {
 	background: #FFF;
     color:  #000;
+}
+
+@media screen and (max-width: 767px) {
+	.navbar .nav > .active > a {
+	background: #FFF;
+    color:  #000;
+    width: 90vw;
+}
 }
 
 .navbar .nav > .active {
@@ -271,6 +324,7 @@ nav {
 
 .service a {
 	display: inline-block;
+	outline: 0;
 }
 
 .serviceImage {
@@ -330,9 +384,15 @@ nav {
 	width: 100%;
 	margin: 0;
 	padding: 3% 5%;
-	/*min-height: 600px;*/
-	background: #fff;
+	background: #FFF;
 	/*background: rgba(255, 255, 255, 0.9);*/
+	background: #FFF;
+}
+
+.fa-star {
+	color: #F00;
+	font-size: 80%;
+	vertical-align: top;
 }
 
 .form-control[placeholder]
@@ -371,7 +431,7 @@ textarea {
 }
 
 .counties {
-	width: 175px;
+	width: 180px;
 	margin: 5% auto;
 	font-size: 110%;
 }

@@ -16,6 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="/carousel.js"></script>
 	<script src="<?= base_url() ?>assets/js/lightbox.js"></script>
+	<script src="<?= base_url() ?>assets/js/main.js"></script>
 	<link href="<?= base_url() ?>assets/css/lightbox.css" rel="stylesheet" type="text/css">
 	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/font-awesome-4.7.0/css/font-awesome.min.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,27 +41,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}(document, 'script', 'facebook-jssdk'));</script>
 	<header>
 		<?php if (!empty($marquee)) : ?>
-		<div style="background:#000;color:#FFF;">
-			<marquee scrollamount="10" onmouseover="this.stop()" onmouseout="this.start()">
-				<ul>
-				<?php 
-				foreach($marquee as $m)
-				{
-					echo '<li><span class="marquee">' . $m['text'] . '</span></li>';
-					// super ugly hack
-					echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-				}
-				?>
-				</ul>
-			</marquee>
+		<div class="marquee">
+			<p>
+		<?php
+		foreach ($marquee as $m)
+		{
+			echo '<span>' . $m['text'] . '</span>';
+		}
+		?>
+			</p>
 		</div>
-		<?php endif; ?>
+	<?php endif; ?>
 		<div class="navWrap">
 		<div class="logo text-center">
 			<a href="/home"><img id="navLogo" src="<?= base_url() ?>assets/images/starkscapes.png" alt="StarkScapes logo"></a>
 		</div>
 		<nav class="navbar navbar-inverse">
-			<div class="container-fluid">
+			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 						<span class="icon-bar"></span>
