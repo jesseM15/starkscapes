@@ -17,17 +17,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="/carousel.js"></script>
 	<script src="<?= base_url() ?>assets/js/lightbox.js"></script>
 	<script src="<?= base_url() ?>assets/js/main.js"></script>
+	<!-- Include the Quill library -->
+	<script src="https://cdn.quilljs.com/1.2.0/quill.js"></script>
+	<script src="<?= base_url() ?>assets/js/quill_display.js"></script>
 	<link href="<?= base_url() ?>assets/css/lightbox.css" rel="stylesheet" type="text/css">
 	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/font-awesome-4.7.0/css/font-awesome.min.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
-	<link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
-	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/css/brand-colors.css"> -->
-	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/css/alternate-brand-colors.css"> -->
 	<!-- Include stylesheet -->
 	<link href="https://cdn.quilljs.com/1.2.0/quill.snow.css" rel="stylesheet">
-	<!-- Include the Quill library -->
-	<script src="https://cdn.quilljs.com/1.2.0/quill.js"></script>
+	<link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
 
 </head>
 <body>

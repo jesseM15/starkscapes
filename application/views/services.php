@@ -10,7 +10,7 @@
 			</div>
 			<div class="panel-body">
 				<div class="col-sm-3">
-					<img class="service-image img-responsive" src="<?= base_url() . $service['image']['path'] ?>" alt="<?= $service['image']['text'] ?>" />
+					<img class="service-image img-responsive center" src="<?= base_url() . $service['image']['path'] ?>" alt="<?= $service['image']['text'] ?>" />
 				</div>
 				<div class="col-sm-9">
 					<div class="services">
@@ -27,28 +27,3 @@
 	</section>
 	<?php endforeach; ?>
 </div>
-
-<script>
-$(document).ready(function(){
-	window.onscroll = function (e) {  
-		$("#lawn-care").fadeTo("slow", 1);
-		$("#landscaping").fadeTo("slow", 1);
-		$("#snow-removal").fadeTo("slow", 1);
-	} 
-	if (window.location.href.includes("#lawn-care"))
-	{
-		$("#landscaping").fadeTo("slow", 0.5);
-		$("#snow-removal").fadeTo("slow", 0.5);
-	}
-	if (window.location.href.includes("#landscaping"))
-	{
-		$("#lawn-care").fadeTo("slow", 0.5);
-		$("#snow-removal").fadeTo("slow", 0.5);
-	}
-	if (window.location.href.includes("#snow-removal"))
-	{
-		$("#lawn-care").fadeTo("slow", 0.5);
-		$("#landscaping").fadeTo("slow", 0.5);
-	}
-});
-</script>

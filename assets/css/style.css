@@ -41,10 +41,6 @@ header {
 	padding: 0;
 }
 
-#welcome {
-	margin: 1% 1%;
-}
-
 .marquee {
 	height: 20px;	
 	overflow: hidden;
@@ -231,17 +227,6 @@ nav {
 
 /*--------------*/
 
-#user {
-	width: 90%;
-	max-width: 400px;
-	padding: 0 20px;
-	margin: 5% auto;
-	background: #fff;
-	background: rgba(255, 255, 255, 0.9);
-	border: 1px solid #000;
-	border-radius: 15px;
-}
-
 .error {
 	color: #f00;
 }
@@ -301,6 +286,11 @@ nav {
 #aboutContent {
 	margin: 0;
 	padding: 0;
+}
+
+.quill {
+	font-size: 1.12em;
+	font-family: Montserrat, Helvetica, Arial, sans-serif;
 }
 
 #servicesOverview {
@@ -509,12 +499,14 @@ footer {
 }
 
 .services {
-	padding: 0 5%;
+	padding: 0% 5%;
 }
 
 .service-image {
 	/*box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.8);*/
 	/*max-width: 200px;*/
+	margin-top: 2%;
+	margin-bottom: 2%;
 }
 
 /*------------*/
@@ -602,13 +594,13 @@ footer {
 }
 
 .pagination a {
-	color: #fff;
+	color: #FFF;
 	text-decoration: none;
 }
 
 .pagination-cur {
 	color: #000;
-	background: #fff;
+	background: #FFF;
 }
 
 /*-----------*/
@@ -619,11 +611,30 @@ footer {
 	width: 100%;
 	margin: 0;
 	padding: 3% 5%;
-	background: #fff;
+	background: #FFF;
 }
 
 #contactPageContent {
 	min-height: 52vh;
+}
+
+/*-----------*/
+
+/*---LOGIN---*/
+
+#login {
+	min-height: 50vh;
+}
+
+#user {
+	width: 90%;
+	max-width: 400px;
+	padding: 0 20px;
+	margin: 10% auto;
+	background: #FFF;
+	background: rgba(255, 255, 255, 0.9);
+	border: 1px solid #000;
+	border-radius: 15px;
 }
 
 /*-----------*/

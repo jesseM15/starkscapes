@@ -1,0 +1,42 @@
+
+body, nav, .navWrap {
+	max-width: 100%;
+}
+
+#welcome {
+	/*min-height: 50vh;*/
+}
+
+#info {
+	width: 90%;
+	max-width: 400px;
+	padding: 0 20px;
+	background: #F00;
+	background: rgba(255, 255, 255, 0.9);
+	border: 1px solid #000;
+	border-radius: 15px;
+}
+
+.admin-section {
+	margin: 2%;
+	padding: 3%;
+	background: rgba(255, 255, 255, 0.9);
+	min-height: 50vh;
+}
+
+.admin_home_wrap {
+	
+}
+
+.quill {
+	background: #FFF;
+}
+
+.message {
+	margin: 20px auto;
+}
+
+.form-control[placeholder]
+{
+    text-align: left;
+}

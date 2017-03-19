@@ -30,10 +30,19 @@ class Home_model extends CI_Model{
 
     public function getServiceAreas()
     {
-        $this->db->select('area');
         $this->db->order_by('area');
         $result = $this->db->get('service_area')->result_array();
         return $result;
+    }
+
+    public function addServiceArea($area)
+    {
+        $this->db->insert('service_area', $area);
+    }
+
+    public function deleteServiceArea($area)
+    {
+        $this->db->delete('service_area', $area);
     }
 
     public function getServiceIcon($id = 0)
