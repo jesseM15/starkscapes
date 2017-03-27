@@ -40,4 +40,9 @@ class Image_model extends CI_Model{
         return $result;
     }
 
+    public function setImage($image)
+    {
+        $this->db->replace('image', $image);
+    }
+
 }

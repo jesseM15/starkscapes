@@ -11,7 +11,7 @@
 				<h2 class="contactSuccess"><?= $success ?></h2>
 				<?php unset($success); ?>
 				<?php else : ?>
-				<?= form_open(base_url() . '#contact') ?>
+				<?= form_open(base_url() . 'contact') ?>
 					<div class="form-group col-sm-6">
 						<label for="fname" class="">First Name&nbsp;<i class="fa fa-star" aria-hidden="true"></i></label>
 						<?= form_error('fname') ?>

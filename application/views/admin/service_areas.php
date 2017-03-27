@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	<section id="admin_home_service_areas" class="admin-section">
-		<div class="admin_home_service_areas_wrap container-fluid">
+		<div class="admin_wrap container-fluid">
 			<h1><i class="fa fa-home"></i>&nbsp;Home</h1>
 			<h2>Service Areas</h2>
 			<div class="container">
@@ -20,9 +20,16 @@
 					<div class="service_area_buttons form-group col-sm-12 text-center">
 						<button class="addServiceArea btn btn-success btn-lg">Add Service Area</button>
 						<br /><br />
-						<input type="submit" id="submit" class="btn btn-default btn-lg" name="submit" value="Save">
+						<input type="submit" id="submitServiceAreas" class="btn btn-default btn-lg" name="submit" value="Save" />
 					</div>
 				</form>
 			</div>
+			<?php if (!empty($_SESSION['message'])) : ?>
+			<div class="container-fluid">
+				<div class="message alert alert-success text-center">
+				<?= $_SESSION['message'] ?>
+				</div>
+			</div>
+			<?php endif; ?>
 		</div>
 	</section>

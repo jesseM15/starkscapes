@@ -56,3 +56,4 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'user/login';
 $route['admin-(:any)'] = 'admin_$1';
 $route['admin-(:any)/(:any)'] = 'admin_$1/$2';
+$route['admin-(:any)/(:any)/(:any)'] = 'admin_$1/$2/$3';

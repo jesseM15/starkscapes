@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?= base_url() ?>assets/js/main.js"></script>
 	<script src="<?= base_url() ?>assets/js/admin.js"></script>
 	<!-- Include the Quill library -->
-	<script src="https://cdn.quilljs.com/1.2.0/quill.js"></script>
+	<script src="//cdn.quilljs.com/1.2.2/quill.min.js"></script>
 	<script src="<?= base_url() ?>assets/js/quill_edit.js"></script>
 	<!-- <link href="<?= base_url() ?>assets/css/lightbox.css" rel="stylesheet" type="text/css"> -->
 	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/font-awesome-4.7.0/css/font-awesome.min.css"> -->
@@ -54,6 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<li<?= $this->uri->segment(1) == 'contact' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>contact"><i class="fa fa-envelope-o"></i>&nbsp;Contact</a></li>
 						</ul>
 						<ul class="navList nav navbar-nav navbar-right">
+							<li><a class="navLink" href="<?= base_url() ?>"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Visit&nbsp;Site</a></li>
 							<li><a class="navLink" href="<?= base_url() ?>user/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</a></li>
 						</ul>
 					</div>

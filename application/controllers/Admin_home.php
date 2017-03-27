@@ -22,9 +22,9 @@ class Admin_home extends CI_Controller {
 
 	public function about()
 	{
-		if (!empty($this->input->post('about')))
+		if (!empty($this->input->post('content')))
 		{
-			$this->home_model->setAbout($this->input->post('about'));
+			$this->home_model->setAbout($this->input->post('content'));
 			$this->session->set_flashdata('message', 'Saved.');
 		}
 		$data['page_title'] = 'Admin Home - About';
@@ -64,6 +64,7 @@ class Admin_home extends CI_Controller {
 					$this->home_model->deleteServiceArea(array('area' => $oldArea));
 				}
 			}
+			$this->session->set_flashdata('message', 'Saved.');
 		}
 
 		$data['serviceAreas'] = $this->home_model->getServiceAreas();

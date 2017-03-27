@@ -14,7 +14,7 @@ $(document).ready(function() {
 	];
 
 	// Create the editor
-	var quill = new Quill(".quill", {
+	var quill1 = new Quill("#quill1", {
 		modules: { 
 			toolbar: toolbarOptions
 		},
@@ -23,19 +23,19 @@ $(document).ready(function() {
 	});
 
 	// Parse the contents of the editor
-	var $target = $(".quill");
+	var $target = $("#quill1");
 	if (typeof $target[0] !== 'undefined')
 	{
 		var $content = JSON.parse($target[0].innerText);
-		quill.setContents($content);
+		quill1.setContents($content);
 	}
 
 	// Handle form submission
 	var form = document.querySelector("form");
 	form.onsubmit = function() {
 		// Populate hidden form on submit
-		var about = document.querySelector("input[name=about]");
-		about.value = JSON.stringify(quill.getContents());
+		var content = document.querySelector("input[name=content]");
+		content.value = JSON.stringify(quill1.getContents());
 
 		console.log("Submitted", $(form).serialize(), $(form).serializeArray());
 		if (form.submit())

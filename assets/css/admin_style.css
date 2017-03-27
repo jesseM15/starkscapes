@@ -24,19 +24,56 @@ body, nav, .navWrap {
 	min-height: 50vh;
 }
 
-.admin_home_wrap {
-	
+.admin_wrap {
+	max-width: 1000px;
 }
 
-.quill {
+#quill1 {
 	background: #FFF;
 }
 
 .message {
 	margin: 20px auto;
+	max-width: 1000px;
 }
 
 .form-control[placeholder]
 {
     text-align: left;
+}
+
+.img-container {
+	padding: 3%;
+	border: solid 1px #AAA;
+	border-radius: 3%;
+}
+
+.modal {
+   position: absolute;
+   top: 10vh;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   z-index: 10040;
+   overflow: auto;
+   overflow-y: auto;
+}
+
+.modal-header, .modal-footer {
+	border: none;
+}
+
+/* Add a "hidden" border so that the image size does not change */
+.selection-white {
+	border: solid 2px #FFF;
+	border-radius: 3%;
+}
+
+.selection {
+	border: solid 2px #000;
+	border-radius: 3%;
+}
+
+.selection-image {
+	margin: 10px 0;
 }

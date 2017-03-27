@@ -24,26 +24,39 @@ class Contact extends CI_Controller {
 		$this->form_validation->set_rules('service_dropdown', 'Service');
 		$this->form_validation->set_rules('message', 'Message', 'required|trim');
 
+		$data['service_dropdown'] = array(
+			'lawncare' => 'Lawn Care',
+			'landscaping' => 'Landscaping',
+			'snow-removal' => 'Snow Removal',
+			'employment' => 'Employment',
+			'other' => 'Other'
+		);
+
 		if($this->form_validation->run())
 		{
             $config['mailtype'] = 'html';
 			$this->email->initialize($config);
 			$this->email->from('webmaster@starkscapes.com', 'StarkScapes.com');
+			// $this->email->to('starkscapesllc@gmail.com');
 			$this->email->to('muddybuzzy@gmail.com');
 			$this->email->subject('Estimate Requested');
+			$logo = base_url() . 'assets/images/starkscapes.png';
+			$this->email->attach($logo, 'inline');
+			$cid = $this->email->attachment_cid($logo);
 			
 			$message = "";
-			$message .= $this->input->post('fname') . " " . $this->input->post('lname') . "is contacting StarkScapes for \n";
-			if ($this->input->post('subject') != 'other' || empty($this->input->post('other')))
+			$message .= "<img src='cid:" . $cid . "' alt='StarkScapes Logo'><br />\n";
+			$message .= "<p style='background:#016934;color:#FFF;padding:5%;border-radius:10px;'>\n";
+			$message .= $this->input->post('fname') . " " . $this->input->post('lname') . " is contacting StarkScapes for \n";
+			if ($this->input->post('service_dropdown') !== 'other' || empty($this->input->post('other')))
 			{
-				$message .= strtolower($this->input->post('subject')) . "<br />\n";
+				$message .= strtolower($data['service_dropdown'][$this->input->post('service_dropdown')]) . ".<br />\n";
 			}
 			elseif (!empty($this->input->post('other')))
 			{
-				$message .= "the following:<br />\n";
-				$message .= "<p>" . $this->input->post('other') . "</p><br />\n";
+				$message .= "the following: " . $this->input->post('other') . ".<br />\n";
 			}
-			$message .= "<p class='well'>" . $this->input->post('message') . "</p>\n";
+			$message .= "<br />They wrote:<br />" . $this->input->post('message') . "</p>\n";
 			$message .= "<p>Name: " . $this->input->post('fname') . " " . $this->input->post('lname') . "</p>\n";
 			$message .= "<p>Phone: " . $this->input->post('phone') . "</p>\n";
 			if ($this->input->post('email'))
@@ -64,14 +77,7 @@ class Contact extends CI_Controller {
         $data['marquee'] = $this->home_model->getMarquee();
 
 		$data['contactMessage'] = $this->home_model->getContactMessage();
-		$data['service_dropdown'] = array(
-			'lawncare' => 'Lawn Care',
-			'landscaping' => 'Landscaping',
-			'snow-removal' => 'Snow Removal',
-			'employment' => 'Employment',
-			'other' => 'Other'
-			);
-
+		
 		$this->load->view('layout/header', $data);
 		$this->load->view('contact', $data);
 		$this->load->view('layout/footer');

@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?= base_url() ?>assets/js/lightbox.js"></script>
 	<script src="<?= base_url() ?>assets/js/main.js"></script>
 	<!-- Include the Quill library -->
-	<script src="https://cdn.quilljs.com/1.2.0/quill.js"></script>
+	<script src="//cdn.quilljs.com/1.2.2/quill.min.js"></script>
 	<script src="<?= base_url() ?>assets/js/quill_display.js"></script>
 	<link href="<?= base_url() ?>assets/css/lightbox.css" rel="stylesheet" type="text/css">
 	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/font-awesome-4.7.0/css/font-awesome.min.css"> -->
