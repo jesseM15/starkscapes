@@ -26,12 +26,7 @@ class Admin_services extends CI_Controller {
 		$this->session->set_flashdata('error', '');
 		$this->session->set_flashdata('message', '');
 
-		$config['upload_path']          = 'assets/uploads/services/';
-		$config['allowed_types']        = 'gif|jpg|png';
-		$config['max_size']             = 1300;
-		$config['max_width']            = 10240;
-		$config['max_height']           = 10240;
-
+		$config = $this->configureUpload('assets/uploads/services/');
 		$this->upload->initialize($config);
 
 		$this->form_validation->set_rules('category', 'Name', 'required');
@@ -98,6 +93,7 @@ class Admin_services extends CI_Controller {
 			}
 			else
 			{
+				// Just save the service and/or content
 				$saved = TRUE;
 			}
 			if ($saved)
@@ -135,6 +131,17 @@ class Admin_services extends CI_Controller {
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/service', $data);
+	}
+
+	private function configureUpload($path)
+	{
+		$config['upload_path']          = $path;
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['max_size']             = 10000;
+		$config['max_width']            = 10240;
+		$config['max_height']           = 10240;
+
+		return $config;
 	}
 
 }

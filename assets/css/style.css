@@ -279,7 +279,9 @@ nav {
 	margin: 0;
 	width: 100%;
 	background: #36f900;
-	/*background: rgba(0, 255, 0, 0.9);*/
+	background: rgba(0, 255, 0, 0.85);
+	background: rgba(1, 105, 52, 0.8);
+	color: #FFF;
 	padding: 2%;
 }
 
@@ -401,6 +403,9 @@ textarea {
 
 #map {
 	background: #36f900;
+	background: rgba(0, 255, 0, 0.85);
+	background: rgba(1, 105, 52, 0.8);
+	color: #FFF;
 }
 
 #gmap {
@@ -566,7 +571,7 @@ footer {
 }
 
 .imgThumbnail {
-	margin: 5% 0;
+	margin: 14px 0;
 }
 
 .imgThumbnail:hover {

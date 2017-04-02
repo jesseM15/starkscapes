@@ -1,8 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	<section id="welcome" class="admin-section">
-		<div class="welcome_wrap container-fluid">
+		<div class="admin_wrap container-fluid">
 			<h1><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Welcome</h1>
-			<div class="container center col-xs-12 col-sm-6 col-md-6 col-lg-2">
+			<div class="center col-xs-12 col-sm-6">
 				<div id="info">
 					<p>
 						ID: <?= $id ?><br />

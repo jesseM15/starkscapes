@@ -21,7 +21,7 @@ class Gallery extends CI_Controller {
 		$data['categories'] = $this->image_model->getCategories();
 		$total = $this->image_model->getImageCount('gallery', $category);
 
-		$start = ($page * 4 - 4);
+		$start = ($page * 8 - 8);
 
 		$config = $this->configurePagination($category, $total);
 		$this->pagination->initialize($config);
@@ -40,7 +40,7 @@ class Gallery extends CI_Controller {
 	{
 		$config['base_url'] = base_url() . 'gallery/view/' . $category . '/';
 		$config['total_rows'] = $total;
-		$config['per_page'] = 4;
+		$config['per_page'] = 8;
 		$config['use_page_numbers'] = TRUE;
 		$config['first_link'] = FALSE;
 		$config['last_link'] = FALSE;

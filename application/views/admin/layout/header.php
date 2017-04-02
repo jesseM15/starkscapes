@@ -15,13 +15,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<!-- <script src="/carousel.js"></script> -->
-	<!-- <script src="<?= base_url() ?>assets/js/lightbox.js"></script> -->
+	<script src="<?= base_url() ?>assets/js/lightbox.js"></script>
 	<script src="<?= base_url() ?>assets/js/main.js"></script>
 	<script src="<?= base_url() ?>assets/js/admin.js"></script>
 	<!-- Include the Quill library -->
 	<script src="//cdn.quilljs.com/1.2.2/quill.min.js"></script>
 	<script src="<?= base_url() ?>assets/js/quill_edit.js"></script>
-	<!-- <link href="<?= base_url() ?>assets/css/lightbox.css" rel="stylesheet" type="text/css"> -->
+	<link href="<?= base_url() ?>assets/css/lightbox.css" rel="stylesheet" type="text/css">
 	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/font-awesome-4.7.0/css/font-awesome.min.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<ul class="navList nav navbar-nav">
 							<li<?= empty($this->uri->segment(1)) || $this->uri->segment(1) == 'admin-home' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-home"><i class="fa fa-home"></i>&nbsp;Home</a></li>
 							<li<?= $this->uri->segment(1) == 'admin-services' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-services"><i class="fa fa-wrench"></i>&nbsp;Services</a></li>
-							<li<?= $this->uri->segment(1) == 'gallery' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>gallery"><i class="fa fa-camera-retro"></i>&nbsp;Gallery</a></li>
+							<li<?= $this->uri->segment(1) == 'admin-gallery' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-gallery"><i class="fa fa-camera-retro"></i>&nbsp;Gallery</a></li>
 							<li<?= $this->uri->segment(1) == 'contact' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>contact"><i class="fa fa-envelope-o"></i>&nbsp;Contact</a></li>
 						</ul>
 						<ul class="navList nav navbar-nav navbar-right">
