@@ -18,6 +18,7 @@ class Admin_home extends CI_Controller {
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/home');
+		$this->load->view('admin/layout/footer');
 	}
 
 	public function about()
@@ -32,6 +33,7 @@ class Admin_home extends CI_Controller {
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/about');
+		$this->load->view('admin/layout/footer');
 	}
 
 	public function areas()
@@ -72,6 +74,7 @@ class Admin_home extends CI_Controller {
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/service_areas');
+		$this->load->view('admin/layout/footer');
 	}
 
 }

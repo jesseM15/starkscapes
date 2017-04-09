@@ -28,6 +28,12 @@ class Home_model extends CI_Model{
 		return $result;
 	}
 
+	public function setContactMessage($message)
+	{
+		$data = array('id' => 1, 'message' => $message);
+		$this->db->replace('contact_message', $data);
+	}
+
 	public function getServiceAreas()
 	{
 		$this->db->order_by('area');

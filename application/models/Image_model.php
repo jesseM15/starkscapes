@@ -45,6 +45,25 @@ class Image_model extends CI_Model{
 		return $result;
 	}
 
+	public function getGalleryCategories()
+	{
+		$this->db->where('title != ', 'Logo');
+		$this->db->where('title != ', 'Carousel');
+		$this->db->where('title != ', 'Services');
+		$result = $this->db->get('image_category')->result_array();
+		return $result;
+	}
+
+	public function addCategory($category)
+	{
+		$this->db->insert('image_category', $category);
+	}
+
+	public function deleteCategory($category)
+	{
+		$this->db->delete('image_category', $category);
+	}
+
 	public function getImageCount($owner = 'gallery', $category = 'gallery')
 	{
 		$this->db->where('image.owner', $owner);

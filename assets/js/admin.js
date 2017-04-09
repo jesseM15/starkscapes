@@ -7,33 +7,44 @@ $(document).ready(function(){
 		});
 	}, 3000);
 
-	// Home > Service Areas - Enable the input and disable the edit button
+	// Home > Service Areas, Gallery - Enable the input and disable the edit button
 	$(document).on("click", ".edit", function(event) {
 		event.preventDefault();
 		$(this).parent().prev().removeAttr('disabled');
 		$(this).prop('disabled', true);
-		console.log('Service Area editing enabled');
+		console.log('Input editing enabled');
 	});
 
-	// Home > Service Areas - Delete the input
+	// Home > Service Areas, Gallery - Delete the input
 	$(document).on("click", ".delete", function(event) {
 		event.preventDefault();
 		$(this).parent().parent().remove();
-		console.log('Service area deleted');
+		console.log('Input deleted');
 	});
 
 	// Home > Service Areas - Add a new form group for service area input
 	$(document).on("click", ".addServiceArea", function(event) {
 		event.preventDefault();
 		$(".dynamic").append(
-			'<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3"><input class="form-control" name="areas[]" value="" placeholder="Area"><div class="input-group-btn"><button disabled class="edit btn btn-default" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></button></div><div class="input-group-btn"><button class="delete btn btn-default" data-toggle="tooltip" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button></div></div>'
+			`<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
+				<input class="form-control" name="areas[]" value="" placeholder="Area">
+				<div class="input-group-btn">
+					<button disabled class="edit btn btn-default" data-toggle="tooltip" title="Edit">
+						<i class="fa fa-pencil" aria-hidden="true"></i>
+					</button>
+				</div>
+				<div class="input-group-btn">
+					<button class="delete btn btn-default" data-toggle="tooltip" title="Delete">
+						<i class="fa fa-trash" aria-hidden="true"></i>
+					</button>
+				</div>
+			</div>`
 		);
 		console.log('Service area added');
 	});
 
 	// Home > Service Areas - Enable all inputs before form submission
 	$(document).on("click", "#submitServiceAreas", function(event) {
-		event.preventDefault();
 		var inputs=document.getElementsByName('areas[]');
 		for(i=0;i<inputs.length;i++) {
 			inputs[i].disabled=false;
@@ -75,6 +86,49 @@ $(document).ready(function(){
 		event.preventDefault();
 		$(".service-image").attr("src", $(".selection").children().prop("src"));
 		$('#selectedImage').attr('value', $(".selection").children().prop("src"));
+	});
+
+	// Gallery - Go to the gallery category page
+	$(document).on("click", ".goto", function(event) {
+		event.preventDefault();
+		var link = $(this).attr("data-link");
+		window.location = link;
+		console.log('Going to category page');
+	});
+
+	// Gallery - Add a new form group for category input
+	$(document).on("click", ".addCategory", function(event) {
+		event.preventDefault();
+		$(".dynamic").append(
+			`<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
+				<input class="form-control" name="categories[]" value="" placeholder="Category">
+				<div class="input-group-btn">
+					<button disabled class="edit btn btn-default" data-toggle="tooltip" title="Edit">
+						<i class="fa fa-pencil" aria-hidden="true"></i>
+					</button>
+				</div>
+				<div class="input-group-btn">
+					<button disabled class="goto btn btn-default" data-link="" data-toggle="tooltip" title="Go to Gallery Category">
+						<i class="fa fa-arrow-right" aria-hidden="true"></i>
+					</button>
+				</div>
+				<div class="input-group-btn">
+					<button class="delete btn btn-default" data-toggle="tooltip" title="Delete">
+						<i class="fa fa-trash" aria-hidden="true"></i>
+					</button>
+				</div>
+			</div>`
+		);
+		console.log('Category added');
+	});
+
+	// Gallery - Enable all inputs before form submission
+	$(document).on("click", "#submitCategories", function(event) {
+		var inputs=document.getElementsByName('categories[]');
+		for(i=0;i<inputs.length;i++) {
+			inputs[i].disabled=false;
+		}
+		console.log('Categories submitted');
 	});
 
 	// Gallery > (Any) - Set upload file and submit form

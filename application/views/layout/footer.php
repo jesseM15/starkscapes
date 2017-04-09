@@ -1,3 +1,4 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	<footer>
 		<div class="row text-center">
 			<div id="hours" class="footerItem col-sm-12 col-md-4">

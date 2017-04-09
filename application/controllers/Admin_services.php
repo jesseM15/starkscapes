@@ -19,6 +19,7 @@ class Admin_services extends CI_Controller {
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/services', $data);
+		$this->load->view('admin/layout/footer');
 	}
 
 	public function service($service)
@@ -131,6 +132,7 @@ class Admin_services extends CI_Controller {
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/service', $data);
+		$this->load->view('admin/layout/footer');
 	}
 
 	private function configureUpload($path)

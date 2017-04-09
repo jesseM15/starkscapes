@@ -1,6 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<li<?= empty($this->uri->segment(1)) || $this->uri->segment(1) == 'admin-home' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-home"><i class="fa fa-home"></i>&nbsp;Home</a></li>
 							<li<?= $this->uri->segment(1) == 'admin-services' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-services"><i class="fa fa-wrench"></i>&nbsp;Services</a></li>
 							<li<?= $this->uri->segment(1) == 'admin-gallery' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-gallery"><i class="fa fa-camera-retro"></i>&nbsp;Gallery</a></li>
-							<li<?= $this->uri->segment(1) == 'contact' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>contact"><i class="fa fa-envelope-o"></i>&nbsp;Contact</a></li>
+							<li<?= $this->uri->segment(1) == 'admin-contact' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-contact"><i class="fa fa-envelope-o"></i>&nbsp;Contact</a></li>
 						</ul>
 						<ul class="navList nav navbar-nav navbar-right">
 							<li><a class="navLink" href="<?= base_url() ?>"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Visit&nbsp;Site</a></li>

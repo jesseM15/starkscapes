@@ -14,11 +14,43 @@ class Admin_gallery extends CI_Controller {
 
 	public function index()
 	{
-		$data['categories'] = $this->image_model->getCategories();
+		if (!empty($this->input->post()))
+		{
+			$categories = $this->image_model->getGalleryCategories();
+			for ($n = 0;$n < count($categories);$n++)
+			{
+				$oldCategories[$n] = $categories[$n]['title'];
+			}
+			$newCategories = $_POST['categories'];
+
+			foreach ($newCategories as $newCategory)
+			{
+				if ($oldCategories == null && $newCategory != '')
+				{
+					$this->image_model->addCategory(array('title' => $newCategory, 'url_segment' => format_as_class($newCategory)));
+				}
+				elseif (!in_array($newCategory, $oldCategories) && $newCategory != '')
+				{
+					$this->image_model->addCategory(array('title' => $newCategory, 'url_segment' => format_as_class($newCategory)));
+				}
+			}
+			// Delete any categories from db that were not in POST
+			foreach ($oldCategories as $oldCategory)
+			{
+				if ($newCategories == null || !in_array($oldCategory, $newCategories))
+				{
+					$this->image_model->deleteCategory(array('title' => $oldCategory));
+				}
+			}
+			$this->session->set_flashdata('message', 'Saved.');
+		}
+
+		$data['categories'] = $this->image_model->getGalleryCategories();
 		$data['page_title'] = 'Admin Gallery';
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/gallery', $data);
+		$this->load->view('admin/layout/footer');
 	}
 
 	public function category($category = 'gallery', $page = 1)
@@ -101,6 +133,7 @@ class Admin_gallery extends CI_Controller {
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/category', $data);
+		$this->load->view('admin/layout/footer');
 	}
 
 	private function configurePagination($category, $total)

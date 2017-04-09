@@ -26,18 +26,25 @@ $(document).ready(function() {
 
 	// Fix the navbar to the top if the user scrolls past the logo
 	$(window).scroll(function() {
-		if($(window).scrollTop() > (scrollHeight())){
-			$('nav').addClass('navbar-fixed-top');
-		}
-		else{
-			$('nav').removeClass('navbar-fixed-top');
+		if (scrollHeight())
+		{
+			if($(window).scrollTop() > (scrollHeight())){
+				$('nav').addClass('navbar-fixed-top');
+			}
+			else{
+				$('nav').removeClass('navbar-fixed-top');
+			}
 		}
 
 		function scrollHeight()
 		{
-			offset = $('.logo').offset().top;
-			height = $('.logo').outerHeight();
-			return offset + height;
+			if ($('.logo').length)
+			{
+				offset = $('.logo').offset().top;
+				height = $('.logo').outerHeight();
+				return offset + height;
+			}
+			return false;
 		}
 	});
 

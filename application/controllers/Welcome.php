@@ -14,9 +14,6 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->helper(array('url', 'form'));
-		$this->load->library(array('session', 'form_validation'));
-		
 		$data['page_title'] = 'Welcome';
 		$data['id'] = $this->session->logged_in['id'];
 		$data['email'] = $this->session->logged_in['email'];
@@ -24,11 +21,6 @@ class Welcome extends CI_Controller {
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/welcome', $data);
-	}
-	
-	public function getContent()
-	{
-		$this->home_model->setAbout($this->input->post('content'));
-		$this->index();
+		$this->load->view('admin/layout/footer');
 	}
 }
