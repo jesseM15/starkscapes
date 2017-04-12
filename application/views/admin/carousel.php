@@ -1,15 +1,16 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-	<section id="admin_services_service" class="admin-section">
+	<section id="admin_home_carousel" class="admin-section">
 		<div class="admin_wrap container-fluid">
-			<div id="admingallery" class="center">
-				<h1><i class="fa fa-camera-retro"></i> Gallery</h1>
-				<div id="admingalleryContent" class="text-center">
+			<div id="adminhome" class="center">
+				<h1><i class="fa fa-home"></i>&nbsp;Home</h1>
+				<h2>Carousel</h2>
+				<div id="adminhomeContent" class="text-center">
 					
 					<div class="row">
 			<?php $n = 1; ?>
 			<?php foreach ($images as $image) : ?>
-				<div id="gallery-images" class="col-sm-6 col-md-3 gallery_<?= $this->uri->segment(3) . '_' . $image['id'] . '_' . $image['rank'] ?>">
-					<i class="imgDelete fa fa-window-close-o hover-shadow cursor pull-right <?= $this->uri->segment(4) ?>" aria-hidden="true" data-toggle="tooltip" title="Delete from category"></i>
+				<div id="carousel-images" class="col-sm-6 col-md-3 home_carousel_<?= $image['id'] . '_' . $image['rank'] ?>">
+					<i class="imgDelete fa fa-window-close-o hover-shadow cursor pull-right" aria-hidden="true" data-toggle="tooltip" title="Delete from category"></i>
 					<i class="imgDown fa fa-arrow-down hover-shadow cursor pull-right" aria-hidden="true" data-toggle="tooltip" title="Move down in ranking"></i>
 					<i class="imgUp fa fa-arrow-up hover-shadow cursor pull-right" aria-hidden="true" data-toggle="tooltip" title="Move up in ranking"></i>
 					<img class="imgThumbnail hover-shadow cursor" src="<?= base_url() . $image['path'] ?>" style="width:100%" onclick="openModal();currentSlide(<?php echo $n; ?>)" />
@@ -68,9 +69,6 @@
 							?>
 						</div>
 					</div>
-					<div id="pagination" class="text-center" style="position: relative;">
-					<?= $this->pagination->create_links() ?>
-					</div>
 					<div class="row">
 						<button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#imagesModal">Add Image</button>
 					</div>
@@ -106,14 +104,14 @@
 						<div class="container-fluid">
 							<?php foreach ($folderImages as $image) : ?>
 							<div class="selection-white col-sm-4 col-md-4 col-lg-4">
-								<img class="selection-image img-responsive center" src="<?= base_url() . $image ?>" alt="Gallery Image" />
+								<img class="selection-image img-responsive center" src="<?= base_url() . $image ?>" alt="Carousel Image" />
 							</div>
 							<?php endforeach; ?>
 						</div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="modal-footer">
-						<form id="image-form" method="post" action="<?= base_url() ?>admin_gallery/category/<?= $this->uri->segment(3) . '/' . $this->uri->segment(4) ?>" enctype="multipart/form-data">
+						<form id="image-form" method="post" action="<?= base_url() ?>admin_home/carousel" enctype="multipart/form-data">
 							<label class="upload-button btn btn-lg btn-success" for="image-file">
 								Upload Image
 								<input id="image-file" type="file" name="file" style="display:none;" form="image-form" onchange="this.form.submit();">

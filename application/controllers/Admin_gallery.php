@@ -160,11 +160,11 @@ class Admin_gallery extends CI_Controller {
 
 	private function configureUpload($path)
 	{
-		$config['upload_path']          = $path;
-		$config['allowed_types']        = 'gif|jpg|png';
-		$config['max_size']             = 10000;
-		$config['max_width']            = 10240;
-		$config['max_height']           = 10240;
+		$config['upload_path'] 		= $path;
+		$config['allowed_types'] 	= 'gif|jpg|png';
+		$config['max_size'] 		= 10000;
+		$config['max_width'] 		= 10240;
+		$config['max_height'] 		= 10240;
 
 		return $config;
 	}
@@ -186,6 +186,7 @@ class Admin_gallery extends CI_Controller {
 	{
 		$post['id'] = isset($_POST['id']) ? $_POST['id'] : 0;
 		$post['rank'] = isset($_POST['rank']) ? $_POST['rank'] : 0;
+		$post['owner'] = isset($_POST['owner']) ? $_POST['owner'] : '';
 		$post['category'] = isset($_POST['category']) ? $_POST['category'] : '';
 		$post['button'] = isset($_POST['button']) ? $_POST['button'] : '';
 		$post['page'] = isset($_POST['page']) ? $_POST['page'] : 1;
@@ -202,12 +203,11 @@ class Admin_gallery extends CI_Controller {
 					$secondsrc = $this->image_model->getImage($rank['id']);
 					$response = array(
 						'result' 		=> 'Success',
-						'firstselect' 	=> $post['category'] . '_' . $rank['id'] . '_' . $rank['rank'],
-						'firstclass' 	=> $post['category'] . '_' . $post['id'] . '_' . $rank['rank'],
+						'firstselect' 	=> $post['owner'] . '_' . $post['category'] . '_' . $rank['id'] . '_' . $rank['rank'],
+						'firstclass' 	=> $post['owner'] . '_' . $post['category'] . '_' . $post['id'] . '_' . $rank['rank'],
 						'firstsrc' 		=> base_url() . $firstsrc['path'],
-						'result' 		=> 'Success',
-						'secondselect' 	=> $post['category'] . '_' . $post['id'] . '_' . $post['rank'],
-						'secondclass' 	=> $post['category'] . '_' . $rank['id'] . '_' . $post['rank'],
+						'secondselect' 	=> $post['owner'] . '_' . $post['category'] . '_' . $post['id'] . '_' . $post['rank'],
+						'secondclass' 	=> $post['owner'] . '_' . $post['category'] . '_' . $rank['id'] . '_' . $post['rank'],
 						'secondsrc' 	=> base_url() . $secondsrc['path']
 					);
 				}
@@ -222,12 +222,11 @@ class Admin_gallery extends CI_Controller {
 					$secondsrc = $this->image_model->getImage($rank['id']);
 					$response = array(
 						'result' 		=> 'Success',
-						'firstselect' 	=> $post['category'] . '_' . $rank['id'] . '_' . $rank['rank'],
-						'firstclass' 	=> $post['category'] . '_' . $post['id'] . '_' . $rank['rank'],
+						'firstselect' 	=> $post['owner'] . '_' . $post['category'] . '_' . $rank['id'] . '_' . $rank['rank'],
+						'firstclass' 	=> $post['owner'] . '_' . $post['category'] . '_' . $post['id'] . '_' . $rank['rank'],
 						'firstsrc' 		=> base_url() . $firstsrc['path'],
-						'result' 		=> 'Success',
-						'secondselect' 	=> $post['category'] . '_' . $post['id'] . '_' . $post['rank'],
-						'secondclass' 	=> $post['category'] . '_' . $rank['id'] . '_' . $post['rank'],
+						'secondselect' 	=> $post['owner'] . '_' . $post['category'] . '_' . $post['id'] . '_' . $post['rank'],
+						'secondclass' 	=> $post['owner'] . '_' . $post['category'] . '_' . $rank['id'] . '_' . $post['rank'],
 						'secondsrc' 	=> base_url() . $secondsrc['path']
 					);
 				}

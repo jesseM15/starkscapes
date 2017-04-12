@@ -131,28 +131,28 @@ $(document).ready(function(){
 		console.log('Categories submitted');
 	});
 
-	// Gallery > (Any) - Set upload file and submit form
-	$(document).on("change", "#gallery-file", function(event) {
+	// Gallery > (Any), Home > Carousel - Set upload file and submit form
+	$(document).on("change", "#image-file", function(event) {
 		event.preventDefault();
-		document.getElementById("gallery-form").submit();
+		document.getElementById("image-form").submit();
 	});
 
-	// Gallery > (Any) - Add the selected existing file and submit form
-	$(document).on("click", ".gallery-select-button", function(event) {
+	// Gallery > (Any), Home > Carousel - Add the selected existing file and submit form
+	$(document).on("click", ".image-select-button", function(event) {
 		event.preventDefault();
 		$('#selectedImage').attr('value', $(".selection").children().prop("src"));
-		document.getElementById("gallery-form").submit();
+		document.getElementById("image-form").submit();
 	});
 
-	// Gallery > (Any) - Move image up in rank
+	// Gallery > (Any), Home > Carousel - Move image up in rank
 	$(document).on("click", ".imgUp", function(event) {
 		event.preventDefault();
 		var data = $(this).parent().prop("class").split(" ");
 		data = data[data.length - 1];
 		data = data.split("_");
 		var request = $.ajax({
-			url: "/admin-gallery/ajaxPost",
-			data: {'category' : data[0], 'id' : data[1], 'rank' : data[2], 'button' : 'up'},
+			url: "/admin-" + data[0] + "/ajaxPost",
+			data: {'owner' : data[0], 'category' : data[1], 'id' : data[2], 'rank' : data[3], 'button' : 'up'},
 			dataType: "json",
 			method: "POST"
 		});
@@ -167,19 +167,19 @@ $(document).ready(function(){
 			}
 		});
 		request.fail(function( jqXHR, status ) {
-			console.log( "Request failed:\n", status );
+			console.log("Request failed:\n", status);
 		});
 	});
 
-	// Gallery > (Any) - Move image down in rank
+	// Gallery > (Any), Home > Carousel - Move image down in rank
 	$(document).on("click", ".imgDown", function(event) {
 		event.preventDefault();
 		var data = $(this).parent().prop("class").split(" ");
 		data = data[data.length - 1];
 		data = data.split("_");
 		var request = $.ajax({
-			url: "/admin-gallery/ajaxPost",
-			data: {'category' : data[0], 'id' : data[1], 'rank' : data[2], 'button' : 'down'},
+			url: "/admin-" + data[0] + "/ajaxPost",
+			data: {'owner' : data[0], 'category' : data[1], 'id' : data[2], 'rank' : data[3], 'button' : 'down'},
 			dataType: "json",
 			method: "POST"
 		});
@@ -194,11 +194,11 @@ $(document).ready(function(){
 			}
 		});
 		request.fail(function( jqXHR, status ) {
-			console.log( "Request failed:\n", status );
+			console.log("Request failed:\n", status);
 		});
 	});
 
-	// Gallery > (Any) - Delete image
+	// Gallery > (Any), Home > Carousel - Delete image
 	$(document).on("click", ".imgDelete", function(event) {
 		event.preventDefault();
 		var data = $(this).parent().prop("class").split(" ");
@@ -208,8 +208,8 @@ $(document).ready(function(){
 		page = page[page.length - 1];
 		console.log(page);
 		var request = $.ajax({
-			url: "/admin-gallery/ajaxPost",
-			data: {'category' : data[0], 'id' : data[1], 'page' : page, 'button' : 'delete'},
+			url: "/admin-" + data[0] + "/ajaxPost",
+			data: {'owner' : data[0], 'category' : data[1], 'id' : data[2], 'page' : page, 'button' : 'delete'},
 			dataType: "json",
 			method: "POST"
 		});
@@ -221,7 +221,7 @@ $(document).ready(function(){
 			}
 		});
 		request.fail(function( jqXHR, status ) {
-			console.log( "Request failed:\n", status );
+			console.log("Request failed:\n", status);
 		});
 	});
 

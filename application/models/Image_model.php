@@ -120,20 +120,18 @@ class Image_model extends CI_Model{
 	public function setImage($image)
 	{
 		$this->db->replace('image', $image);
-		$this->increaseAllRanks();
+		$this->increaseAllRanks($image['category_id']);
 	}
 
 	public function addImage($image)
 	{
 		$this->db->insert('image', $image);
-		$this->increaseAllRanks();
+		$this->increaseAllRanks($image['category_id']);
 	}
 
-	private function increaseAllRanks()
+	private function increaseAllRanks($category_id)
 	{
-		$category_id = $this->getCategory($this->uri->segment(3));
-		$this->db->where('category_id', $category_id['id']);
-		// $this->db->where('rank IS NOT NULL', null, FALSE);
+		$this->db->where('category_id', $category_id);
 		$query = $this->db->get('image')->result_array();
 		foreach ($query as $q)
 		{

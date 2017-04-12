@@ -109,6 +109,9 @@ body, nav, .navWrap {
 
 #gallery-images:hover .imgUp,
 #gallery-images:hover .imgDown,
-#gallery-images:hover .imgDelete {
+#gallery-images:hover .imgDelete,
+#carousel-images:hover .imgUp,
+#carousel-images:hover .imgDown,
+#carousel-images:hover .imgDelete {
 	visibility: visible;
 }
