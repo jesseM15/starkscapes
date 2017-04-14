@@ -2,7 +2,10 @@
 	<section id="admin_services_service" class="admin-section">
 		<div class="admin_wrap container-fluid">
 			<div id="admingallery" class="center">
-				<h1><i class="fa fa-camera-retro"></i> Gallery</h1>
+				<a class="breadcrumb" href="<?= base_url() ?>admin-gallery"><i class="fa fa-camera-retro"></i>&nbsp;Gallery</a>
+				&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
+				<span class="breadcrumb-end"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;<?= $category ?></span>
+				<h1><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;<?= $category ?></h1>
 				<div id="admingalleryContent" class="text-center">
 					
 					<div class="row">

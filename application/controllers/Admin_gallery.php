@@ -118,6 +118,7 @@ class Admin_gallery extends CI_Controller {
 		}
 
 		$data['categories'] = $this->image_model->getCategories();
+		$data['category'] = $this->image_model->getCategory($category)['title'];
 		$total = $this->image_model->getImageCount('gallery', $category);
 
 		$start = ($page * 8 - 8);

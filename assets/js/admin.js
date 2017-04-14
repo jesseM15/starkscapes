@@ -108,13 +108,13 @@ $(document).ready(function(){
 					</button>
 				</div>
 				<div class="input-group-btn">
-					<button disabled class="goto btn btn-default" data-link="" data-toggle="tooltip" title="Go to Gallery Category">
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
+					<button class="delete btn btn-default" data-toggle="tooltip" title="Delete">
+						<i class="fa fa-trash" aria-hidden="true"></i>
 					</button>
 				</div>
 				<div class="input-group-btn">
-					<button class="delete btn btn-default" data-toggle="tooltip" title="Delete">
-						<i class="fa fa-trash" aria-hidden="true"></i>
+					<button disabled class="goto btn btn-default" data-link="" data-toggle="tooltip" title="Go to Gallery Category">
+						<i class="fa fa-arrow-right" aria-hidden="true"></i>
 					</button>
 				</div>
 			</div>`

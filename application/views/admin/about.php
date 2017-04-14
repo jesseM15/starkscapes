@@ -1,8 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	<section id="admin_home_about" class="admin-section">
 		<div class="admin_wrap container-fluid">
-			<h1><i class="fa fa-home"></i>&nbsp;Home</h1>
-			<h2>About</h2>
+			<a class="breadcrumb" href="<?= base_url() ?>admin-home"><i class="fa fa-home"></i>&nbsp;Home</a>
+			&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
+			<span class="breadcrumb-end"><i class="fa fa-question-circle-o" aria-hidden="true"></i>&nbsp;About</span>
+			<h1><i class="fa fa-question-circle-o" aria-hidden="true"></i>&nbsp;About</h1>
 			<div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
 				<form method="post" action="<?= base_url() ?>admin_home/about">
 					<input name="content" type="hidden">

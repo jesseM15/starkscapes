@@ -12,10 +12,10 @@
 							<button class="edit btn btn-default" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
 						</div>
 						<div class="input-group-btn">
-							<button class="goto btn btn-default" data-link="<?= base_url() . 'admin-gallery/category/' . $category['url_segment'] ?>" data-toggle="tooltip" title="Go to <?= $category["title"] ?>"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+							<button class="delete btn btn-default" data-toggle="tooltip" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
 						</div>
 						<div class="input-group-btn">
-							<button class="delete btn btn-default" data-toggle="tooltip" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
+							<button class="goto btn btn-default" data-link="<?= base_url() . 'admin-gallery/category/' . $category['url_segment'] ?>" data-toggle="tooltip" title="Go to <?= $category["title"] ?>"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
 						</div>
 					</div>
 					<?php endforeach; ?>

@@ -2,8 +2,10 @@
 	<section id="admin_home_carousel" class="admin-section">
 		<div class="admin_wrap container-fluid">
 			<div id="adminhome" class="center">
-				<h1><i class="fa fa-home"></i>&nbsp;Home</h1>
-				<h2>Carousel</h2>
+				<a class="breadcrumb" href="<?= base_url() ?>admin-home"><i class="fa fa-home"></i>&nbsp;Home</a>
+				&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
+				<span class="breadcrumb-end"><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;Carousel</span>
+				<h1><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;Carousel</h1>
 				<div id="adminhomeContent" class="text-center">
 					
 					<div class="row">

@@ -1,8 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	<section id="admin_home_service_areas" class="admin-section">
 		<div class="admin_wrap container-fluid">
-			<h1><i class="fa fa-home"></i>&nbsp;Home</h1>
-			<h2>Service Areas</h2>
+			<a class="breadcrumb" href="<?= base_url() ?>admin-home"><i class="fa fa-home"></i>&nbsp;Home</a>
+			&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
+			<span class="breadcrumb-end"><i class="fa fa-map-pin" aria-hidden="true"></i>&nbsp;Service Areas</span>
+			<h1><i class="fa fa-map-pin" aria-hidden="true"></i>&nbsp;Service Areas</h1>
 			<div class="container">
 				<?= form_open(base_url() . 'admin-home/areas', 'class="service_areas_form"') ?>
 					<?php foreach ($serviceAreas as $area) : ?>

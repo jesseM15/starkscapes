@@ -43,6 +43,47 @@ body, nav, .navWrap {
     text-align: left;
 }
 
+.section-nav {
+	padding: 40px;
+}
+
+.section-nav i {
+	font-size: 60px;
+	color: #016934;
+}
+
+.section-nav a {
+	font-size: 30px;
+	color: #016934;
+	outline: 0;
+}
+
+.section-nav a:hover {
+	text-decoration: none;
+	color: #9EC953;
+}
+
+.section-nav a:hover i {
+	color: #9EC953;
+}
+
+.breadcrumb {
+	font-size: 20px;
+	color: #016934;
+	background: transparent;
+	padding: 0;
+}
+
+.breadcrumb:hover {
+	text-decoration: none;
+	color: #9EC953;
+	outline: 0;
+}
+
+.breadcrumb-end {
+	font-size: 20px;
+}
+
 .img-container {
 	padding: 3%;
 	border: solid 1px #AAA;
