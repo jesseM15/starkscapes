@@ -50,6 +50,8 @@ class Image_model extends CI_Model{
 		$this->db->where('title != ', 'Logo');
 		$this->db->where('title != ', 'Carousel');
 		$this->db->where('title != ', 'Services');
+		$this->db->where('title != ', 'Background');
+		$this->db->order_by('id');
 		$result = $this->db->get('image_category')->result_array();
 		return $result;
 	}
@@ -57,6 +59,12 @@ class Image_model extends CI_Model{
 	public function addCategory($category)
 	{
 		$this->db->insert('image_category', $category);
+	}
+
+	public function setCategory($category)
+	{
+		$this->db->where('id', $category['id']);
+		$this->db->update('image_category', $category);
 	}
 
 	public function deleteCategory($category)

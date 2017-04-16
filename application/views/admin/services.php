@@ -6,7 +6,7 @@
 			<div class="section-nav container-fluid text-center">
 				<?php foreach ($services as $service) : ?>
 				<div class="section-icon col-sm-4">
-					<a href="<?= base_url() ?>admin-services/service/<?= format_as_class($service['service']) ?>"><?= $service['icon'] ?><br /><?= $service['service'] ?></a>
+					<a href="<?= base_url() ?>admin-services/service/<?= format_as_class($service['service']) ?>"><div class="section-nav-div"><?= $service['icon'] ?><br /><?= $service['service'] ?></div></a>
 				</div>
 				<?php endforeach; ?>
 			</div>

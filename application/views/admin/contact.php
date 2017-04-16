@@ -5,7 +5,7 @@
 			<p class="well">Here you can edit the Contact page.  You can edit the contact form message.</p>
 			<div class="section-nav container-fluid text-center">
 				<div class="col-sm-4">
-					<a href="<?= base_url() ?>admin-contact/message"><i class="fa fa-comment-o" aria-hidden="true"></i><br />Message</a>
+					<a href="<?= base_url() ?>admin-contact/message"><div class="section-nav-div"><i class="fa fa-comment-o" aria-hidden="true"></i><br />Message</div></a>
 				</div>
 			</div>
 		</div>

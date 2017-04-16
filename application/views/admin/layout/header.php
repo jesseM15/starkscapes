@@ -29,7 +29,7 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/admin_style.css">
 
 </head>
-<body>
+<body style="background:url(<?= base_url() . (!empty($background['path']) ? $background['path'] : '') ?>) no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">
 	<header>
 		<div class="navWrap">
 			<nav class="navbar navbar-inverse">
@@ -43,13 +43,14 @@
 					</div>
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="navList nav navbar-nav navbar-left">
-							<li<?= empty($this->uri->segment(1)) || $this->uri->segment(1) == 'welcome' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>welcome"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Welcome</a></li>
+							<li<?= empty($this->uri->segment(1)) || $this->uri->segment(1) == 'dash' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>dash"><i class="fa fa-tachometer" aria-hidden="true"></i>&nbsp;Dash</a></li>
 						</ul>
 						<ul class="navList nav navbar-nav">
-							<li<?= empty($this->uri->segment(1)) || $this->uri->segment(1) == 'admin-home' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-home"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+							<li<?= empty($this->uri->segment(1)) || $this->uri->segment(1) == 'admin-site' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-site"><i class="fa fa-asterisk" aria-hidden="true"></i>&nbsp;Site</a></li>
+							<li<?= empty($this->uri->segment(1)) || $this->uri->segment(1) == 'admin-home' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-home"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
 							<li<?= $this->uri->segment(1) == 'admin-services' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-services"><i class="fa fa-wrench"></i>&nbsp;Services</a></li>
-							<li<?= $this->uri->segment(1) == 'admin-gallery' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-gallery"><i class="fa fa-camera-retro"></i>&nbsp;Gallery</a></li>
-							<li<?= $this->uri->segment(1) == 'admin-contact' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-contact"><i class="fa fa-envelope-o"></i>&nbsp;Contact</a></li>
+							<li<?= $this->uri->segment(1) == 'admin-gallery' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-gallery"><i class="fa fa-camera-retro" aria-hidden="true"></i>&nbsp;Gallery</a></li>
+							<li<?= $this->uri->segment(1) == 'admin-contact' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-contact"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;Contact</a></li>
 						</ul>
 						<ul class="navList nav navbar-nav navbar-right">
 							<li><a class="navLink" href="<?= base_url() ?>"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Visit&nbsp;Site</a></li>

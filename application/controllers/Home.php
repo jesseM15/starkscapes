@@ -8,7 +8,7 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url', 'form', 'utility'));
 		$this->load->library(array('form_validation','session', 'email'));
-		$this->load->model(array('home_model', 'image_model'));
+		$this->load->model(array('site_model', 'home_model', 'image_model'));
 	}
 
 	public function index()
@@ -74,7 +74,9 @@ class Home extends CI_Controller {
         }
         
         $data['page_title'] = 'Home';
-        $data['marquee'] = $data['marquee'] = $this->home_model->getMarquee();
+        $data['marquee'] = $data['marquee'] = $this->site_model->getMarquee();
+        $data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];
+        $data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$data['carouselImages'] = $this->image_model->getImages('Home', 'Carousel');
 		$data['about'] = $this->home_model->getAbout();
@@ -86,12 +88,15 @@ class Home extends CI_Controller {
 			$data['services'][$n]['icon'] = $services[$n]['icon'];
 		}
 
-		$data['contactMessage'] = $this->home_model->getContactMessage();
+		$data['contactMessage'] = $this->site_model->getContactMessage();
 
 		$data['serviceAreas'] = $this->home_model->getServiceAreas();
 
+		$data['businessHours'] = $this->site_model->getHours();
+		$data['businessInfo'] = $this->site_model->getBusinessInfo();
+
 		$this->load->view('layout/header', $data);
 		$this->load->view('home', $data);
-		$this->load->view('layout/footer');
+		$this->load->view('layout/footer', $data);
 	}
 }

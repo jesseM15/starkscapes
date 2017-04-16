@@ -1,34 +1,24 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-	<section id="admin_services_service" class="admin-section">
+	<section id="admin_site_background" class="admin-section">
 		<div class="admin_wrap container-fluid">
-			<a class="breadcrumb" href="<?= base_url() ?>admin-services"><i class="fa fa-wrench"></i>&nbsp;Services</a>
+			<a class="breadcrumb" href="<?= base_url() ?>admin-site"><i class="fa fa-asterisk" aria-hidden="true"></i>&nbsp;Site</a>
 			&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
-			<span class="breadcrumb-end"><?= $service['icon'] . "&nbsp;" . $service['service'] ?></span>
-			<h1><?= $service['icon'] . "&nbsp;" . $service['service'] ?></h1>
+			<span class="breadcrumb-end"><i class="fa fa-square-o" aria-hidden="true"></i>&nbsp;Background</span>
+			<h1><i class="fa fa-square-o" aria-hidden="true"></i>&nbsp;Background</h1>
 			<div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
-				<form id="service-form" method="post" action="<?= base_url() ?>admin_services/service/<?= format_as_class($service['service']) ?>" enctype="multipart/form-data">
-					<div class="form-group col-sm-12 col-md-6 col-md-offset-3">
-						<label for="category">Name</label>
-						<input class="form-control" name="category" value="<?= $service['service'] ?>" placeholder="Name">
-					</div>
+				<form id="background-form" method="post" action="<?= base_url() ?>admin_site/background" enctype="multipart/form-data">
 
 					<div class="img-container form-group col-sm-12 col-md-6 col-md-offset-3 text-center">
-						<img class="current-image img-responsive center" src="<?= base_url() . $service['image']['path'] ?>" alt="<?= $service['image']['text'] ?>" />
+						<img class="current-image img-responsive center" src="<?= base_url() . $background['path'] ?>" alt="<?= $background['text'] ?>" />
 						<br />
 						<input type="hidden" id="selectedImage" name="selectedImage" />
 						<button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#imagesModal">Change</button>
 					</div>
 
-					<div class="clearfix"></div>
-					<input name="content" type="hidden">
-					<div id="quill1">
-						<?= (!empty($service['content']) ? $service['content'] : '') ?>
-					</div>
-
 				<br /><br />
 
 				<div class="form-group col-sm-12 text-center">
-					<input class="btn btn-default btn-lg" type="submit" value="Save" form="service-form" />
+					<input class="btn btn-default btn-lg" type="submit" value="Save" form="background-form" />
 				</div>
 
 				</form>
@@ -62,8 +52,8 @@
 					<div class="modal-body">
 						<div class="container-fluid">
 							<?php foreach ($folderImages as $image) : ?>
-							<div class="<?= $image === $service['image']['path'] ? 'selection ' : '' ?>selection-white col-sm-4 col-md-4 col-lg-4">
-								<img class="selection-image img-responsive center" src="<?= base_url() . $image ?>" alt="Service Image" />
+							<div class="<?= $image === $background['path'] ? 'selection ' : '' ?>selection-white col-sm-4 col-md-4 col-lg-4">
+								<img class="selection-image img-responsive center" src="<?= base_url() . $image ?>" alt="Background Image" />
 							</div>
 							<?php endforeach; ?>
 						</div>
@@ -72,7 +62,7 @@
 					<div class="modal-footer">
 						<label class="btn btn-lg btn-success" for="file">
 							Upload Image
-							<input id="file" type="file" name="file" style="display:none;" form="service-form">
+							<input id="file" type="file" name="file" style="display:none;" form="background-form">
 						</label>
 						<button type="button" class="select-button btn btn-lg btn-default" data-dismiss="modal">Select</button>
 					</div>

@@ -17,29 +17,42 @@ class Admin_gallery extends CI_Controller {
 		if (!empty($this->input->post()))
 		{
 			$categories = $this->image_model->getGalleryCategories();
-			for ($n = 0;$n < count($categories);$n++)
+			$c = 0;
+			$current = array();
+			foreach ($_POST as $key => $value)
 			{
-				$oldCategories[$n] = $categories[$n]['title'];
-			}
-			$newCategories = $_POST['categories'];
-
-			foreach ($newCategories as $newCategory)
-			{
-				if ($oldCategories == null && $newCategory != '')
+				if (strpos($key, 'old') !== FALSE)
 				{
-					$this->image_model->addCategory(array('title' => $newCategory, 'url_segment' => format_as_class($newCategory)));
-				}
-				elseif (!in_array($newCategory, $oldCategories) && $newCategory != '')
-				{
-					$this->image_model->addCategory(array('title' => $newCategory, 'url_segment' => format_as_class($newCategory)));
+					$arr = explode('-', $key);
+					$current[$c]['id'] = end($arr);
+					$current[$c]['title'] = $value;
+					$c++;
 				}
 			}
-			// Delete any categories from db that were not in POST
-			foreach ($oldCategories as $oldCategory)
+			for ($b = 0; $b < count($categories); $b++)
 			{
-				if ($newCategories == null || !in_array($oldCategory, $newCategories))
+				$deleted = TRUE;
+				for ($c = 0; $c < count($current); $c++)
 				{
-					$this->image_model->deleteCategory(array('title' => $oldCategory));
+					if ($current[$c]['id'] === $categories[$b]['id'])
+					{
+						$deleted = FALSE;
+						if ($current[$c]['title'] !== $categories[$b]['title'])
+						{
+							$this->image_model->setCategory(array('id' => $current[$c]['id'], 'title' => $current[$c]['title'], 'url_segment' => format_as_class($current[$c]['title'])));
+						}
+					}
+				}
+				if ($deleted)
+				{
+					$this->image_model->deleteCategory(array('id' => $categories[$b]['id'], 'title' => $categories[$b]['title'], 'url_segment' => format_as_class($categories[$b]['title'])));
+				}
+			}
+			if (!empty($_POST['new']))
+			{
+				foreach ($_POST['new'] as $new)
+				{
+					$this->image_model->addCategory(array('title' => $new, 'url_segment' => format_as_class($new)));
 				}
 			}
 			$this->session->set_flashdata('message', 'Saved.');
@@ -47,6 +60,7 @@ class Admin_gallery extends CI_Controller {
 
 		$data['categories'] = $this->image_model->getGalleryCategories();
 		$data['page_title'] = 'Admin Gallery';
+		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/gallery', $data);
@@ -127,10 +141,11 @@ class Admin_gallery extends CI_Controller {
 		$this->pagination->initialize($config);
 
 		$data['page_title'] = 'Gallery';
+		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$data['images'] = $this->image_model->getImages('gallery', $category, $start);
 
-		$data['folderImages'] =  glob('assets/uploads/gallery/*.{jpg,png,gif}', GLOB_BRACE);
+		$data['folderImages'] =  glob('assets/uploads/gallery/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/category', $data);
@@ -162,7 +177,7 @@ class Admin_gallery extends CI_Controller {
 	private function configureUpload($path)
 	{
 		$config['upload_path'] 		= $path;
-		$config['allowed_types'] 	= 'gif|jpg|png';
+		$config['allowed_types'] 	= 'jpg|jpeg|png|gif';
 		$config['max_size'] 		= 10000;
 		$config['max_width'] 		= 10240;
 		$config['max_height'] 		= 10240;

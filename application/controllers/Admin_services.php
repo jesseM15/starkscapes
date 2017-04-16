@@ -16,6 +16,7 @@ class Admin_services extends CI_Controller {
 	{
 		$data['services'] = $this->service_model->getServices();
 		$data['page_title'] = 'Admin Services';
+		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/services', $data);
@@ -31,6 +32,7 @@ class Admin_services extends CI_Controller {
 		$this->upload->initialize($config);
 
 		$this->form_validation->set_rules('category', 'Name', 'required');
+		$this->form_validation->set_rules('file', 'File', 'trim');
 
 		if ($this->form_validation->run() == TRUE)
 		{
@@ -51,9 +53,18 @@ class Admin_services extends CI_Controller {
 
 			if (!empty($_FILES['file']['name']))
 			{
-				$size = getimagesize($_FILES["file"]["tmp_name"]);
-				$width = $size[0];
-				$height = $size[1];
+				$width = 0;
+				$height = 0;
+				if (empty($_FILES["file"]["tmp_name"]))
+				{
+					$this->session->set_flashdata('error', $this->upload->display_errors());
+				}
+				else
+				{
+					$size = getimagesize($_FILES["file"]["tmp_name"]);
+					$width = $size[0];
+					$height = $size[1];
+				}
 
 				if ($width != $height)
 				{
@@ -128,7 +139,9 @@ class Admin_services extends CI_Controller {
 			}
 		}
 
-		$data['folderImages'] =  glob('assets/uploads/services/*.{jpg,png,gif}', GLOB_BRACE);
+		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
+
+		$data['folderImages'] =  glob('assets/uploads/services/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/service', $data);
@@ -138,7 +151,7 @@ class Admin_services extends CI_Controller {
 	private function configureUpload($path)
 	{
 		$config['upload_path']          = $path;
-		$config['allowed_types']        = 'gif|jpg|png';
+		$config['allowed_types']        = 'jpg|jpeg|png|gif';
 		$config['max_size']             = 10000;
 		$config['max_width']            = 10240;
 		$config['max_height']           = 10240;

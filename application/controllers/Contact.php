@@ -8,7 +8,7 @@ class Contact extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url', 'form'));
 		$this->load->library(array('form_validation','session', 'email'));
-		$this->load->model(array('home_model'));
+		$this->load->model(array('site_model', 'image_model'));
 	}
 
 	public function index()
@@ -74,12 +74,17 @@ class Contact extends CI_Controller {
         }
         
         $data['page_title'] = 'Contact';
-        $data['marquee'] = $this->home_model->getMarquee();
+        $data['marquee'] = $this->site_model->getMarquee();
+        $data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];
+        $data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
-		$data['contactMessage'] = $this->home_model->getContactMessage();
+		$data['contactMessage'] = $this->site_model->getContactMessage();
+
+		$data['businessHours'] = $this->site_model->getHours();
+		$data['businessInfo'] = $this->site_model->getBusinessInfo();
 		
 		$this->load->view('layout/header', $data);
 		$this->load->view('contact', $data);
-		$this->load->view('layout/footer');
+		$this->load->view('layout/footer', $data);
 	}
 }

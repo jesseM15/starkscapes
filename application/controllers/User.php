@@ -7,7 +7,7 @@ class User extends CI_Controller
         parent::__construct();
         $this->load->helper('url');
         $this->load->library(array('form_validation','session'));
-        $this->load->model('user_model');
+        $this->load->model(array('user_model', 'image_model', 'site_model'));
     }
 
 	public function index()
@@ -22,10 +22,14 @@ class User extends CI_Controller
 
         //Redirect if validation succeeds
         if($this->form_validation->run()){
-            redirect(base_url('welcome'));
+            redirect(base_url('dash'));
         }
         //Load login screen if validation fails
         $data['page_title'] = 'User Login';
+        $data['marquee'] = $data['marquee'] = $this->site_model->getMarquee();
+        $data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];
+        $data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
+        $data['businessInfo'] = $this->site_model->getBusinessInfo();
         $this->load->view('layout/header', $data);
         $this->load->view('login');
         $this->load->view('layout/footer');
@@ -61,6 +65,10 @@ class User extends CI_Controller
         }
 
         $data['page_title'] = 'Register';
+        $data['marquee'] = $data['marquee'] = $this->site_model->getMarquee();
+        $data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];
+        $data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
+        $data['businessInfo'] = $this->site_model->getBusinessInfo();
         $this->load->view('layout/header', $data);
         $this->load->view('register', $data);
         $this->load->view('layout/footer');

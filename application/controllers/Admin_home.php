@@ -15,6 +15,7 @@ class Admin_home extends CI_Controller {
 	public function index()
 	{
 		$data['page_title'] = 'Admin Home';
+		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/home');
@@ -78,10 +79,11 @@ class Admin_home extends CI_Controller {
 		}
 
 		$data['page_title'] = 'Admin Home - Carousel';
+		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$data['images'] = $this->image_model->getImages('carousel', 'Carousel');
 
-		$data['folderImages'] =  glob('assets/uploads/carousel/*.{jpg,png,gif}', GLOB_BRACE);
+		$data['folderImages'] =  glob('assets/uploads/carousel/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/carousel');
@@ -96,6 +98,7 @@ class Admin_home extends CI_Controller {
 			$this->session->set_flashdata('message', 'Saved.');
 		}
 		$data['page_title'] = 'Admin Home - About';
+		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 		$data['about'] = $this->home_model->getAbout();
 
 		$this->load->view('admin/layout/header', $data);
@@ -108,29 +111,42 @@ class Admin_home extends CI_Controller {
 		if (!empty($this->input->post()))
 		{
 			$serviceAreas = $this->home_model->getServiceAreas();
-			for ($n = 0;$n < count($serviceAreas);$n++)
+			$c = 0;
+			$current = array();
+			foreach ($_POST as $key => $value)
 			{
-				$oldAreas[$n] = $serviceAreas[$n]['area'];
-			}
-			$newAreas = $_POST['areas'];
-
-			foreach ($newAreas as $newArea)
-			{
-				if ($oldAreas == null && $newArea != '')
+				if (strpos($key, 'old') !== FALSE)
 				{
-					$this->home_model->addServiceArea(array('area' => $newArea));
-				}
-				elseif (!in_array($newArea, $oldAreas) && $newArea != '')
-				{
-					$this->home_model->addServiceArea(array('area' => $newArea));
+					$arr = explode('-', $key);
+					$current[$c]['id'] = end($arr);
+					$current[$c]['area'] = $value;
+					$c++;
 				}
 			}
-			// Delete any services from db that were not in POST
-			foreach ($oldAreas as $oldArea)
+			for ($s = 0; $s < count($serviceAreas); $s++)
 			{
-				if ($newAreas == null || !in_array($oldArea, $newAreas))
+				$deleted = TRUE;
+				for ($c = 0; $c < count($current); $c++)
 				{
-					$this->home_model->deleteServiceArea(array('area' => $oldArea));
+					if ($current[$c]['id'] === $serviceAreas[$s]['id'])
+					{
+						$deleted = FALSE;
+						if ($current[$c]['area'] !== $serviceAreas[$s]['area'])
+						{
+							$this->home_model->setServiceArea(array('id' => $current[$c]['id'], 'area' => $current[$c]['area']));
+						}
+					}
+				}
+				if ($deleted)
+				{
+					$this->home_model->deleteServiceArea(array('id' => $serviceAreas[$s]['id'], 'area' => $serviceAreas[$s]['area']));
+				}
+			}
+			if (!empty($_POST['new']))
+			{
+				foreach ($_POST['new'] as $new)
+				{
+					$this->home_model->addServiceArea(array('area' => $new));
 				}
 			}
 			$this->session->set_flashdata('message', 'Saved.');
@@ -138,18 +154,17 @@ class Admin_home extends CI_Controller {
 
 		$data['serviceAreas'] = $this->home_model->getServiceAreas();
 		$data['page_title'] = 'Service Areas';
+		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/service_areas');
 		$this->load->view('admin/layout/footer');
 	}
 
-
-
 	private function configureUpload($path)
 	{
 		$config['upload_path'] 		= $path;
-		$config['allowed_types'] 	= 'gif|jpg|png';
+		$config['allowed_types'] 	= 'jpg|jpeg|png|gif';
 		$config['max_size'] 		= 10000;
 		$config['max_width'] 		= 10240;
 		$config['max_height'] 		= 10240;

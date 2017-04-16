@@ -60,11 +60,35 @@ body, nav, .navWrap {
 
 .section-nav a:hover {
 	text-decoration: none;
+}
+
+.section-nav-div {
+	background: #9EC953;
+	border: 1px solid #555;
+	border-radius: 25px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+	transition: box-shadow 1s;
+	overflow: visible;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.section-nav-div:hover {
+	border: 1px solid #777;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+	text-decoration: none;
+	background: #016934;
 	color: #9EC953;
 }
 
-.section-nav a:hover i {
+.section-nav-div:hover i {
+	background: #016934;
 	color: #9EC953;
+}
+
+.section-nav div {
+	padding: 20px;
 }
 
 .breadcrumb {
@@ -123,6 +147,7 @@ body, nav, .navWrap {
 
 .selection-image {
 	margin: 10px 0;
+	padding: 5px;
 }
 
 #pagination {

@@ -7,6 +7,18 @@ $(document).ready(function(){
 		});
 	}, 3000);
 
+	// Site > Logo,
+	// Site > Background,
+	// Home > Carousel,
+	// Services > (Any),
+	// Gallery > (Any) -
+	// Remove all existing selection borders and add one around the clicked image
+	$(document).on("click", ".selection-image", function(event) {
+		event.preventDefault();
+		$(this).parent().siblings().removeClass("selection");
+		$(this).parent().addClass("selection");
+	});
+
 	// Home > Service Areas, Gallery - Enable the input and disable the edit button
 	$(document).on("click", ".edit", function(event) {
 		event.preventDefault();
@@ -27,7 +39,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$(".dynamic").append(
 			`<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
-				<input class="form-control" name="areas[]" value="" placeholder="Area">
+				<input class="form-control" name="new[]" value="" placeholder="Area" />
 				<div class="input-group-btn">
 					<button disabled class="edit btn btn-default" data-toggle="tooltip" title="Edit">
 						<i class="fa fa-pencil" aria-hidden="true"></i>
@@ -43,17 +55,8 @@ $(document).ready(function(){
 		console.log('Service area added');
 	});
 
-	// Home > Service Areas - Enable all inputs before form submission
-	$(document).on("click", "#submitServiceAreas", function(event) {
-		var inputs=document.getElementsByName('areas[]');
-		for(i=0;i<inputs.length;i++) {
-			inputs[i].disabled=false;
-		}
-		console.log('Service areas submitted');
-	});
-
-	// Services > (Any) - When a file is selected to upload, write file metadata to the console and run readURL
-	$(document).on("change", "#services-file", function(event) {
+	// Site > Logo, Site > Background, Services > (Any) - When a file is selected to upload, write file metadata to the console and run readURL
+	$(document).on("change", "#file", function(event) {
 		var files = event.originalEvent.target.files;
 		for (var i=0, len=files.length; i<len; i++){
 			console.log("File selected for upload:");
@@ -62,29 +65,22 @@ $(document).ready(function(){
 		readURL(this);
 	});
 
-	// Services > (Any) - Remove all existing selection borders and add one around the clicked image
-	$(document).on("click", ".selection-image", function(event) {
-		event.preventDefault();
-		$(this).parent().siblings().removeClass("selection");
-		$(this).parent().addClass("selection");
-	});
-
-	// Services > (Any) - Close the modal, read the input file metadata, and set the service image
+	// Site > Logo, Site > Background, Services > (Any) - Close the modal, read the input file metadata, and set the current image
 	function readURL(input) {
 		if (input.files && input.files[0]) {
 			$('.modal').modal('toggle');
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				$('.service-image').attr('src', e.target.result);
+				$('.current-image').attr('src', e.target.result);
 			}
 			reader.readAsDataURL(input.files[0]);
 		}
 	}
 
-	// Services > (Any) - Set the service image with the selected existing file
-	$(document).on("click", ".service-select-button", function(event) {
+	// Site > Logo, Services > (Any) - Set the service image with the selected existing file
+	$(document).on("click", ".select-button", function(event) {
 		event.preventDefault();
-		$(".service-image").attr("src", $(".selection").children().prop("src"));
+		$(".current-image").attr("src", $(".selection").children().prop("src"));
 		$('#selectedImage').attr('value', $(".selection").children().prop("src"));
 	});
 
@@ -101,7 +97,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$(".dynamic").append(
 			`<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
-				<input class="form-control" name="categories[]" value="" placeholder="Category">
+				<input class="form-control" name="new[]" value="" placeholder="Category" />
 				<div class="input-group-btn">
 					<button disabled class="edit btn btn-default" data-toggle="tooltip" title="Edit">
 						<i class="fa fa-pencil" aria-hidden="true"></i>
@@ -120,15 +116,6 @@ $(document).ready(function(){
 			</div>`
 		);
 		console.log('Category added');
-	});
-
-	// Gallery - Enable all inputs before form submission
-	$(document).on("click", "#submitCategories", function(event) {
-		var inputs=document.getElementsByName('categories[]');
-		for(i=0;i<inputs.length;i++) {
-			inputs[i].disabled=false;
-		}
-		console.log('Categories submitted');
 	});
 
 	// Gallery > (Any), Home > Carousel - Set upload file and submit form
@@ -223,6 +210,120 @@ $(document).ready(function(){
 		request.fail(function( jqXHR, status ) {
 			console.log("Request failed:\n", status);
 		});
+	});
+
+	// Site > Marquee - Add a new form group for marquee line input
+	$(document).on("click", ".addMarqueeLine", function(event) {
+		event.preventDefault();
+		$(".dynamic").append(
+			`<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
+				<input class="form-control" name="new[]" value="" placeholder="Marquee Line" />
+				<div class="input-group-btn">
+					<button disabled class="edit btn btn-default" data-toggle="tooltip" title="Edit">
+						<i class="fa fa-pencil" aria-hidden="true"></i>
+					</button>
+				</div>
+				<div class="input-group-btn">
+					<button class="delete btn btn-default" data-toggle="tooltip" title="Delete">
+						<i class="fa fa-trash" aria-hidden="true"></i>
+					</button>
+				</div>
+			</div>`
+		);
+		console.log('Marquee Line added');
+	});
+
+	// Site > Business Info - Add a new form group for business info input
+	$(document).on("click", ".addBusinessInfo", function(event) {
+		event.preventDefault();
+		var random = Math.random();
+		$(".dynamic").append(
+			`<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
+				<input class="form-control" name="new-` + random + `" value="" placeholder="Info" />
+				<div class="input-group-addon">
+					<label for="newCheckbox-` + random + `" style="margin:0;">Green
+						<input type="hidden" name="newCheckbox-` + random + `" value="0" />
+						<input type="checkbox" id="newCheckbox-` + random + `" class="checkbox-inline" name="newCheckbox-` + random + `" value="0" />
+					</label>
+				</div>
+				<div class="input-group-btn">
+					<button disabled class="editBusinessInfo btn btn-default" data-toggle="tooltip" title="Edit">
+						<i class="fa fa-pencil" aria-hidden="true"></i>
+					</button>
+				</div>
+				<div class="input-group-btn">
+					<button class="delete btn btn-default" data-toggle="tooltip" title="Delete">
+						<i class="fa fa-trash" aria-hidden="true"></i>
+					</button>
+				</div>
+			</div>`
+		);
+		console.log('Business info added');
+	});
+
+	$(document).on("click", ".checkbox-inline", function() {
+		if ($(this).attr("value") == 0)
+		{
+			$(this).attr("value", 1);
+		}
+		else
+		{
+			$(this).attr("value", 0);
+		}
+	});
+
+	// Site > Business Info - Enable the inputs and disable the edit button
+	$(document).on("click", ".editBusinessInfo", function(event) {
+		event.preventDefault();
+		$(this).parent().prev().prev().removeAttr('disabled');
+		$(this).parent().prev().children().children().removeAttr('disabled');
+		$(this).prop('disabled', true);
+		console.log('Input editing enabled');
+	});
+
+	// Site > Hours - Add a new form group for hours input
+	$(document).on("click", ".addHours", function(event) {
+		event.preventDefault();
+		$(".dynamic").append(
+			`<div class="form-group">
+				<div class="input-group col-sm-12 col-md-6 col-md-offset-3">
+					<input class="form-control" name="newCategory[]" value='' placeholder="Hours Category">
+					<span class="input-group-addon">-</span>
+					<input class="form-control" name="new[]" value='' placeholder="Hours">
+					<div class="input-group-btn">
+						<button disabled class="editHours btn btn-default" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+					</div>
+					<div class="input-group-btn">
+						<button class="delete btn btn-default" data-toggle="tooltip" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
+					</div>
+				</div>
+			</div>`
+		);
+		console.log('Hours added');
+	});
+
+	// Site > Hours - Enable the inputs and disable the edit button
+	$(document).on("click", ".editHours", function(event) {
+		event.preventDefault();
+		$(this).parent().prev().removeAttr('disabled');
+		$(this).parent().prev().prev().prev().removeAttr('disabled');
+		$(this).prop('disabled', true);
+		console.log('Input editing enabled');
+	});
+
+	// (All) - Enable all inputs before form submission
+	$(document).on("click", "#submitData", function(event) {
+		var inputs=document.getElementsByClassName('disabledInput');
+		for(i=0;i<inputs.length;i++) {
+			inputs[i].disabled=false;
+		}
+		console.log('Data submitted');
+	});
+
+	// (All) - Set checkbox and hidden input value when checkbox is toggled
+	$('input[type="checkbox"]').change(function(){
+	    this.value = (Number(this.checked));
+	    this.prev().value = (Number(this.checked));
 	});
 
 });

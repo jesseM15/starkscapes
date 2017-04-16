@@ -8,17 +8,18 @@ class Gallery extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url', 'utility'));
 		$this->load->library(array('session', 'pagination'));
-		$this->load->model(array('home_model', 'image_model'));
+		$this->load->model(array('site_model', 'image_model'));
 	}
 
 	public function index()
 	{
-		redirect(base_url() . 'gallery/view/gallery/1');
+		$category = $this->image_model->getGalleryCategories()[0]['url_segment'];
+		redirect(base_url() . 'gallery/view/' . $category . '/1');
 	}
 
 	public function view($category = 'gallery', $page = 1)
 	{
-		$data['categories'] = $this->image_model->getCategories();
+		$data['categories'] = $this->image_model->getGalleryCategories();
 		$total = $this->image_model->getImageCount('gallery', $category);
 
 		$start = ($page * 8 - 8);
@@ -27,13 +28,18 @@ class Gallery extends CI_Controller {
 		$this->pagination->initialize($config);
 
         $data['page_title'] = 'Gallery';
-        $data['marquee'] = $data['marquee'] = $this->home_model->getMarquee();
+        $data['marquee'] = $data['marquee'] = $this->site_model->getMarquee();
+        $data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];
+        $data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
         $data['images'] = $this->image_model->getImages('gallery', $category, $start);
 
+        $data['businessHours'] = $this->site_model->getHours();
+        $data['businessInfo'] = $this->site_model->getBusinessInfo();
+
 		$this->load->view('layout/header', $data);
 		$this->load->view('gallery', $data);
-		$this->load->view('layout/footer');
+		$this->load->view('layout/footer', $data);
 	}
 
 	private function configurePagination($category, $total)

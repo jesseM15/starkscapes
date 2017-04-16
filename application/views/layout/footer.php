@@ -3,29 +3,19 @@
 		<div class="row text-center">
 			<div id="hours" class="footerItem col-sm-12 col-md-4">
 				<h3>Hours</h3>
-				<?php
-				$hours = array(
-					'Monday - Friday' => '9:00 AM - 7:00 PM',
-					'Saturday' 			 => '9:00 AM - 5:00 PM',
-					'Sunday'			 => 'Appointment Only',
-					'Winter Hours'		 => '24/7'
-					);
-				?>
 				<div class="hours">
-					<?php foreach ($hours as $category => $value) : ?>
-					<div class="greenText"><?= $category ?></div>
-					<div><?= $value ?></div>
+					<?php foreach ($businessHours as $hours) : ?>
+					<div class="greenText"><?= $hours['category'] ?></div>
+					<div><?= $hours['text'] ?></div>
 					<?php endforeach ?>
 				</div>
 			</div>
 			<div id="servicesFooter" class="footerItem col-sm-12 col-md-4">
 				<h3>StarkScapes, LLC</h3>
 				<ul class="serviceList">
-					<li class="serviceFooter">Lawncare landscaping and snow removal</li>
-					<li class="serviceFooter">Commercial and Residential</li>
-					<li class="serviceFooter">Licensed and Insured</li>
-					<li class="serviceFooter greenText" style="font-weight: bold;">FREE ESTIMATES</li>
-					<li class="serviceFooter"><a href="tel:3302656058">330-265-6058</a></li>
+					<?php foreach ($businessInfo as $info) : ?>
+					<li class="serviceFooter<?= ($info['styled'] == 1 ? ' greenText' : '') ?>"><?= $info['text'] ?></li>
+					<?php endforeach; ?>
 				</ul>
 			</div>
 			<div id="socialMedia" class="footerItem col-sm-12 col-md-4">

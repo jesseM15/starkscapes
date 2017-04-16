@@ -15,11 +15,11 @@ body {
 	/*background: url('/assets/images/grass_tiling.jpg');*/
 	/*background-repeat: repeat;*/
 	/*background: url('/assets/images/Forest.jpg');*/
-	background: url('/assets/images/field.jpg') no-repeat center center fixed;
-	-webkit-background-size: cover;
+	/*background: url('/assets/images/field.jpg') no-repeat center center fixed;*/
+	/*-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;
+	background-size: cover;*/
 	/*background-size: cover;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;*/
@@ -30,6 +30,10 @@ body {
 
 header {
 	/*padding-top: 50px;*/
+}
+
+li {
+	list-style-type: square;
 }
 
 .fa {

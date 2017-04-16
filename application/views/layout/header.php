@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
 
 </head>
-<body>
+<body style="background:url(<?= base_url() . (!empty($background['path']) ? $background['path'] : '') ?>) no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?php endif; ?>
 		<div class="navWrap">
 		<div class="logo text-center">
-			<a href="/home"><img id="navLogo" src="<?= base_url() ?>assets/images/starkscapes.png" alt="StarkScapes logo"></a>
+			<a href="/home"><img id="navLogo" src="<?= base_url() . (!empty($logo['path']) ? $logo['path'] : '') ?>" alt="<?= $logo['text'] ?>"></a>
 		</div>
 		<nav class="navbar navbar-inverse">
 			<div class="container">

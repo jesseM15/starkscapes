@@ -21,19 +21,6 @@ class Home_model extends CI_Model{
 		$this->db->replace('about', $data);
 	}
 
-	public function getContactMessage()
-	{
-		$this->db->select('message');
-		$result = $this->db->get('contact_message')->row_array(1);
-		return $result;
-	}
-
-	public function setContactMessage($message)
-	{
-		$data = array('id' => 1, 'message' => $message);
-		$this->db->replace('contact_message', $data);
-	}
-
 	public function getServiceAreas()
 	{
 		$this->db->order_by('area');
@@ -44,6 +31,11 @@ class Home_model extends CI_Model{
 	public function addServiceArea($area)
 	{
 		$this->db->insert('service_area', $area);
+	}
+
+	public function setServiceArea($area)
+	{
+		$this->db->replace('service_area', $area);
 	}
 
 	public function deleteServiceArea($area)
@@ -65,12 +57,6 @@ class Home_model extends CI_Model{
 			$result[$n]['icon'] = $serviceCategory[$n]['icon'];
 		}
 
-		return $result;
-	}
-
-	public function getMarquee()
-	{
-		$result = $this->db->get('marquee')->result_array();
 		return $result;
 	}
 	
