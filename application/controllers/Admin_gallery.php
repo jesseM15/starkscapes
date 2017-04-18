@@ -10,6 +10,8 @@ class Admin_gallery extends CI_Controller {
 		$this->load->library(array('form_validation','session', 'upload', 'pagination'));
 		$this->load->model(array('image_model'));
 		protect();
+		$this->session->set_flashdata('error', '');
+		$this->session->set_flashdata('message', '');
 	}
 
 	public function index()
@@ -69,9 +71,6 @@ class Admin_gallery extends CI_Controller {
 
 	public function category($category = 'gallery', $page = 1)
 	{
-		$this->session->set_flashdata('error', '');
-		$this->session->set_flashdata('message', '');
-
 		$config = $this->configureUpload('assets/uploads/gallery/');
 		$this->upload->initialize($config);
 

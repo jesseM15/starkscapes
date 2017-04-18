@@ -10,6 +10,8 @@ class Admin_home extends CI_Controller {
 		$this->load->library(array('form_validation','session', 'upload'));
 		$this->load->model(array('home_model', 'image_model'));
 		protect();
+		$this->session->set_flashdata('error', '');
+		$this->session->set_flashdata('message', '');
 	}
 
 	public function index()
@@ -24,9 +26,6 @@ class Admin_home extends CI_Controller {
 
 	public function carousel()
 	{
-		$this->session->set_flashdata('error', '');
-		$this->session->set_flashdata('message', '');
-
 		$config = $this->configureUpload('assets/uploads/carousel/');
 		$this->upload->initialize($config);
 

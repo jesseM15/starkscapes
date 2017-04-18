@@ -10,6 +10,8 @@ class Admin_site extends CI_Controller {
 		$this->load->library(array('form_validation','session', 'upload'));
 		$this->load->model(array('site_model', 'image_model'));
 		protect();
+		$this->session->set_flashdata('error', '');
+		$this->session->set_flashdata('message', '');
 	}
 
 	public function index()
@@ -49,26 +51,31 @@ class Admin_site extends CI_Controller {
 						$deleted = FALSE;
 						if ($current[$c]['text'] !== $marqueeLines[$b]['text'])
 						{
-							$this->site_model->setMarqueeLine(array('id' => $current[$c]['id'], 'text' => $current[$c]['text']));
+							$this->site_model->setMarqueeLine(array('id' => $current[$c]['id'], 'text' => phone_text_to_link($current[$c]['text'])));
 						}
 					}
 				}
 				if ($deleted)
 				{
-					$this->site_model->deleteMarqueeLine(array('id' => $marqueeLines[$b]['id'], 'text' => $marqueeLines[$b]['text']));
+					$this->site_model->deleteMarqueeLine(array('id' => $marqueeLines[$b]['id']));
 				}
 			}
 			if (!empty($_POST['new']))
 			{
 				foreach ($_POST['new'] as $new)
 				{
-					$this->site_model->addMarqueeLine(array('text' => $new));
+					$this->site_model->addMarqueeLine(array('text' => phone_text_to_link($new)));
 				}
 			}
 			$this->session->set_flashdata('message', 'Saved.');
 		}
 
-		$data['marqueeLines'] = $this->site_model->getMarquee();
+		$marqueeLines = $this->site_model->getMarquee();
+		for ($n = 0; $n < count($marqueeLines); $n++)
+		{
+			$marqueeLines[$n]['text'] = phone_link_to_text($marqueeLines[$n]['text']);
+		}
+		$data['marqueeLines'] = $marqueeLines;
 		$data['page_title'] = 'Admin Marquee';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
@@ -79,9 +86,6 @@ class Admin_site extends CI_Controller {
 
 	public function logo()
 	{
-		$this->session->set_flashdata('error', '');
-		$this->session->set_flashdata('message', '');
-
 		$config = $this->configureUpload('assets/uploads/logo/');
 		$this->upload->initialize($config);
 
@@ -147,7 +151,6 @@ class Admin_site extends CI_Controller {
 	{
 		if (!empty($this->input->post()))
 		{
-			// format_array($_POST);
 			$hours = $this->site_model->getHours();
 			$c = 0;
 			$current = array();
@@ -168,7 +171,6 @@ class Admin_site extends CI_Controller {
 					}
 				}
 			}
-			// format_array($current);
 			for ($h = 0; $h < count($hours); $h++)
 			{
 				$deleted = TRUE;
@@ -214,7 +216,6 @@ class Admin_site extends CI_Controller {
 			$businessInfo = $this->site_model->getBusinessInfo();
 			$c = 0;
 			$current = array();
-			// format_array($_POST);
 			foreach ($_POST as $key => $value)
 			{
 				if (strpos($key, 'old') !== FALSE)
@@ -232,7 +233,6 @@ class Admin_site extends CI_Controller {
 					}
 				}
 			}
-			// format_array($current);
 			for ($b = 0; $b < count($businessInfo); $b++)
 			{
 				$deleted = TRUE;
@@ -243,13 +243,13 @@ class Admin_site extends CI_Controller {
 						$deleted = FALSE;
 						if ($current[$c]['text'] !== $businessInfo[$b]['text'] || $current[$c]['styled'] !== $businessInfo[$b]['styled'])
 						{
-							$this->site_model->setBusinessInfo(array('id' => $current[$c]['id'], 'text' => $current[$c]['text'], 'styled' => $current[$c]['styled']));
+							$this->site_model->setBusinessInfo(array('id' => $current[$c]['id'], 'text' => phone_text_to_link($current[$c]['text']), 'styled' => $current[$c]['styled']));
 						}
 					}
 				}
 				if ($deleted)
 				{
-					$this->site_model->deleteBusinessInfo(array('id' => $businessInfo[$b]['id'], 'text' => $businessInfo[$b]['text'], 'styled' => $businessInfo[$b]['styled']));
+					$this->site_model->deleteBusinessInfo(array('id' => $businessInfo[$b]['id']));
 				}
 			}
 			$n = 0;
@@ -273,13 +273,18 @@ class Admin_site extends CI_Controller {
 			{
 				for ($n = 0; $n < count($new); $n++)
 				{
-					$this->site_model->addBusinessInfo(array('text' => $new[$n]['text'], 'styled' => $new[$n]['styled']));
+					$this->site_model->addBusinessInfo(array('text' => phone_text_to_link($new[$n]['text']), 'styled' => $new[$n]['styled']));
 				}
 			}
 			$this->session->set_flashdata('message', 'Saved.');
 		}
 
-		$data['businessInfos'] = $this->site_model->getBusinessInfo();
+		$businessInfos = $this->site_model->getBusinessInfo();
+		for ($n = 0; $n < count($businessInfos); $n++)
+		{
+			$businessInfos[$n]['text'] = phone_link_to_text($businessInfos[$n]['text']);
+		}
+		$data['businessInfos'] = $businessInfos;
 		$data['page_title'] = 'Admin Business Info';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
@@ -290,9 +295,6 @@ class Admin_site extends CI_Controller {
 
 	public function background()
 	{
-		$this->session->set_flashdata('error', '');
-		$this->session->set_flashdata('message', '');
-
 		$config = $this->configureUpload('assets/uploads/background/');
 		$this->upload->initialize($config);
 

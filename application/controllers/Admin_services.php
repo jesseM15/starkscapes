@@ -10,6 +10,8 @@ class Admin_services extends CI_Controller {
 		$this->load->library(array('form_validation','session', 'upload'));
 		$this->load->model(array('service_model', 'image_model'));
 		protect();
+		$this->session->set_flashdata('error', '');
+		$this->session->set_flashdata('message', '');
 	}
 
 	public function index()
@@ -25,9 +27,6 @@ class Admin_services extends CI_Controller {
 
 	public function service($service)
 	{
-		$this->session->set_flashdata('error', '');
-		$this->session->set_flashdata('message', '');
-
 		$config = $this->configureUpload('assets/uploads/services/');
 		$this->upload->initialize($config);
 

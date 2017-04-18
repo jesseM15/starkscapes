@@ -8,17 +8,32 @@ class Site_model extends CI_Model{
 		$this->db = $this->load->database('default', true);
 	}
 
+	public function getPhone()
+	{
+		$this->db->select('phone');
+		$result = $this->db->get('contact_info')->row_array(1);
+		return $result;
+	}
+
+	public function setPhone($phone)
+	{
+		$data['phone'] = $phone;
+		$this->db->where('id', 1);
+		$this->db->update('contact_info', $data);
+	}
+
 	public function getContactMessage()
 	{
 		$this->db->select('message');
-		$result = $this->db->get('contact_message')->row_array(1);
+		$result = $this->db->get('contact_info')->row_array(1);
 		return $result;
 	}
 
 	public function setContactMessage($message)
 	{
-		$data = array('id' => 1, 'message' => $message);
-		$this->db->replace('contact_message', $data);
+		$data['message'] = $message;
+		$this->db->where('id', 1);
+		$this->db->update('contact_info', $data);
 	}
 
 	public function getMarquee()

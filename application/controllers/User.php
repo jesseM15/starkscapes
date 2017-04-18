@@ -103,7 +103,7 @@ class User extends CI_Controller
         {
             return true;
         }
-        $this->form_validation->set_message('check_email','User email already exists');
+        $this->form_validation->set_message('check_email','That email cannot be used');
         return false;
     }
 }

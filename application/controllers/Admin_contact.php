@@ -10,6 +10,8 @@ class Admin_contact extends CI_Controller {
 		$this->load->library(array('form_validation','session'));
 		$this->load->model(array('site_model', 'image_model'));
 		protect();
+		$this->session->set_flashdata('error', '');
+		$this->session->set_flashdata('message', '');
 	}
 
 	public function index()
@@ -28,16 +30,37 @@ class Admin_contact extends CI_Controller {
 
 		if ($this->form_validation->run() == TRUE)
 		{
-			$this->site_model->setContactMessage($this->input->post('message'), TRUE);
+			$this->site_model->setContactMessage(phone_text_to_link($this->input->post('message', TRUE)));
 			$this->session->set_flashdata('message', 'Saved.');
 		}
+		$this->session->set_flashdata('error', validation_errors());
 
-		$data['contactMessage'] = $this->site_model->getContactMessage();
+		$data['contactMessage'] = phone_link_to_text($this->site_model->getContactMessage());
 		$data['page_title'] = 'Admin Contact Message';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/message', $data);
+		$this->load->view('admin/layout/footer');
+	}
+
+	public function phone()
+	{
+		$this->form_validation->set_rules('phone', 'Phone Number', 'required|regex_match[/^[0-9]{10}$/]');
+
+		if ($this->form_validation->run() === TRUE)
+		{
+			$this->site_model->setPhone($this->input->post('phone', TRUE));
+			$this->session->set_flashdata('message', 'Saved.');
+		}
+		$this->session->set_flashdata('error', validation_errors());
+
+		$data['phone'] = $this->site_model->getPhone();
+		$data['page_title'] = 'Admin Phone Number';
+		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
+
+		$this->load->view('admin/layout/header', $data);
+		$this->load->view('admin/phone', $data);
 		$this->load->view('admin/layout/footer');
 	}
 

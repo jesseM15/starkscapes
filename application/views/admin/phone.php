@@ -1,15 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-	<section id="admin_contact_message" class="admin-section">
+	<section id="admin_services_service" class="admin-section">
 		<div class="admin_wrap container-fluid">
 			<a class="breadcrumb" href="<?= base_url() ?>admin-contact"><i class="fa fa-envelope-o"></i>&nbsp;Contact</a>
 			&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
-			<span class="breadcrumb-end"><i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp;Message</span>
-			<h1><i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp;Message</h1>
+			<span class="breadcrumb-end"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;Phone&nbsp;Number</span>
+			<h1><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;Phone&nbsp;Number</h1>
 			<div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
-				<form id="message-form" method="post" action="<?= base_url() ?>admin_contact/message">
+				<form id="phone-form" method="post" action="<?= base_url() ?>admin_contact/phone">
 					<div class="form-group col-sm-12 col-md-6 col-md-offset-3">
-						<label for="message">Message</label>
-						<textarea class="form-control" name="message" placeholder="Message" rows="5"><?= $contactMessage['message'] ?></textarea>
+						<label for="message">Phone&nbsp;Number</label>
+						<input class="form-control" name="phone" value="<?= $phone['phone'] ?>" placeholder="Phone Number" />
 					</div>
 
 				<br /><br />
