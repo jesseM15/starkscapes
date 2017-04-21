@@ -98,5 +98,54 @@ class Site_model extends CI_Model{
 	{
 		$this->db->delete('hours', $hours);
 	}
+
+	public function getSiteName()
+	{
+		$this->db->select('site_name');
+		$result = $this->db->get('metadata')->row_array(1);
+		return $result;
+	}
+
+	public function setSiteName($name)
+	{
+		$data['site_name'] = $name;
+		$this->db->where('id', 1);
+		$this->db->update('metadata', $data);
+	}
+
+	public function getDescription()
+	{
+		$this->db->select('description');
+		$result = $this->db->get('metadata')->row_array(1);
+		return $result;
+	}
+
+	public function setDescription($description)
+	{
+		$data['description'] = $description;
+		$this->db->where('id', 1);
+		$this->db->update('metadata', $data);
+	}
+
+	public function getKeywords()
+	{
+		$result = $this->db->get('keywords')->result_array();
+		return $result;
+	}
+
+	public function addKeyword($keyword)
+	{
+		$this->db->insert('keywords', $keyword);
+	}
+
+	public function setKeyword($keyword)
+	{
+		$this->db->replace('keywords', $keyword);
+	}
+
+	public function deleteKeyword($keyword)
+	{
+		$this->db->delete('keywords', $keyword);
+	}
 	
 }

@@ -16,6 +16,7 @@ class Admin_site extends CI_Controller {
 
 	public function index()
 	{
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Site';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
@@ -76,6 +77,7 @@ class Admin_site extends CI_Controller {
 			$marqueeLines[$n]['text'] = phone_link_to_text($marqueeLines[$n]['text']);
 		}
 		$data['marqueeLines'] = $marqueeLines;
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Marquee';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
@@ -137,6 +139,7 @@ class Admin_site extends CI_Controller {
 
 		$data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];
 
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Logo';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
@@ -201,6 +204,7 @@ class Admin_site extends CI_Controller {
 		}
 
 		$data['businessHours'] = $this->site_model->getHours();
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Hours';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
@@ -285,6 +289,7 @@ class Admin_site extends CI_Controller {
 			$businessInfos[$n]['text'] = phone_link_to_text($businessInfos[$n]['text']);
 		}
 		$data['businessInfos'] = $businessInfos;
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Business Info';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
@@ -344,6 +349,7 @@ class Admin_site extends CI_Controller {
 			}
 		}
 
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Background';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 

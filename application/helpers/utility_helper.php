@@ -95,3 +95,28 @@ if ( ! function_exists('phone_link_to_text'))
 		return $output;
 	}
 }
+
+// ------------------------------------------------------------------------
+
+if ( ! function_exists('format_keywords'))
+{
+	/**
+	 * format_keywords
+	 *
+	 * Takes an input array containing keywords and converts
+	 * it into a comma-seperated string listing the keywords.
+	 *
+	 * @param	array  An array containing associative arrays with the keys 'id' and 'text'
+	 * @return	string	A comma-seperated string of keywords
+	 */
+	function format_keywords($input)
+	{
+		$keywords = array();
+		for ($n = 0; $n < count($input); $n++)
+		{
+			$keywords[$n] = $input[$n]['text'];
+		}
+		$keywords = implode(',', $keywords);
+		return $keywords;
+	}
+}

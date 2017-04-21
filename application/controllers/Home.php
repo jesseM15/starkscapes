@@ -73,6 +73,9 @@ class Home extends CI_Controller {
             $data['success'] = 'Thank you, we will contact you soon.';
         }
         
+        $data['site_name'] = $this->site_model->getSiteName()['site_name'];
+        $data['keywords'] = format_keywords($this->site_model->getKeywords());
+        $data['description'] = $this->site_model->getDescription()['description'];
         $data['page_title'] = 'Home';
         $data['marquee'] = $data['marquee'] = $this->site_model->getMarquee();
         $data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];

@@ -5,9 +5,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 
-	<title>StarkScapes - <?= $page_title ?></title>
+	<title><?= (!empty($site_name) ? $site_name : '') ?> - <?= (!empty($page_title) ? $page_title : '') ?></title>
 	<meta charset="utf-8">
-	<meta name="description" content="Write a description for the website here.">
+	<meta name="keywords" content="<?= (!empty($keywords) ? $keywords : '') ?>">
+	<meta name="description" content="<?= (!empty($description) ? $description : '') ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!--bootstrap and jquery-->

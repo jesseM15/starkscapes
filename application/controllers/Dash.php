@@ -8,12 +8,13 @@ class Dash extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url', 'form', 'admin'));
 		$this->load->library(array('form_validation','session'));
-		$this->load->model(array('image_model'));
+		$this->load->model(array('image_model', 'site_model'));
 		protect();
 	}
 
 	public function index()
 	{
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Dash';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 		$data['id'] = $this->session->logged_in['id'];

@@ -8,7 +8,7 @@ class Admin_home extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url', 'form', 'admin', 'utility'));
 		$this->load->library(array('form_validation','session', 'upload'));
-		$this->load->model(array('home_model', 'image_model'));
+		$this->load->model(array('home_model', 'image_model', 'site_model'));
 		protect();
 		$this->session->set_flashdata('error', '');
 		$this->session->set_flashdata('message', '');
@@ -16,6 +16,7 @@ class Admin_home extends CI_Controller {
 
 	public function index()
 	{
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Home';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
@@ -77,6 +78,7 @@ class Admin_home extends CI_Controller {
 
 		}
 
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Home - Carousel';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
@@ -96,6 +98,7 @@ class Admin_home extends CI_Controller {
 			$this->home_model->setAbout($this->input->post('content'));
 			$this->session->set_flashdata('message', 'Saved.');
 		}
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Home - About';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 		$data['about'] = $this->home_model->getAbout();
@@ -152,6 +155,7 @@ class Admin_home extends CI_Controller {
 		}
 
 		$data['serviceAreas'] = $this->home_model->getServiceAreas();
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Service Areas';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 

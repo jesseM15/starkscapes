@@ -8,7 +8,7 @@ class Admin_gallery extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url', 'form', 'admin', 'utility'));
 		$this->load->library(array('form_validation','session', 'upload', 'pagination'));
-		$this->load->model(array('image_model'));
+		$this->load->model(array('image_model', 'site_model'));
 		protect();
 		$this->session->set_flashdata('error', '');
 		$this->session->set_flashdata('message', '');
@@ -61,6 +61,7 @@ class Admin_gallery extends CI_Controller {
 		}
 
 		$data['categories'] = $this->image_model->getGalleryCategories();
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Gallery';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
@@ -139,6 +140,7 @@ class Admin_gallery extends CI_Controller {
 		$config = $this->configurePagination($category, $total);
 		$this->pagination->initialize($config);
 
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Gallery';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 

@@ -322,8 +322,52 @@ $(document).ready(function(){
 
 	// (All) - Set checkbox and hidden input value when checkbox is toggled
 	$('input[type="checkbox"]').change(function(){
-	    this.value = (Number(this.checked));
-	    this.prev().value = (Number(this.checked));
+		this.value = (Number(this.checked));
+		this.prev().value = (Number(this.checked));
+	});
+
+	// Metadata > Description - Count the characters used.
+	$(document).on("keyup", "#description", function() {
+		getCharacterCount();
+	});
+
+	// Metadata > Keywords - Add a new form group for keyword input
+	$(document).on("click", ".addKeyword", function(event) {
+		event.preventDefault();
+		$(".dynamic").append(
+			`<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
+				<input class="form-control" name="new[]" value="" placeholder="Keyword" />
+				<div class="input-group-btn">
+					<button disabled class="edit btn btn-default" data-toggle="tooltip" title="Edit">
+						<i class="fa fa-pencil" aria-hidden="true"></i>
+					</button>
+				</div>
+				<div class="input-group-btn">
+					<button class="delete btn btn-default" data-toggle="tooltip" title="Delete">
+						<i class="fa fa-trash" aria-hidden="true"></i>
+					</button>
+				</div>
+			</div>`
+		);
+		console.log('Keyword added');
 	});
 
 });
+
+function getCharacterCount()
+	{
+		var count = $("#description").val().length;
+		$("#count").html(count);
+		if (count < 136 || count >= 176)
+		{
+			$("#count").css("color", "#C00");
+		}
+		else if (count >= 136 && count < 146 || count >= 166 && count < 176)
+		{
+			$("#count").css("color", "#FB0");
+		}
+		else
+		{
+			$("#count").css("color", "#0C0");
+		}
+	}

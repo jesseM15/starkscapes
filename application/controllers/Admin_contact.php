@@ -16,6 +16,7 @@ class Admin_contact extends CI_Controller {
 
 	public function index()
 	{
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Contact';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
@@ -36,6 +37,7 @@ class Admin_contact extends CI_Controller {
 		$this->session->set_flashdata('error', validation_errors());
 
 		$data['contactMessage'] = phone_link_to_text($this->site_model->getContactMessage());
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Contact Message';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
@@ -56,6 +58,7 @@ class Admin_contact extends CI_Controller {
 		$this->session->set_flashdata('error', validation_errors());
 
 		$data['phone'] = $this->site_model->getPhone();
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Phone Number';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 

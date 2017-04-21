@@ -6,7 +6,7 @@ class Contact extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper(array('url', 'form'));
+		$this->load->helper(array('url', 'form', 'utility'));
 		$this->load->library(array('form_validation','session', 'email'));
 		$this->load->model(array('site_model', 'image_model'));
 	}
@@ -73,6 +73,9 @@ class Contact extends CI_Controller {
             $data['success'] = 'Thank you, we will contact you soon.';
         }
         
+        $data['site_name'] = $this->site_model->getSiteName()['site_name'];
+        $data['keywords'] = format_keywords($this->site_model->getKeywords());
+        $data['description'] = $this->site_model->getDescription()['description'];
         $data['page_title'] = 'Contact';
         $data['marquee'] = $this->site_model->getMarquee();
         $data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];

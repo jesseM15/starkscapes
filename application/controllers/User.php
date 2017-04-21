@@ -25,10 +25,12 @@ class User extends CI_Controller
             redirect(base_url('dash'));
         }
         //Load login screen if validation fails
+        $data['site_name'] = $this->site_model->getSiteName()['site_name'];
         $data['page_title'] = 'User Login';
         $data['marquee'] = $data['marquee'] = $this->site_model->getMarquee();
         $data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];
         $data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
+        $data['businessHours'] = $this->site_model->getHours();
         $data['businessInfo'] = $this->site_model->getBusinessInfo();
         $this->load->view('layout/header', $data);
         $this->load->view('login');
@@ -64,10 +66,13 @@ class User extends CI_Controller
             redirect(base_url('welcome'));
         }
 
+        $data['site_name'] = $this->site_model->getSiteName()['site_name'];
+        $data['description'] = $this->site_model->getDescription()['description'];
         $data['page_title'] = 'Register';
         $data['marquee'] = $data['marquee'] = $this->site_model->getMarquee();
         $data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];
         $data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
+        $data['businessHours'] = $this->site_model->getHours();
         $data['businessInfo'] = $this->site_model->getBusinessInfo();
         $this->load->view('layout/header', $data);
         $this->load->view('register', $data);

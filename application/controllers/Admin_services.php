@@ -8,7 +8,7 @@ class Admin_services extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url', 'form', 'admin', 'utility'));
 		$this->load->library(array('form_validation','session', 'upload'));
-		$this->load->model(array('service_model', 'image_model'));
+		$this->load->model(array('service_model', 'image_model', 'site_model'));
 		protect();
 		$this->session->set_flashdata('error', '');
 		$this->session->set_flashdata('message', '');
@@ -17,6 +17,7 @@ class Admin_services extends CI_Controller {
 	public function index()
 	{
 		$data['services'] = $this->service_model->getServices();
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Admin Services';
 		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
@@ -126,6 +127,7 @@ class Admin_services extends CI_Controller {
 		}
 
 		$data['services'] = $services;
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Service';
 		$data['service'] = '';
 

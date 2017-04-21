@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
 
-	<title>StarkScapes - <?= $page_title ?></title>
+	<title><?= $site_name ?> - <?= $page_title ?></title>
 	<meta charset="utf-8">
-	<meta name="description" content="Write a description for the website here.">
+	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!--bootstrap and jquery-->
@@ -51,6 +51,7 @@
 							<li<?= $this->uri->segment(1) == 'admin-services' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-services"><i class="fa fa-wrench"></i>&nbsp;Services</a></li>
 							<li<?= $this->uri->segment(1) == 'admin-gallery' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-gallery"><i class="fa fa-camera-retro" aria-hidden="true"></i>&nbsp;Gallery</a></li>
 							<li<?= $this->uri->segment(1) == 'admin-contact' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-contact"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;Contact</a></li>
+							<li<?= $this->uri->segment(1) == 'admin-metadata' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-metadata"><i class="fa fa-database" aria-hidden="true"></i>&nbsp;Metadata</a></li>
 						</ul>
 						<ul class="navList nav navbar-nav navbar-right">
 							<li><a class="navLink" href="<?= base_url() ?>"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Visit&nbsp;Site</a></li>
