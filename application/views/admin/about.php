@@ -4,8 +4,12 @@
 			<a class="breadcrumb" href="<?= base_url() ?>admin-home"><i class="fa fa-home"></i>&nbsp;Home</a>
 			&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
 			<span class="breadcrumb-end"><i class="fa fa-question-circle-o" aria-hidden="true"></i>&nbsp;About</span>
-			<h1><i class="fa fa-question-circle-o" aria-hidden="true"></i>&nbsp;About</h1>
-			<div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+			<h1 class="text-center"><i class="fa fa-question-circle-o" aria-hidden="true"></i>&nbsp;About</h1>
+			<br />
+			<div class="center col-xs-12 col-sm-9">
+				<p class="well">Here you can edit the About section.</p>
+			</div>
+			<div class="col-sm-6 col-md-8 col-lg-10 center">
 				<form method="post" action="<?= base_url() ?>admin_home/about">
 					<input name="content" type="hidden">
 					<div id="quill1">

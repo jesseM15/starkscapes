@@ -1,8 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	<section id="admin_home" class="admin-section">
 		<div class="admin_wrap container-fluid">
-			<h1><i class="fa fa-home"></i>&nbsp;Home</h1>
-			<p class="well">Here you can edit the Home page.  You can edit the Carousel, the About section, and the Service Areas section.</p>
+			<h1 class="text-center"><i class="fa fa-home"></i>&nbsp;Home</h1>
+			<br />
+			<div class="center col-xs-12 col-sm-9">
+				<p class="well">Here you can edit the Home page.  You can edit the Carousel, the About section, and the Service Areas section.</p>
+			</div>
 			<div class="section-nav container-fluid text-center">
 				<div class="col-sm-4">
 					<a href="<?= base_url() ?>admin-home/carousel"><div class="section-nav-div"><i class="fa fa-repeat" aria-hidden="true"></i><br />Carousel</div></a>

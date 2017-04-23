@@ -1,11 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-	<section id="admin_services_service" class="admin-section">
+	<section id="admin_gallery_category" class="admin-section">
 		<div class="admin_wrap container-fluid">
 			<div id="admingallery" class="center">
 				<a class="breadcrumb" href="<?= base_url() ?>admin-gallery"><i class="fa fa-camera-retro"></i>&nbsp;Gallery</a>
 				&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
 				<span class="breadcrumb-end"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;<?= $category ?></span>
-				<h1><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;<?= $category ?></h1>
+				<h1 class="text-center"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;<?= $category ?></h1>
+				<br />
+				<div class="center col-xs-12 col-sm-9">
+					<p class="well">Here you can add, remove, and change the order of images in the category.</p>
+				</div>
 				<div id="admingalleryContent" class="text-center">
 					
 					<div class="row">

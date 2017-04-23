@@ -4,20 +4,22 @@
 			<a class="breadcrumb" href="<?= base_url() ?>admin-site"><i class="fa fa-asterisk" aria-hidden="true"></i>&nbsp;Site</a>
 			&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
 			<span class="breadcrumb-end"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Logo</span>
-			<h1><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Logo</h1>
-			<div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+			<h1 class="text-center"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Logo</h1>
+			<br />
+			<div class="center col-xs-12 col-sm-9">
+				<p class="well">Here you can edit the logo for your site.  An optimized image that is wide and short is recommended.</p>
+			</div>
+			<div class="container col-sm-9 col-md-6 center">
 				<form id="logo-form" method="post" action="<?= base_url() ?>admin_site/logo" enctype="multipart/form-data">
 
-					<div class="img-container form-group col-sm-12 col-md-6 col-md-offset-3 text-center">
+					<div class="img-container form-group text-center">
 						<img class="current-image img-responsive center" src="<?= base_url() . $logo['path'] ?>" alt="<?= $logo['text'] ?>" />
 						<br />
 						<input type="hidden" id="selectedImage" name="selectedImage" />
 						<button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#imagesModal">Change</button>
 					</div>
 
-				<br /><br />
-
-				<div class="form-group col-sm-12 text-center">
+				<div class="form-group text-center">
 					<input class="btn btn-default btn-lg" type="submit" value="Save" form="logo-form" />
 				</div>
 

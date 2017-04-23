@@ -304,76 +304,71 @@ nav {
 	background-repeat: repeat;
 }
 
-#servicesOverviewContent {
-	padding-left: 5%;
-	padding-right: 5%;
-}
-
-.service {
-	margin-top: 5%;
-	margin-bottom: 5%;
-	padding: 0 8%;
-	color: #eee;
-	font-size: 180%;
-	text-align: center;
-}
-
-.service a {
+.services-overview-anchor {
 	display: inline-block;
-	outline: 0;
 }
 
-.serviceImage {
-	/*max-width: 300px;*/
+.services-overview-anchor:hover {
+	outline: 0;
+	text-decoration: none;
+}
+
+.services-overview-div {
+	margin: 35px auto;
+	width: 240px;
+	height: 240px;
 	border: 1px solid #555;
 	border-radius: 50%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.7);
-	/*-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);*/
-	transition: box-shadow 1s;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.6), 0 3px 10px 0 rgba(0, 0, 0, 0.6);
+	transition: box-shadow 0.8s;
 	overflow: visible;
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 }
 
-.serviceItem:hover {
-	max-width: 300px;
-	margin: 0 auto;
+.services-overview-div:hover {
 	border: 1px solid #777;
-	border-radius: 50%;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+	text-decoration: none;
 }
 
-.serviceItem {
-	max-width: 300px;
-	margin: 0 auto;
-	overflow: visible;
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	transform-style: preserve-3d;
+.services-overview-div span {
+	width: 240px;
+	height: 240px;
+	font-size: 22pt;
+	color: #FFF;
+	text-shadow: 2px 2px 4px #000;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	text-decoration: none;
 }
 
-.serviceItem:hover {
-	/*max-width: 300px;
-	margin: 0 auto;
-	border: 1px solid #777;
-	border-radius: 50%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);*/
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+	.services-overview-div {
+		width: 200px;
+		height: 200px;
+	}
+
+	.services-overview-div span {
+		width: 200px;
+		height: 200px;
+		font-size: 18pt;
+	}
 }
 
-.carousel-inner {
-	overflow: visible;
-}
+@media only screen and (max-width: 400px) {
+	.services-overview-div {
+		width: 200px;
+		height: 200px;
+	}
 
-.carousel-caption {
-	top: 50%;
-	left: 0;
-	right: 0;
-	transform: translateY(-50%);
-	bottom: initial;
-	text-shadow: 2px 2px 15px #000;
+	.services-overview-div span {
+		width: 200px;
+		height: 200px;
+		font-size: 18pt;
+	}
 }
 
 #contact {

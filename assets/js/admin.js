@@ -38,7 +38,7 @@ $(document).ready(function(){
 	$(document).on("click", ".addServiceArea", function(event) {
 		event.preventDefault();
 		$(".dynamic").append(
-			`<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
+			`<div class="form-group input-group">
 				<input class="form-control" name="new[]" value="" placeholder="Area" />
 				<div class="input-group-btn">
 					<button disabled class="edit btn btn-default" data-toggle="tooltip" title="Edit">
@@ -96,7 +96,7 @@ $(document).ready(function(){
 	$(document).on("click", ".addCategory", function(event) {
 		event.preventDefault();
 		$(".dynamic").append(
-			`<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
+			`<div class="form-group input-group">
 				<input class="form-control" name="new[]" value="" placeholder="Category" />
 				<div class="input-group-btn">
 					<button disabled class="edit btn btn-default" data-toggle="tooltip" title="Edit">
@@ -216,7 +216,7 @@ $(document).ready(function(){
 	$(document).on("click", ".addMarqueeLine", function(event) {
 		event.preventDefault();
 		$(".dynamic").append(
-			`<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
+			`<div class="form-group input-group">
 				<input class="form-control" name="new[]" value="" placeholder="Marquee Line" />
 				<div class="input-group-btn">
 					<button disabled class="edit btn btn-default" data-toggle="tooltip" title="Edit">
@@ -238,7 +238,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		var random = Math.random();
 		$(".dynamic").append(
-			`<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
+			`<div class="form-group input-group">
 				<input class="form-control" name="new-` + random + `" value="" placeholder="Info" />
 				<div class="input-group-addon">
 					<label for="newCheckbox-` + random + `" style="margin:0;">Green
@@ -286,7 +286,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$(".dynamic").append(
 			`<div class="form-group">
-				<div class="input-group col-sm-12 col-md-6 col-md-offset-3">
+				<div class="input-group">
 					<input class="form-control" name="newCategory[]" value='' placeholder="Hours Category">
 					<span class="input-group-addon">-</span>
 					<input class="form-control" name="new[]" value='' placeholder="Hours">
@@ -335,7 +335,7 @@ $(document).ready(function(){
 	$(document).on("click", ".addKeyword", function(event) {
 		event.preventDefault();
 		$(".dynamic").append(
-			`<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
+			`<div class="form-group input-group">
 				<input class="form-control" name="new[]" value="" placeholder="Keyword" />
 				<div class="input-group-btn">
 					<button disabled class="edit btn btn-default" data-toggle="tooltip" title="Edit">

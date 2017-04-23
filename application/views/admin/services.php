@@ -1,8 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	<section id="admin_services" class="admin-section">
 		<div class="admin_wrap container-fluid">
-			<h1><i class="fa fa-wrench"></i>&nbsp;Services</h1>
-			<p class="well">Here you can edit the Services page.  You can edit each of the 3 service sections.</p>
+			<h1 class="text-center"><i class="fa fa-wrench"></i>&nbsp;Services</h1>
+			<br />
+			<div class="center col-xs-12 col-sm-9">
+				<p class="well">Here you can edit the Services page.  You can edit each of the 3 service sections.</p>
+			</div>
 			<div class="section-nav container-fluid text-center">
 				<?php foreach ($services as $service) : ?>
 				<div class="section-icon col-sm-4">

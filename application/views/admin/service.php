@@ -4,34 +4,38 @@
 			<a class="breadcrumb" href="<?= base_url() ?>admin-services"><i class="fa fa-wrench"></i>&nbsp;Services</a>
 			&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
 			<span class="breadcrumb-end"><?= $service['icon'] . "&nbsp;" . $service['service'] ?></span>
-			<h1><?= $service['icon'] . "&nbsp;" . $service['service'] ?></h1>
-			<div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
-				<form id="service-form" method="post" action="<?= base_url() ?>admin_services/service/<?= format_as_class($service['service']) ?>" enctype="multipart/form-data">
-					<div class="form-group col-sm-12 col-md-6 col-md-offset-3">
+			<h1 class="text-center"><?= $service['icon'] . "&nbsp;" . $service['service'] ?></h1>
+			<br />
+			<div class="center col-xs-12 col-sm-9">
+					<p class="well">Here you can edit the name of the service, the service image, and the text for the service.  Note the service image must be a square image.</p>
+				</div>
+			<form id="service-form" method="post" action="<?= base_url() ?>admin_services/service/<?= format_as_class($service['service']) ?>" enctype="multipart/form-data">
+				<div class="container col-sm-9 col-md-6 center">
+					<div class="form-group">
 						<label for="category">Name</label>
 						<input class="form-control" name="category" value="<?= $service['service'] ?>" placeholder="Name">
 					</div>
 
-					<div class="img-container form-group col-sm-12 col-md-6 col-md-offset-3 text-center">
+					<div class="img-container form-group text-center">
 						<img class="current-image img-responsive center" src="<?= base_url() . $service['image']['path'] ?>" alt="<?= $service['image']['text'] ?>" />
 						<br />
 						<input type="hidden" id="selectedImage" name="selectedImage" />
 						<button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#imagesModal">Change</button>
 					</div>
-
-					<div class="clearfix"></div>
-					<input name="content" type="hidden">
-					<div id="quill1">
-						<?= (!empty($service['content']) ? $service['content'] : '') ?>
-					</div>
-
-				<br /><br />
-
-				<div class="form-group col-sm-12 text-center">
-					<input class="btn btn-default btn-lg" type="submit" value="Save" form="service-form" />
+				</div>
+				<div class="clearfix"></div>
+				<input name="content" type="hidden">
+				<div id="quill1">
+					<?= (!empty($service['content']) ? $service['content'] : '') ?>
 				</div>
 
-				</form>
+			<br />
+
+			<div class="form-group text-center">
+				<input class="btn btn-default btn-lg" type="submit" value="Save" form="service-form" />
+			</div>
+
+			</form>
 				<div class="clearfix"></div>
 				<?php if (!empty($_SESSION['message'])) : ?>
 				<div class="container-fluid">
@@ -47,7 +51,6 @@
 					</div>
 				</div>
 				<?php endif; ?>
-			</div>
 		</div>
 
 		<div class="modal fade" id="imagesModal" tabindex="-1" role="dialog" aria-labelledby="imagesModalLabel" aria-hidden="true">

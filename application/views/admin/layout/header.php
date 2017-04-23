@@ -43,7 +43,7 @@
 					</div>
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="navList nav navbar-nav navbar-left">
-							<li<?= empty($this->uri->segment(1)) || $this->uri->segment(1) == 'dash' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>dash"><i class="fa fa-tachometer" aria-hidden="true"></i>&nbsp;Dash</a></li>
+							<li<?= empty($this->uri->segment(1)) || $this->uri->segment(1) == 'dashboard' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i>&nbsp;Dashboard</a></li>
 						</ul>
 						<ul class="navList nav navbar-nav">
 							<li<?= empty($this->uri->segment(1)) || $this->uri->segment(1) == 'admin-site' ? ' class="active"': '' ?>><a class="navLink" href="<?= base_url() ?>admin-site"><i class="fa fa-asterisk" aria-hidden="true"></i>&nbsp;Site</a></li>

@@ -7,16 +7,6 @@ body, nav, .navWrap {
 	/*min-height: 50vh;*/
 }
 
-#info {
-	width: 90%;
-	max-width: 400px;
-	padding: 0 20px;
-	background: #F00;
-	background: rgba(255, 255, 255, 0.9);
-	border: 1px solid #000;
-	border-radius: 15px;
-}
-
 .admin-section {
 	max-width: 1400px;
 	padding: 5%;
@@ -109,7 +99,7 @@ body, nav, .navWrap {
 }
 
 .img-container {
-	padding: 3%;
+	padding: 20px;
 	border: solid 1px #AAA;
 	border-radius: 3%;
 }

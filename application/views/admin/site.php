@@ -1,8 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	<section id="admin_site" class="admin-section">
 		<div class="admin_wrap container-fluid">
-			<h1><i class="fa fa-asterisk" aria-hidden="true"></i>&nbsp;Site</h1>
-			<p class="well">Here you can edit things that appear on every page.  You can edit the Marquee, Logo, Hours, Business Info, and Background.</p>
+			<h1 class="text-center"><i class="fa fa-asterisk" aria-hidden="true"></i>&nbsp;Site</h1>
+			<br />
+			<div class="center col-xs-12 col-sm-9">
+				<p class="well">Here you can edit things that appear on every page.  You can edit the Marquee, Logo, Hours, Business Info, and Background.</p>
+			</div>
 			<div class="section-nav container-fluid text-center">
 				<div class="col-sm-4">
 					<a href="<?= base_url() ?>admin-site/marquee"><div class="section-nav-div"><i class="fa fa-long-arrow-left" aria-hidden="true"></i><br />Marquee</div></a>

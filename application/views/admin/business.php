@@ -4,11 +4,15 @@
 			<a class="breadcrumb" href="<?= base_url() ?>admin-site"><i class="fa fa-asterisk" aria-hidden="true"></i>&nbsp;Site</a>
 			&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
 			<span class="breadcrumb-end"><i class="fa fa-info" aria-hidden="true"></i>&nbsp;Business Info</span>
-			<h1><i class="fa fa-info" aria-hidden="true"></i>&nbsp;Business Info</h1>
-			<div class="container">
+			<h1 class="text-center"><i class="fa fa-info" aria-hidden="true"></i>&nbsp;Business Info</h1>
+			<br />
+			<div class="center col-xs-12 col-sm-9">
+				<p class="well">Here you can edit your business info.  Setting the checkbox labeled 'Green' will make the text green and bold.  Note you can make your phone number appear as a link by entering #PHONE.</p>
+			</div>
+			<div class="container col-sm-12 col-md-6 center">
 				<?= form_open(base_url() . 'admin-site/business', 'class="business_info_form"') ?>
 					<?php foreach ($businessInfos as $info) : ?>
-					<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
+					<div class="form-group input-group">
 						<input disabled class="form-control disabledInput" name="old-<?= $info['id'] ?>" value='<?= $info["text"] ?>' placeholder="Info" />
 						<div class="input-group-addon">
 							<label for="oldCheckbox-<?= $info['id'] ?>" style="margin:0;">Green
@@ -25,7 +29,7 @@
 					</div>
 					<?php endforeach; ?>
 					<div class="dynamic"></div>
-					<div class="business_info_buttons form-group col-sm-12 text-center">
+					<div class="business_info_buttons form-group text-center">
 						<button class="addBusinessInfo btn btn-success btn-lg">Add Business Info</button>
 						<br /><br />
 						<input type="submit" id="submitData" class="btn btn-default btn-lg" name="submit" value="Save" />

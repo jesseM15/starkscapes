@@ -20,11 +20,10 @@ class User extends CI_Controller
         $this->form_validation->set_rules('login_email','Email','required|trim');
         $this->form_validation->set_rules('login_password','Password','required|trim|callback_check_credentials');
 
-        //Redirect if validation succeeds
         if($this->form_validation->run()){
-            redirect(base_url('dash'));
+            redirect(base_url('dashboard'));
         }
-        //Load login screen if validation fails
+
         $data['site_name'] = $this->site_model->getSiteName()['site_name'];
         $data['page_title'] = 'User Login';
         $data['marquee'] = $data['marquee'] = $this->site_model->getMarquee();
@@ -63,7 +62,7 @@ class User extends CI_Controller
             $session_array['email'] = $user['email'];
             $session_array['role'] = $user['role'];
             $this->session->set_userdata('logged_in',$session_array);
-            redirect(base_url('welcome'));
+            redirect(base_url('dash'));
         }
 
         $data['site_name'] = $this->site_model->getSiteName()['site_name'];
@@ -92,6 +91,7 @@ class User extends CI_Controller
                 $session_array['id'] = $row->id;
                 $session_array['email'] = $row->email;
                 $session_array['role'] = $row->role;
+                $session_array['name'] = $row->name;
             }
 
             $this->session->set_userdata('logged_in',$session_array);

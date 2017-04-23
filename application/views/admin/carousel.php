@@ -5,7 +5,11 @@
 				<a class="breadcrumb" href="<?= base_url() ?>admin-home"><i class="fa fa-home"></i>&nbsp;Home</a>
 				&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
 				<span class="breadcrumb-end"><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;Carousel</span>
-				<h1><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;Carousel</h1>
+				<h1 class="text-center"><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;Carousel</h1>
+				<br />
+				<div class="center col-xs-12 col-sm-9">
+					<p class="well">Here you can add, remove, and change the order of images in the carousel.</p>
+				</div>
 				<div id="adminhomeContent" class="text-center">
 					
 					<div class="row">
@@ -71,6 +75,7 @@
 							?>
 						</div>
 					</div>
+					<br />
 					<div class="row">
 						<button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#imagesModal">Add Image</button>
 					</div>

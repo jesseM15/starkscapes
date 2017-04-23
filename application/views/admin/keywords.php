@@ -4,11 +4,15 @@
 			<a class="breadcrumb" href="<?= base_url() ?>admin-metadata"><i class="fa fa-database" aria-hidden="true"></i>&nbsp;Metadata</a>
 			&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
 			<span class="breadcrumb-end"><i class="fa fa-key" aria-hidden="true"></i>&nbsp;Keywords</span>
-			<h1><i class="fa fa-key" aria-hidden="true"></i>&nbsp;Keywords</h1>
-			<div class="container">
+			<h1 class="text-center"><i class="fa fa-key" aria-hidden="true"></i>&nbsp;Keywords</h1>
+			<br />
+			<div class="center col-xs-12 col-sm-9">
+				<p class="well">Here you can edit the keywords your site uses for search engine optimization.</p>
+			</div>
+			<div class="container col-sm-12 col-md-6 center">
 				<?= form_open(base_url() . 'admin-metadata/keywords', 'class="keywords_form"') ?>
 					<?php foreach ($keywords as $keyword) : ?>
-					<div class="form-group input-group col-sm-12 col-md-6 col-md-offset-3">
+					<div class="form-group input-group">
 						<input disabled class="form-control disabledInput" name="old-<?= $keyword['id'] ?>" value='<?= $keyword["text"] ?>' placeholder="Keyword" />
 						<div class="input-group-btn">
 							<button class="edit btn btn-default" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
@@ -19,7 +23,7 @@
 					</div>
 					<?php endforeach; ?>
 					<div class="dynamic"></div>
-					<div class="keywords_buttons form-group col-sm-12 text-center">
+					<div class="keywords_buttons form-group text-center">
 						<button class="addKeyword btn btn-success btn-lg">Add Keyword</button>
 						<br /><br />
 						<input type="submit" id="submitData" class="btn btn-default btn-lg" name="submit" value="Save" />
