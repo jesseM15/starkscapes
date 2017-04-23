@@ -4,11 +4,11 @@
 			<div id="admingallery" class="center">
 				<a class="breadcrumb" href="<?= base_url() ?>admin-gallery"><i class="fa fa-camera-retro"></i>&nbsp;Gallery</a>
 				&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
-				<span class="breadcrumb-end"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;<?= $category ?></span>
-				<h1 class="text-center"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;<?= $category ?></h1>
+				<span class="breadcrumb-end"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;<?= $category['title'] ?></span>
+				<h1 class="text-center"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;<?= $category['title'] ?></h1>
 				<br />
 				<div class="center col-xs-12 col-sm-9">
-					<p class="well">Here you can add, remove, and change the order of images in the category.</p>
+					<p class="well">Here you can add, remove, and change the order of images in the category.  You can also change the title of the category and delete the category.</p>
 				</div>
 				<div id="admingalleryContent" class="text-center">
 					
@@ -78,10 +78,10 @@
 					<div id="pagination" class="text-center" style="position: relative;">
 					<?= $this->pagination->create_links() ?>
 					</div>
-					<div class="row">
-						<button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#imagesModal">Add Image</button>
-					</div>
-					<div class="clearfix"></div>
+					<div class="col-sm-12 center">
+						<button class="categoryButton btn btn-lg btn-default" data-toggle="modal" data-target="#imagesModal">Add Image</button>
+						<button class="categoryButton btn btn-lg btn-default" data-toggle="modal" data-target="#categoryModal">Change Title</button>
+						<button id="<?= $category['id'] ?>" class="categoryButton categoryDelete btn btn-lg btn-danger">Delete Category</button>
 					<?php if (!empty($_SESSION['message'])) : ?>
 					<div class="container-fluid">
 						<div class="message alert alert-success text-center">
@@ -128,6 +128,33 @@
 							<input type="hidden" id="selectedImage" name="selectedImage" />
 							<button type="button" class="image-select-button btn btn-lg btn-default" data-dismiss="modal">Select</button>
 						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title col-xs-10" id="categoryModalLabel">Change Category Title</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<i class="fa fa-window-close-o col-xs-2" aria-hidden="true"></i>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<form id="category-form" method="post" action="<?= base_url() ?>admin_gallery/category/<?= $this->uri->segment(3) . '/' . $this->uri->segment(4) ?>">
+								<div class="form-group col-sm-9 center">
+									<label for="categoryTitle">Category Title</label>
+									<input id="categoryTitle" name="title" class="form-control" value="<?= $category['title'] ?>" placeholder="Title" />
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-lg btn-default" data-dismiss="modal">Cancel</button>
+						<input type="submit" name="submit" class="btn btn-lg btn-default" value="Save" form="category-form" />
 					</div>
 				</div>
 			</div>

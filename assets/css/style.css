@@ -329,7 +329,7 @@ nav {
 
 .services-overview-div:hover {
 	border: 1px solid #777;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 16px 0 rgba(0, 0, 0, 0.8);
 	text-decoration: none;
 }
 
@@ -584,15 +584,20 @@ footer {
 	bottom: 0;
 }
 
-.paginationWrap {
-	
+.pagination a {
+	width: 100%;
+	padding: 0 8px;
+	display: inline-block;
+}
+
+.pagination:hover {
+	background: #016934;
 }
 
 .pagination {
 	margin: 0 -1px;
 	min-width: 30px;
-	font-size: 120%;
-	padding: 1px 8px;
+	font-size: 140%;
 	background: #000;
 	border-radius: 0;
 	border: 1px #444 solid;

@@ -84,40 +84,6 @@ $(document).ready(function(){
 		$('#selectedImage').attr('value', $(".selection").children().prop("src"));
 	});
 
-	// Gallery - Go to the gallery category page
-	$(document).on("click", ".goto", function(event) {
-		event.preventDefault();
-		var link = $(this).attr("data-link");
-		window.location = link;
-		console.log('Going to category page');
-	});
-
-	// Gallery - Add a new form group for category input
-	$(document).on("click", ".addCategory", function(event) {
-		event.preventDefault();
-		$(".dynamic").append(
-			`<div class="form-group input-group">
-				<input class="form-control" name="new[]" value="" placeholder="Category" />
-				<div class="input-group-btn">
-					<button disabled class="edit btn btn-default" data-toggle="tooltip" title="Edit">
-						<i class="fa fa-pencil" aria-hidden="true"></i>
-					</button>
-				</div>
-				<div class="input-group-btn">
-					<button class="delete btn btn-default" data-toggle="tooltip" title="Delete">
-						<i class="fa fa-trash" aria-hidden="true"></i>
-					</button>
-				</div>
-				<div class="input-group-btn">
-					<button disabled class="goto btn btn-default" data-link="" data-toggle="tooltip" title="Go to Gallery Category">
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-					</button>
-				</div>
-			</div>`
-		);
-		console.log('Category added');
-	});
-
 	// Gallery > (Any), Home > Carousel - Set upload file and submit form
 	$(document).on("change", "#image-file", function(event) {
 		event.preventDefault();
@@ -210,6 +176,30 @@ $(document).ready(function(){
 		request.fail(function( jqXHR, status ) {
 			console.log("Request failed:\n", status);
 		});
+	});
+
+	// Gallery > (Any) - Delete category
+	$(document).on("click", ".categoryDelete", function(event) {
+		event.preventDefault();
+		if (confirm("Are you sure you want to remove this category?  The images will still be available but the category will be removed.") == true) {
+			var id = $(this).prop("id");
+			var request = $.ajax({
+				url: "/admin-gallery/ajaxPost",
+				data: {'id' : id, 'button' : 'deleteCategory'},
+				dataType: "json",
+				method: "POST"
+			});
+			request.done(function(response) {
+				console.log("Request Successful:\n", response);
+				if (response.result === "Success")
+				{
+					window.location.replace(response.redirect);
+				}
+			});
+			request.fail(function( jqXHR, status ) {
+				console.log("Request failed:\n", status);
+			});
+		}
 	});
 
 	// Site > Marquee - Add a new form group for marquee line input

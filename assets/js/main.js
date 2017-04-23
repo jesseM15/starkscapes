@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+	// Ignores the initial navbar fix when linking to 
+	// services from the home page so it doesn't fade 
+	// in until the user actually scrolls.
+	var ignoreFixNavbar = 2;
+	
 	// Fade the appropriate services out
 	if (window.location.href.includes("#lawn-care"))
 	{
@@ -17,19 +22,20 @@ $(document).ready(function() {
 		$("#landscaping").fadeTo("slow", 0.5);
 	}
 
-	// Fade the services in on scroll
-	$(window).scroll(function() {  
-		$("#lawn-care").fadeTo("slow", 1);
-		$("#landscaping").fadeTo("slow", 1);
-		$("#snow-removal").fadeTo("slow", 1);
-	});
-
-	// Fix the navbar to the top if the user scrolls past the logo
 	$(window).scroll(function() {
+		if (ignoreFixNavbar <= 0){
+			// Fade the services in on scroll
+			$("#lawn-care").fadeTo("slow", 1);
+			$("#landscaping").fadeTo("slow", 1);
+			$("#snow-removal").fadeTo("slow", 1);
+		}
+
+		// Fix the navbar to the top if the user scrolls past the logo
 		if (scrollHeight())
 		{
 			if($(window).scrollTop() > (scrollHeight())){
 				$('nav').addClass('navbar-fixed-top');
+				ignoreFixNavbar--;
 			}
 			else{
 				$('nav').removeClass('navbar-fixed-top');

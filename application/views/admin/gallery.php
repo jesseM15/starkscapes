@@ -4,31 +4,17 @@
 			<h1 class="text-center"><i class="fa fa-camera-retro"></i>&nbsp;Gallery</h1>
 			<br />
 			<div class="center col-xs-12 col-sm-9">
-				<p class="well">Here you can edit the Gallery page.  You can add and edit categories of pictures.</p>
+				<p class="well">Here you can edit the Gallery page.  You can add new categories of pictures.</p>
 			</div>
-			<div class="container col-sm-12 col-md-6 center">
-				<?= form_open(base_url() . 'admin-gallery', 'class="gallery_form"') ?>
-					<?php foreach($categories as $category) : ?>
-					<div class="form-group input-group">
-						<input disabled class="form-control disabledInput" name="old-<?= $category['id'] ?>" value="<?= $category["title"] ?>" placeholder="Category">
-						<div class="input-group-btn">
-							<button class="edit btn btn-default" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-						</div>
-						<div class="input-group-btn">
-							<button class="delete btn btn-default" data-toggle="tooltip" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
-						</div>
-						<div class="input-group-btn">
-							<button class="goto btn btn-default" data-link="<?= base_url() . 'admin-gallery/category/' . $category['url_segment'] ?>" data-toggle="tooltip" title="Go to <?= $category["title"] ?>"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
-						</div>
-					</div>
-					<?php endforeach; ?>
-					<div class="dynamic"></div>
-					<div class="category_buttons form-group text-center">
-						<button class="addCategory btn btn-success btn-lg">Add Category</button>
-						<br /><br />
-						<input type="submit" id="submitData" class="btn btn-default btn-lg" name="submit" value="Save" />
-					</div>
-				</form>
+			<div class="section-nav container-fluid text-center">
+			<?php foreach($categories as $category) : ?>
+				<div class="col-sm-4">
+					<a href="<?= base_url() . 'admin-gallery/category/' . $category['url_segment'] ?>"><div class="section-nav-div"><i class="fa fa-picture-o" aria-hidden="true"></i><br /><?= $category['title'] ?></div></a>
+				</div>
+			<?php endforeach; ?>
+				<div class="col-sm-12">
+					<button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#categoryModal">Add Category</button>
+				</div>
 			</div>
 			<?php if (!empty($_SESSION['message'])) : ?>
 			<div class="container-fluid">
@@ -38,4 +24,32 @@
 			</div>
 			<?php endif; ?>
 		</div>
+
+		<div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title col-xs-10" id="categoryModalLabel">Enter a Category Title</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<i class="fa fa-window-close-o col-xs-2" aria-hidden="true"></i>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<form id="category-form" method="post" action="<?= base_url() ?>admin_gallery">
+								<div class="form-group col-sm-9 center">
+									<label for="categoryTitle">Category Title</label>
+									<input id="categoryTitle" name="title" class="form-control" value="" placeholder="Title" />
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-lg btn-default" data-dismiss="modal">Cancel</button>
+						<input type="submit" name="submit" class="btn btn-lg btn-default" value="Save" form="category-form" />
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</section>

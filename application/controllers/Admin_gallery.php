@@ -16,48 +16,12 @@ class Admin_gallery extends CI_Controller {
 
 	public function index()
 	{
-		if (!empty($this->input->post()))
+		$this->form_validation->set_rules('title', 'Title', 'trim|required');
+
+		if ($this->form_validation->run() == TRUE)
 		{
-			$categories = $this->image_model->getGalleryCategories();
-			$c = 0;
-			$current = array();
-			foreach ($_POST as $key => $value)
-			{
-				if (strpos($key, 'old') !== FALSE)
-				{
-					$arr = explode('-', $key);
-					$current[$c]['id'] = end($arr);
-					$current[$c]['title'] = $value;
-					$c++;
-				}
-			}
-			for ($b = 0; $b < count($categories); $b++)
-			{
-				$deleted = TRUE;
-				for ($c = 0; $c < count($current); $c++)
-				{
-					if ($current[$c]['id'] === $categories[$b]['id'])
-					{
-						$deleted = FALSE;
-						if ($current[$c]['title'] !== $categories[$b]['title'])
-						{
-							$this->image_model->setCategory(array('id' => $current[$c]['id'], 'title' => $current[$c]['title'], 'url_segment' => format_as_class($current[$c]['title'])));
-						}
-					}
-				}
-				if ($deleted)
-				{
-					$this->image_model->deleteCategory(array('id' => $categories[$b]['id'], 'title' => $categories[$b]['title'], 'url_segment' => format_as_class($categories[$b]['title'])));
-				}
-			}
-			if (!empty($_POST['new']))
-			{
-				foreach ($_POST['new'] as $new)
-				{
-					$this->image_model->addCategory(array('title' => $new, 'url_segment' => format_as_class($new)));
-				}
-			}
-			$this->session->set_flashdata('message', 'Saved.');
+			$this->image_model->addCategory(array('title' => $_POST['title'], 'url_segment' => format_as_class($_POST['title'])));
+			redirect(base_url() . 'admin_gallery/category/' . format_as_class($_POST['title']) . '/1');
 		}
 
 		$data['categories'] = $this->image_model->getGalleryCategories();
@@ -77,6 +41,7 @@ class Admin_gallery extends CI_Controller {
 
 		$this->form_validation->set_rules('file', 'File', 'trim');
 		$this->form_validation->set_rules('selectedImage', 'Selected Image', 'callback_check_path_unique');
+		$this->form_validation->set_rules('title', 'Title', 'trim|required');
 
 		if ($this->form_validation->run() == TRUE)
 		{
@@ -128,11 +93,15 @@ class Admin_gallery extends CI_Controller {
 				// redirect(base_url() . 'admin_gallery/category/' . $category . '/' . $totalPages);
 				redirect(base_url() . 'admin_gallery/category/' . $category . '/1');
 			}
-
+			if ($category !== $_POST['title'])
+			{
+				$this->image_model->setCategory(array('id' => $this->image_model->getCategory($category)['id'], 'title' => $_POST['title'], 'url_segment' => format_as_class($_POST['title'])));
+				redirect(base_url() . 'admin_gallery/category/' . format_as_class($_POST['title']) . '/1');
+			}
 		}
 
 		$data['categories'] = $this->image_model->getCategories();
-		$data['category'] = $this->image_model->getCategory($category)['title'];
+		$data['category'] = $this->image_model->getCategory($category);
 		$total = $this->image_model->getImageCount('gallery', $category);
 
 		$start = ($page * 8 - 8);
@@ -253,6 +222,13 @@ class Admin_gallery extends CI_Controller {
 				$response = array(
 						'result' 	=> 'Success',
 						'redirect' 	=> base_url() . 'admin-gallery/category/' . $post['category'] . '/' . $post['page']
+					);
+				break;
+			case 'deleteCategory':
+				$this->image_model->deleteCategory(array('id' => $post['id']));
+				$response = array(
+						'result'	=> 'Success',
+						'redirect'	=> base_url() . 'admin-gallery/'
 					);
 				break;
 			default:

@@ -7,7 +7,7 @@
 			<h1 class="text-center"><i class="fa fa-square-o" aria-hidden="true"></i>&nbsp;Background</h1>
 			<br />
 			<div class="center col-xs-12 col-sm-9">
-				<p class="well">Here you can edit your background picture.  An optimized image with a resolution of at least 2560 X 1440 is recommended.</p>
+				<p class="well">Here you can edit your background picture.  An <a href="https://www.tinyjpg.com" target="_blank">optimized image</a> with a resolution of at least 2560 X 1440 is recommended.</p>
 			</div>
 			<div class="container col-sm-9 col-md-6 center">
 				<form id="background-form" method="post" action="<?= base_url() ?>admin_site/background" enctype="multipart/form-data">

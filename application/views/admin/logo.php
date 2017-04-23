@@ -7,7 +7,7 @@
 			<h1 class="text-center"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Logo</h1>
 			<br />
 			<div class="center col-xs-12 col-sm-9">
-				<p class="well">Here you can edit the logo for your site.  An optimized image that is wide and short is recommended.</p>
+				<p class="well">Here you can edit the logo for your site.  An <a href="https://www.tinyjpg.com" target="_blank">optimized image</a> that is wide and short is recommended.</p>
 			</div>
 			<div class="container col-sm-9 col-md-6 center">
 				<form id="logo-form" method="post" action="<?= base_url() ?>admin_site/logo" enctype="multipart/form-data">

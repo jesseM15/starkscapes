@@ -43,7 +43,7 @@ body, nav, .navWrap {
 }
 
 .section-nav a {
-	font-size: 30px;
+	font-size: 27px;
 	color: #016934;
 	outline: 0;
 }
@@ -56,17 +56,20 @@ body, nav, .navWrap {
 	background: #9EC953;
 	border: 1px solid #555;
 	border-radius: 25px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
-	transition: box-shadow 1s;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 16px 0 rgba(0, 0, 0, 0.3);
+	transition: box-shadow 0.8s;
 	overflow: visible;
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .section-nav-div:hover {
 	border: 1px solid #777;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 16px 0 rgba(0, 0, 0, 0.8);
 	text-decoration: none;
 	background: #016934;
 	color: #9EC953;
@@ -120,6 +123,10 @@ body, nav, .navWrap {
 	border: none;
 }
 
+.modal-content {
+    color: #000;
+}
+
 #imagesModalLabel {
 	color: #000;
 }
@@ -142,6 +149,10 @@ body, nav, .navWrap {
 
 #pagination {
 	margin: 2% 0;
+}
+
+.categoryButton {
+	margin: 15px;
 }
 
 .upload-button {
