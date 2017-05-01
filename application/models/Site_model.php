@@ -22,6 +22,20 @@ class Site_model extends CI_Model{
 		$this->db->update('contact_info', $data);
 	}
 
+	public function getEmail()
+	{
+		$this->db->select('email');
+		$result = $this->db->get('contact_info')->row_array(1);
+		return $result;
+	}
+
+	public function setEmail($email)
+	{
+		$data['email'] = $email;
+		$this->db->where('id', 1);
+		$this->db->update('contact_info', $data);
+	}
+
 	public function getContactMessage()
 	{
 		$this->db->select('message');
@@ -34,6 +48,18 @@ class Site_model extends CI_Model{
 		$data['message'] = $message;
 		$this->db->where('id', 1);
 		$this->db->update('contact_info', $data);
+	}
+
+	public function getContacts()
+	{
+		$this->db->order_by('time_stamp DESC');
+		$result = $this->db->get('contact')->result_array();
+		return $result;
+	}
+
+	public function addContact($contact)
+	{
+		$this->db->insert('contact', $contact);
 	}
 
 	public function getMarquee()

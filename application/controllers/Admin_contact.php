@@ -67,4 +67,37 @@ class Admin_contact extends CI_Controller {
 		$this->load->view('admin/layout/footer');
 	}
 
+	public function email()
+	{
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+
+		if ($this->form_validation->run() === TRUE)
+		{
+			$this->site_model->setEmail($this->input->post('email', TRUE));
+			$this->session->set_flashdata('message', 'Saved.');
+		}
+		$this->session->set_flashdata('error', validation_errors());
+
+		$data['email'] = $this->site_model->getEmail();
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+		$data['page_title'] = 'Admin Email';
+		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
+
+		$this->load->view('admin/layout/header', $data);
+		$this->load->view('admin/email', $data);
+		$this->load->view('admin/layout/footer');
+	}
+
+	public function contacts()
+	{
+		$data['contacts'] = $this->site_model->getContacts();
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+		$data['page_title'] = 'Admin Phone Number';
+		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
+
+		$this->load->view('admin/layout/header', $data);
+		$this->load->view('admin/contacts', $data);
+		$this->load->view('admin/layout/footer');
+	}
+
 }

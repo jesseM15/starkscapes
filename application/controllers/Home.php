@@ -37,8 +37,9 @@ class Home extends CI_Controller {
             $config['mailtype'] = 'html';
 			$this->email->initialize($config);
 			$this->email->from('webmaster@starkscapes.com', 'StarkScapes.com');
+			$email = $this->site_model->getEmail();
 			// $this->email->to('starkscapesllc@gmail.com');
-			$this->email->to('muddybuzzy@gmail.com');
+			$this->email->to($email);
 			$this->email->subject('Estimate Requested');
 			$logo = base_url() . 'assets/images/starkscapes.png';
 			$this->email->attach($logo, 'inline');
@@ -71,6 +72,8 @@ class Home extends CI_Controller {
 			$this->email->message($message);
 			$this->email->send();
             $data['success'] = 'Thank you, we will contact you soon.';
+
+            $this->site_model->addContact(array('first_name' => $this->input->post('fname'), 'last_name' => $this->input->post('lname'), 'phone' => $this->input->post('phone'), 'email' => $this->input->post('email'), 'address' => $this->input->post('address'), 'service' => $data['service_dropdown'][$this->input->post('service_dropdown')], 'other' => $this->input->post('other'), 'message' => $this->input->post('message')));
         }
         
         $data['site_name'] = $this->site_model->getSiteName()['site_name'];

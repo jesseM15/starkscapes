@@ -13,6 +13,12 @@
 				<div class="col-sm-4">
 					<a href="<?= base_url() ?>admin-contact/phone"><div class="section-nav-div"><i class="fa fa-phone" aria-hidden="true"></i><br />Phone&nbsp;Number</div></a>
 				</div>
+				<div class="col-sm-4">
+					<a href="<?= base_url() ?>admin-contact/email"><div class="section-nav-div"><i class="fa fa-reply" aria-hidden="true"></i><br />Email</div></a>
+				</div>
+				<div class="col-sm-4">
+					<a href="<?= base_url() ?>admin-contact/contacts"><div class="section-nav-div"><i class="fa fa-users" aria-hidden="true"></i><br />Contacts</div></a>
+				</div>
 			</div>
 		</div>
 	</section>

@@ -183,3 +183,44 @@ body, nav, .navWrap {
 	visibility: visible;
 }
 
+.contact {
+	margin: 30px auto;
+	padding: 10px;
+	border: 1px solid #000;
+	border-radius: 10px;
+	transition: box-shadow 0.5s;
+	background: #FAFAFA;
+}
+
+.contact:hover {
+	background: #FFF;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3), 0 3px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.contacts-message {
+	padding: 15px;
+	margin: 10px auto;
+	border: 1px solid #CCC;
+	border-radius: 10px;
+}
+
+.timestamp-service {
+	text-align: right;
+}
+
+@media only screen and (max-width: 768px) {
+	.timestamp-service {
+		text-align: center;
+	}
+}
+
+.service-other {
+	font-style: italic;
+}
+
+.name {
+	font-weight: 900;
+}
+
+
+
