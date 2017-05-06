@@ -17,8 +17,7 @@ class Home_model extends CI_Model{
 
 	public function setAbout($content)
 	{
-		$data = array('id' => 1, 'content' => $content);
-		$this->db->replace('about', $data);
+		$this->db->replace('about', $content);
 	}
 
 	public function getServiceAreas()

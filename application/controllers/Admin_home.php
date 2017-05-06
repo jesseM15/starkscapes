@@ -95,7 +95,8 @@ class Admin_home extends CI_Controller {
 	{
 		if (!empty($this->input->post('content')))
 		{
-			$this->home_model->setAbout($this->input->post('content'));
+			// $this->home_model->setAbout($this->input->post('content'));
+			$this->home_model->setAbout(array('id' => 1, 'content' => $this->input->post('content')));
 			$this->session->set_flashdata('message', 'Saved.');
 		}
 		$data['site_name'] = $this->site_model->getSiteName()['site_name'];

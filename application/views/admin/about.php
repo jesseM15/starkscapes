@@ -11,10 +11,13 @@
 			</div>
 			<div class="col-sm-6 col-md-8 col-lg-10 center">
 				<form method="post" action="<?= base_url() ?>admin_home/about">
-					<input name="content" type="hidden">
-					<div id="quill1">
-						<?= (!empty($about['content']) ? $about['content'] : '') ?>
-					</div>
+					<textarea name="content" id="ckeditor" rows="5"><?= (!empty($about['content']) ? $about['content'] : '') ?></textarea>
+					<script>
+						// Replace the <textarea id="ckeditor"> with a CKEditor instance
+						CKEDITOR.replace('ckeditor', { 
+							customConfig: 'custom/ckeditor_config.js'
+						});
+					</script>
 					<br />
 					<div class="text-center">
 						<button class="btn btn-default btn-lg" type="submit">Save</button>

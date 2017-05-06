@@ -16,9 +16,8 @@
 	<script src="<?= base_url() ?>assets/js/lightbox.js"></script>
 	<script src="<?= base_url() ?>assets/js/main.js"></script>
 	<script src="<?= base_url() ?>assets/js/admin.js"></script>
-	<!-- Include the Quill library -->
-	<script src="//cdn.quilljs.com/1.2.2/quill.min.js"></script>
-	<script src="<?= base_url() ?>assets/js/quill_edit.js"></script>
+	<!-- Include CKEditor -->
+	<script src="<?= base_url() ?>assets/ckeditor/ckeditor.js"></script>
 	<link href="<?= base_url() ?>assets/css/lightbox.css" rel="stylesheet" type="text/css">
 	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/font-awesome-4.7.0/css/font-awesome.min.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

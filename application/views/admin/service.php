@@ -23,11 +23,13 @@
 						<button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#imagesModal">Change</button>
 					</div>
 				</div>
-				<div class="clearfix"></div>
-				<input name="content" type="hidden">
-				<div id="quill1">
-					<?= (!empty($service['content']) ? $service['content'] : '') ?>
-				</div>
+				<textarea name="content" id="ckeditor" rows="5"><?= (!empty($service['content']) ? $service['content'] : '') ?></textarea>
+				<script>
+					// Replace the <textarea id="ckeditor"> with a CKEditor instance
+					CKEDITOR.replace('ckeditor', { 
+						customConfig: 'custom/ckeditor_config.js'
+					});
+				</script>
 
 			<br />
 

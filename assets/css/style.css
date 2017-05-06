@@ -294,11 +294,6 @@ nav {
 	padding: 0;
 }
 
-#quill1, #quill2, #quill3 {
-	font-size: 1.12em;
-	font-family: Montserrat, Helvetica, Arial, sans-serif;
-}
-
 #servicesOverview {
 	background: url('/assets/images/grass_tiling.jpg');
 	background-repeat: repeat;
