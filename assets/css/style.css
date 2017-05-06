@@ -45,6 +45,11 @@ li {
 	padding: 0;
 }
 
+/* Content from CKEditor */
+.content {
+	padding: 15px;
+}
+
 .marquee {
 	height: 20px;	
 	overflow: hidden;
@@ -289,11 +294,6 @@ nav {
 	padding: 2%;
 }
 
-#aboutContent {
-	margin: 0;
-	padding: 0;
-}
-
 #servicesOverview {
 	background: url('/assets/images/grass_tiling.jpg');
 	background-repeat: repeat;
@@ -315,7 +315,7 @@ nav {
 	border: 1px solid #555;
 	border-radius: 50%;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.6), 0 3px 10px 0 rgba(0, 0, 0, 0.6);
-	transition: box-shadow 0.8s;
+	transition: box-shadow 0.5s;
 	overflow: visible;
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;

@@ -13,10 +13,8 @@
 				<div class="col-sm-3">
 					<img class="service-image img-responsive center" src="<?= base_url() . $service['image']['path'] ?>" alt="<?= $service['image']['text'] ?>" />
 				</div>
-				<div class="col-sm-9">
-					<div id="quill<?= $n ?>" style="border:none;">
-						<?= (!empty($service['content']) ? $service['content'] : '') ?>
-					</div>
+				<div class="content col-sm-9">
+					<?= (!empty($service['content']) ? $service['content'] : '') ?>
 				</div>
 			</div>
 		</div>
