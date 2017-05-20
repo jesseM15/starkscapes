@@ -15,7 +15,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'about', groups: [ 'about' ] }
 	];
 
-	config.removeButtons = 'Subscript,Superscript,PasteText,PasteFromWord,Anchor,Unlink,Table,SpecialChar,Maximize,Source,Strike,RemoveFormat,Indent,Outdent,Blockquote,Styles,About';
+	config.removeButtons = 'Subscript,Superscript,PasteText,PasteFromWord,Anchor,Unlink,Image,Table,SpecialChar,Maximize,Source,Strike,RemoveFormat,Indent,Outdent,Blockquote,Styles,About';
 	config.removePlugins = 'resize';
 };
 

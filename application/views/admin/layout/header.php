@@ -8,6 +8,9 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<link rel="icon" type="image/png" href="<?= base_url() ?>assets/images/starkscapes_icon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="<?= base_url() ?>assets/images/starkscapes_icon-32x32.png" sizes="32x32">
+
 	<!--bootstrap and jquery-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

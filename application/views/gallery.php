@@ -1,8 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-	<div id="gallery" class="center">
+	<section class="gallery center">
 		<h1><i class="fa fa-camera-retro"></i> Gallery</h1>
-		<section id="categories">
+		<div id="categories">
 			<div class="container">
 			<?php foreach($categories as $category) : ?>
 				<div class="categories col-sm-4 col-md-3 text-center<?= $this->uri->segment(3) == $category['url_segment'] ? ' activeCategory': '' ?>">
@@ -10,8 +10,8 @@
 				</div>
 			<?php endforeach; ?>
 			</div>
-		</section>
-		<section id="gallery">
+		</div>
+		<div class="gallery">
 			<div id="galleryContent" class="container text-center">
 				
 				<div class='row'>
@@ -20,8 +20,8 @@
 		foreach ($images as $image)
 		{
 			?>
-			<div class='col-sm-6 col-md-3'>
-				<img class='imgThumbnail hover-shadow cursor' src='<?= base_url() . $image['path'] ?>' style='width:100%' onclick='openModal();currentSlide(<?php echo $n; ?>)'>
+			<div class="col-sm-6 col-md-3">
+				<img class="imgThumbnail hover-shadow cursor" src="<?= base_url() . $image['path'] ?>" alt="" style="width:100%;" onclick="openModal();currentSlide(<?php echo $n; ?>)">
 			</div>
 			<?php
 			$n++;
@@ -42,7 +42,7 @@
 						?>
 						<div class="mySlides">
 							<div class="numbertext"><?php echo $n; ?> / <?php echo $count; ?></div>
-							<img src="<?= base_url() . $image['path'] ?>" style="width:100%;">
+							<img src="<?= base_url() . $image['path'] ?>" alt="" style="width:100%;">
 						</div>
 						<?php
 						$n++;
@@ -87,5 +87,5 @@
 			<div id="pagination" class="text-center">
 			<?= $this->pagination->create_links() ?>
 			</div>
-		</section>
-	</div>
+		</div>
+	</section>

@@ -202,14 +202,22 @@ nav {
 
 @media screen and (max-width: 767px) {
 	.navbar .nav > .active > a {
-	background: #FFF;
-    color:  #000;
-    width: 90vw;
-}
+		background: #FFF;
+		color:  #000;
+		width: 90vw;
+	}
 }
 
 .navbar .nav > .active {
 	background: #FFF;
+}
+
+@media screen and (max-width: 767px) {
+	.navbar .nav > .active {
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+	}
 }
 
 .navbar .nav > li:hover a {
@@ -315,7 +323,7 @@ nav {
 	border: 1px solid #555;
 	border-radius: 50%;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.6), 0 3px 10px 0 rgba(0, 0, 0, 0.6);
-	transition: box-shadow 0.5s;
+	/*transition: box-shadow 0.5s;*/
 	overflow: visible;
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
@@ -513,7 +521,7 @@ footer {
 
 /*--GALLERY--*/
 
-#gallery {
+.gallery {
 	background: #fff;
 	padding: 2%;
 	min-height: 50vh;
@@ -640,6 +648,18 @@ footer {
 	background: rgba(255, 255, 255, 0.9);
 	border: 1px solid #000;
 	border-radius: 15px;
+}
+
+/*-----------*/
+
+/*-ERROR_404-*/
+
+.error_404 {
+	background: #fff;
+	padding: 2%;
+	min-height: 52vh;
+	position: relative;
+	overflow: hidden;
 }
 
 /*-----------*/
