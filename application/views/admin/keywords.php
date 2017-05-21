@@ -7,7 +7,7 @@
 			<h1 class="text-center"><i class="fa fa-key" aria-hidden="true"></i>&nbsp;Keywords</h1>
 			<br />
 			<div class="center col-xs-12 col-sm-9">
-				<p class="well">Here you can edit the keywords your site uses for search engine optimization.</p>
+				<p class="well">Here you can edit the keywords your site uses.</p>
 			</div>
 			<div class="container col-sm-12 col-md-6 center">
 				<?= form_open(base_url() . 'admin-metadata/keywords', 'class="keywords_form"') ?>

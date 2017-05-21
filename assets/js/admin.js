@@ -348,16 +348,28 @@ function getCharacterCount()
 	{
 		var count = $("#description").val().length;
 		$("#count").html(count);
-		if (count < 136 || count >= 176)
+		if (count < 139)
 		{
-			$("#count").css("color", "#C00");
+			$("#count").css("color", "#0C0");
 		}
-		else if (count >= 136 && count < 146 || count >= 166 && count < 176)
+		else if (count >=140 && count < 150)
 		{
 			$("#count").css("color", "#FB0");
 		}
 		else
 		{
-			$("#count").css("color", "#0C0");
+			$("#count").css("color", "#C00");
 		}
+		// if (count < 136 || count >= 176)
+		// {
+		// 	$("#count").css("color", "#C00");
+		// }
+		// else if (count >= 136 && count < 146 || count >= 166 && count < 176)
+		// {
+		// 	$("#count").css("color", "#FB0");
+		// }
+		// else
+		// {
+		// 	$("#count").css("color", "#0C0");
+		// }
 	}

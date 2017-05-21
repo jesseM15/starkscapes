@@ -7,7 +7,7 @@
 			<h1 class="text-center"><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;Description</h1>
 			<br />
 			<div class="center col-xs-12 col-sm-9">
-				<p class="well">Here you can edit site description for search engine optimization.  Note the optimal length for the description is about 156 characters.</p>
+				<p class="well">Here you can edit site description for the search engine to display.  Try to include keywords in your description.  Note the optimal length for the description is under 150 characters.</p>
 			</div>
 			<div class="container col-sm-6 center">
 				<form id="description-form" method="post" action="<?= base_url() ?>admin_metadata/description">

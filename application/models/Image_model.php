@@ -15,7 +15,7 @@ class Image_model extends CI_Model{
 		return $result;
 	}
 
-	public function getImages($owner = 'gallery', $category = 'gallery', $start = 0, $limit = 8)
+	public function getImages($owner = 'gallery', $category = 'gallery', $start = 0, $limit = PER_PAGE)
 	{
 		$this->db->select('image.id, image.path, image.text, image.rank');
 		$this->db->order_by('image.rank');

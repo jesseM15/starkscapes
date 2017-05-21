@@ -34,55 +34,58 @@ class Home extends CI_Controller {
 
 		if ($this->form_validation->run())
 		{
-            $config['mailtype'] = 'html';
-			$this->email->initialize($config);
-			$this->email->from('webmaster@starkscapes.com', 'StarkScapes.com');
-			$email = $this->site_model->getEmail();
-			// $this->email->to('starkscapesllc@gmail.com');
-			$this->email->to($email);
-			$this->email->subject('Estimate Requested');
-			$logo = base_url() . 'assets/images/starkscapes.png';
-			$this->email->attach($logo, 'inline');
-			$cid = $this->email->attachment_cid($logo);
-			
-			$message = "";
-			$message .= "<img src='cid:" . $cid . "' alt='StarkScapes Logo'><br />\n";
-			$message .= "<p style='background:#016934;color:#FFF;padding:5%;border-radius:10px;'>\n";
-			$message .= $this->input->post('fname') . " " . $this->input->post('lname') . " is contacting StarkScapes for \n";
-			if ($this->input->post('service_dropdown') != 'other' || empty($this->input->post('other')))
+			if (empty($this->input->post('name')))
 			{
-				$message .= strtolower($data['service_dropdown'][$this->input->post('service_dropdown')]) . ".<br />\n";
-			}
-			elseif (!empty($this->input->post('other')))
-			{
-				$message .= "the following: " . $this->input->post('other') . ".<br />\n";
-			}
-			$message .= "<br />They wrote:<br />" . $this->input->post('message') . "</p>\n";
-			$message .= "<p>Name: " . $this->input->post('fname') . " " . $this->input->post('lname') . "</p>\n";
-			$message .= "<p>Phone: " . $this->input->post('phone') . "</p>\n";
-			if ($this->input->post('email'))
-			{
-				$message .= "<p>Email: " . $this->input->post('email') . "</p>\n";
-			}
-			if ($this->input->post('address'))
-			{
-				$message .= "<p>Address: " . $this->input->post('address') . "</p>\n";
-			}
-			
-			$this->email->message($message);
-			$this->email->send();
-            $data['success'] = 'Thank you, we will contact you soon.';
+	            $config['mailtype'] = 'html';
+				$this->email->initialize($config);
+				$this->email->from('webmaster@starkscapes.com', 'StarkScapes.com');
+				$email = $this->site_model->getEmail();
+				// $this->email->to('starkscapesllc@gmail.com');
+				$this->email->to($email);
+				$this->email->subject('Estimate Requested');
+				$logo = base_url() . 'assets/images/starkscapes.png';
+				$this->email->attach($logo, 'inline');
+				$cid = $this->email->attachment_cid($logo);
+				
+				$message = "";
+				$message .= "<img src='cid:" . $cid . "' alt='StarkScapes Logo'><br />\n";
+				$message .= "<p style='background:#016934;color:#FFF;padding:5%;border-radius:10px;'>\n";
+				$message .= $this->input->post('fname') . " " . $this->input->post('lname') . " is contacting StarkScapes for \n";
+				if ($this->input->post('service_dropdown') != 'other' || empty($this->input->post('other')))
+				{
+					$message .= strtolower($data['service_dropdown'][$this->input->post('service_dropdown')]) . ".<br />\n";
+				}
+				elseif (!empty($this->input->post('other')))
+				{
+					$message .= "the following: " . $this->input->post('other') . ".<br />\n";
+				}
+				$message .= "<br />They wrote:<br />" . $this->input->post('message') . "</p>\n";
+				$message .= "<p>Name: " . $this->input->post('fname') . " " . $this->input->post('lname') . "</p>\n";
+				$message .= "<p>Phone: " . $this->input->post('phone') . "</p>\n";
+				if ($this->input->post('email'))
+				{
+					$message .= "<p>Email: " . $this->input->post('email') . "</p>\n";
+				}
+				if ($this->input->post('address'))
+				{
+					$message .= "<p>Address: " . $this->input->post('address') . "</p>\n";
+				}
+				
+				$this->email->message($message);
+				$this->email->send();
 
-            $this->site_model->addContact(array('first_name' => $this->input->post('fname'), 'last_name' => $this->input->post('lname'), 'phone' => $this->input->post('phone'), 'email' => $this->input->post('email'), 'address' => $this->input->post('address'), 'service' => $data['service_dropdown'][$this->input->post('service_dropdown')], 'other' => $this->input->post('other'), 'message' => $this->input->post('message')));
-        }
-        
-        $data['site_name'] = $this->site_model->getSiteName()['site_name'];
-        $data['keywords'] = format_keywords($this->site_model->getKeywords());
-        $data['description'] = $this->site_model->getDescription()['description'];
-        $data['page_title'] = 'Home';
-        $data['marquee'] = $data['marquee'] = $this->site_model->getMarquee();
-        $data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];
-        $data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
+				$this->site_model->addContact(array('first_name' => $this->input->post('fname'), 'last_name' => $this->input->post('lname'), 'phone' => $this->input->post('phone'), 'email' => $this->input->post('email'), 'address' => $this->input->post('address'), 'service' => $data['service_dropdown'][$this->input->post('service_dropdown')], 'other' => $this->input->post('other'), 'message' => $this->input->post('message')));
+			}
+			$data['success'] = 'Thank you, we will contact you soon.';
+		}
+
+		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+		$data['keywords'] = format_keywords($this->site_model->getKeywords());
+		$data['description'] = $this->site_model->getDescription()['description'];
+		$data['page_title'] = 'Home';
+		$data['marquee'] = $data['marquee'] = $this->site_model->getMarquee();
+		$data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];
+		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$data['carouselImages'] = $this->image_model->getImages('Home', 'Carousel');
 		$data['about'] = $this->home_model->getAbout();

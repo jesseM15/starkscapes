@@ -4,7 +4,7 @@
 			<h1 class="text-center"><i class="fa fa-camera-retro"></i>&nbsp;Gallery</h1>
 			<br />
 			<div class="center col-xs-12 col-sm-9">
-				<p class="well">Here you can edit the Gallery page.  You can add new categories of pictures.</p>
+				<p class="well">Here you can edit the Gallery page.  You can add new categories of pictures.  The gallery will load much faster if you <a href="https://www.tinyjpg.com" target="_blank">optimize your images</a>.</p>
 			</div>
 			<div class="section-nav container-fluid text-center">
 			<?php foreach($categories as $category) : ?>

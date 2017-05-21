@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'starkscapes.db',
 	'username' => DB_USER,
 	'password' => DB_PASSWORD,
 	'database' => 'starkscapes',

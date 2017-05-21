@@ -104,7 +104,7 @@ class Admin_gallery extends CI_Controller {
 		$data['category'] = $this->image_model->getCategory($category);
 		$total = $this->image_model->getImageCount('gallery', $category);
 
-		$start = ($page * 8 - 8);
+		$start = ($page * PER_PAGE - PER_PAGE);
 
 		$config = $this->configurePagination($category, $total);
 		$this->pagination->initialize($config);
@@ -126,7 +126,7 @@ class Admin_gallery extends CI_Controller {
 	{
 		$config['base_url'] = base_url() . 'admin-gallery/category/' . $category . '/';
 		$config['total_rows'] = $total;
-		$config['per_page'] = 8;
+		$config['per_page'] = PER_PAGE;
 		$config['use_page_numbers'] = TRUE;
 		$config['first_link'] = FALSE;
 		$config['last_link'] = FALSE;

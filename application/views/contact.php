@@ -53,6 +53,7 @@
 						<textarea id="message" class="form-control" name="message" rows="3"><?= set_value('message', '') ?></textarea>
 					</div>
 					<div class="form-group col-sm-12">
+						<input type="hidden" name="name" value="" />
 						<input type="submit" id="submit" class="btn btn-default btn-lg" name="submit" value="Send">
 					</div>
 				</form>

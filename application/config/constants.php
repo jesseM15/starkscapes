@@ -3,6 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
 |--------------------------------------------------------------------------
+| User defined constants
+|--------------------------------------------------------------------------
+|
+| PER_PAGE : The number of results to display per page in pagination.
+|
+*/
+defined('PER_PAGE') OR define('PER_PAGE', 12);
+
+/*
+|--------------------------------------------------------------------------
 | Display Debug backtrace
 |--------------------------------------------------------------------------
 |
