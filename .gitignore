@@ -72,8 +72,8 @@ production.ini.php
 application/config/config.php
 application/config/database.php
 
-#assets/uploads
-#assets/images
+assets/uploads
+assets/images
 
 production
 
