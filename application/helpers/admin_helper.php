@@ -34,14 +34,14 @@ if ( ! function_exists('init_admin_wrap_session'))
 	 */
 	function init_admin_wrap_session()
 	{
-		if (!isset($_SESSION['wrap']))
+		if (!isset($_SESSION['admin_wrap']))
 		{
 			$CI =& get_instance();
 			$CI->load->model('site_model');
-			$_SESSION['wrap']['site_name'] = $CI->site_model->getSiteName()['site_name'];
+			$_SESSION['admin_wrap']['site_name'] = $CI->site_model->getSiteName()['site_name'];
 
 			$CI->load->model('image_model');
-			$_SESSION['wrap']['background'] = $CI->image_model->getImages('Site', 'Background', 0, 1)[0];
+			$_SESSION['admin_wrap']['background'] = $CI->image_model->getImages('Site', 'Background', 0, 1)[0];
 		}
 
 	}

@@ -123,7 +123,7 @@
 						<form id="image-form" method="post" action="<?= base_url() ?>admin_gallery/category/<?= $this->uri->segment(3) . '/' . $this->uri->segment(4) ?>" enctype="multipart/form-data">
 							<label class="upload-button btn btn-lg btn-success" for="image-file">
 								Upload Image
-								<input id="image-file" type="file" name="file" style="display:none;" form="image-form" onchange="this.form.submit();">
+								<input id="image-file" type="file" name="file" style="display:none;" form="image-form">
 							</label>
 							<input type="hidden" id="selectedImage" name="selectedImage" />
 							<button type="button" class="image-select-button btn btn-lg btn-default" data-dismiss="modal">Select</button>

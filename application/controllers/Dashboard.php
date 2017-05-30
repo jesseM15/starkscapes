@@ -14,18 +14,14 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
+		$data['name'] = $this->session->logged_in['name'];
+		
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
-		// $data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Dashboard';
-		// $data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
-		$data['id'] = $this->session->logged_in['id'];
-		$data['email'] = $this->session->logged_in['email'];
-		$data['role'] = $this->session->logged_in['role'];
-		$data['name'] = $this->session->logged_in['name'];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/dashboard', $data);

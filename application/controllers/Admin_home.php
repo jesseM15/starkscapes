@@ -18,8 +18,8 @@ class Admin_home extends CI_Controller {
 	{
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Home';
 
@@ -83,8 +83,8 @@ class Admin_home extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Home - Carousel';
 
@@ -108,8 +108,8 @@ class Admin_home extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Home - About';
 		$data['about'] = $this->home_model->getAbout();
@@ -169,8 +169,8 @@ class Admin_home extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Service Areas';
 

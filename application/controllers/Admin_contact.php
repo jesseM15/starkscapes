@@ -18,8 +18,8 @@ class Admin_contact extends CI_Controller {
 	{
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Contact';
 
@@ -43,8 +43,8 @@ class Admin_contact extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Contact Message';
 
@@ -68,8 +68,8 @@ class Admin_contact extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Phone Number';
 
@@ -93,8 +93,8 @@ class Admin_contact extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Email';
 
@@ -109,8 +109,8 @@ class Admin_contact extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Phone Number';
 

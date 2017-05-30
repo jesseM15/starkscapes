@@ -18,8 +18,8 @@ class Admin_site extends CI_Controller {
 	{
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Site';
 
@@ -71,6 +71,7 @@ class Admin_site extends CI_Controller {
 					$this->site_model->addMarqueeLine(array('text' => phone_text_to_link($new)));
 				}
 			}
+			unset($_SESSION['wrap']);
 			$this->session->set_flashdata('message', 'Saved.');
 		}
 
@@ -83,8 +84,8 @@ class Admin_site extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Marquee';
 
@@ -126,6 +127,7 @@ class Admin_site extends CI_Controller {
 					$image['owner'] = 'Site';
 					$image['category_id'] = 1;
 					$this->image_model->setImage($image);
+					unset($_SESSION['wrap']);
 					$this->session->set_flashdata('message', 'Saved.');
 				}
 			}
@@ -140,6 +142,7 @@ class Admin_site extends CI_Controller {
 				$image['owner'] = 'Site';
 				$image['category_id'] = 1;
 				$this->image_model->setImage($image);
+				unset($_SESSION['wrap']);
 				$this->session->set_flashdata('message', 'Saved.');
 			}
 		}
@@ -148,8 +151,8 @@ class Admin_site extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Logo';
 
@@ -210,6 +213,7 @@ class Admin_site extends CI_Controller {
 					$this->site_model->addHours(array('category' => $_POST['newCategory'][$n], 'text' => $_POST['new'][$n]));
 				}
 			}
+			unset($_SESSION['wrap']);
 			$this->session->set_flashdata('message', 'Saved.');
 		}
 
@@ -217,8 +221,8 @@ class Admin_site extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Hours';
 
@@ -294,6 +298,7 @@ class Admin_site extends CI_Controller {
 					$this->site_model->addBusinessInfo(array('text' => phone_text_to_link($new[$n]['text']), 'styled' => $new[$n]['styled']));
 				}
 			}
+			unset($_SESSION['wrap']);
 			$this->session->set_flashdata('message', 'Saved.');
 		}
 
@@ -306,8 +311,8 @@ class Admin_site extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Business Info';
 
@@ -349,6 +354,9 @@ class Admin_site extends CI_Controller {
 					$image['owner'] = 'Site';
 					$image['category_id'] = 6;
 					$this->image_model->setImage($image);
+					unset($_SESSION['wrap']);
+					unset($_SESSION['admin_wrap']);
+					init_admin_wrap_session();
 					$this->session->set_flashdata('message', 'Saved.');
 				}
 			}
@@ -363,14 +371,16 @@ class Admin_site extends CI_Controller {
 				$image['owner'] = 'Site';
 				$image['category_id'] = 6;
 				$this->image_model->setImage($image);
+				unset($_SESSION['wrap']);
+				unset($_SESSION['admin_wrap']);
 				$this->session->set_flashdata('message', 'Saved.');
 			}
 		}
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Background';
 

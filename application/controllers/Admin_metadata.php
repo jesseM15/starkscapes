@@ -18,8 +18,8 @@ class Admin_metadata extends CI_Controller {
 	{
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Metadata';
 
@@ -71,6 +71,7 @@ class Admin_metadata extends CI_Controller {
 					$this->site_model->addKeyword(array('text' => $new));
 				}
 			}
+			unset($_SESSION['wrap']);
 			$this->session->set_flashdata('message', 'Saved.');
 		}
 
@@ -78,8 +79,8 @@ class Admin_metadata extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Metadata - Keywords';
 
@@ -95,6 +96,7 @@ class Admin_metadata extends CI_Controller {
 		if ($this->form_validation->run() === TRUE)
 		{
 			$this->site_model->setDescription($this->input->post('description', TRUE));
+			unset($_SESSION['wrap']);
 			$this->session->set_flashdata('message', 'Saved.');
 		}
 		$this->session->set_flashdata('error', validation_errors());
@@ -103,8 +105,8 @@ class Admin_metadata extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Metadata - Description';
 
@@ -120,14 +122,16 @@ class Admin_metadata extends CI_Controller {
 		if ($this->form_validation->run() === TRUE)
 		{
 			$this->site_model->setSiteName($this->input->post('name', TRUE));
+			unset($_SESSION['wrap']);
+			unset($_SESSION['admin_wrap']);
 			$this->session->set_flashdata('message', 'Saved.');
 		}
 		$this->session->set_flashdata('error', validation_errors());
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Metadata - Site Name';
 

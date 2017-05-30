@@ -20,8 +20,8 @@ class Admin_services extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Services';
 
@@ -147,8 +147,8 @@ class Admin_services extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/service', $data);

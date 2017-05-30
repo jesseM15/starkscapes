@@ -28,8 +28,8 @@ class Admin_gallery extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Admin Gallery';
 
@@ -43,9 +43,15 @@ class Admin_gallery extends CI_Controller {
 		$config = $this->configureUpload('assets/uploads/gallery/');
 		$this->upload->initialize($config);
 
-		$this->form_validation->set_rules('file', 'File', 'trim');
-		$this->form_validation->set_rules('selectedImage', 'Selected Image', 'callback_check_path_unique');
-		$this->form_validation->set_rules('title', 'Title', 'trim|required');
+		if (isset($_POST['selectedImage']))
+		{
+			$this->form_validation->set_rules('file', 'File', 'trim');
+			$this->form_validation->set_rules('selectedImage', 'Selected Image', 'callback_check_path_unique');
+		}
+		if (isset($_POST['title']))
+		{
+			$this->form_validation->set_rules('title', 'Title', 'trim|required');
+		}
 
 		if ($this->form_validation->run() == TRUE)
 		{
@@ -115,8 +121,8 @@ class Admin_gallery extends CI_Controller {
 
 		init_admin_wrap_session();
 
-		$data['site_name'] = $_SESSION['wrap']['site_name'];
-		$data['background'] = $_SESSION['wrap']['background'];
+		$data['site_name'] = $_SESSION['admin_wrap']['site_name'];
+		$data['background'] = $_SESSION['admin_wrap']['background'];
 
 		$data['page_title'] = 'Gallery';
 
