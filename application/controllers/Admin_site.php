@@ -16,9 +16,12 @@ class Admin_site extends CI_Controller {
 
 	public function index()
 	{
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Site';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/site');
@@ -77,9 +80,13 @@ class Admin_site extends CI_Controller {
 			$marqueeLines[$n]['text'] = phone_link_to_text($marqueeLines[$n]['text']);
 		}
 		$data['marqueeLines'] = $marqueeLines;
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Marquee';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/marquee', $data);
@@ -139,9 +146,12 @@ class Admin_site extends CI_Controller {
 
 		$data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];
 
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Logo';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$data['folderImages'] =  glob('assets/uploads/logo/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
@@ -204,9 +214,13 @@ class Admin_site extends CI_Controller {
 		}
 
 		$data['businessHours'] = $this->site_model->getHours();
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Hours';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/hours', $data);
@@ -289,9 +303,13 @@ class Admin_site extends CI_Controller {
 			$businessInfos[$n]['text'] = phone_link_to_text($businessInfos[$n]['text']);
 		}
 		$data['businessInfos'] = $businessInfos;
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Business Info';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/business', $data);
@@ -349,9 +367,12 @@ class Admin_site extends CI_Controller {
 			}
 		}
 
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Background';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$data['folderImages'] =  glob('assets/uploads/background/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 

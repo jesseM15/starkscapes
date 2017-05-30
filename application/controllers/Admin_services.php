@@ -17,9 +17,13 @@ class Admin_services extends CI_Controller {
 	public function index()
 	{
 		$data['services'] = $this->service_model->getServices();
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Services';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/services', $data);
@@ -127,7 +131,6 @@ class Admin_services extends CI_Controller {
 		}
 
 		$data['services'] = $services;
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
 		$data['page_title'] = 'Service';
 		$data['service'] = '';
 
@@ -140,9 +143,12 @@ class Admin_services extends CI_Controller {
 			}
 		}
 
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
-
 		$data['folderImages'] =  glob('assets/uploads/services/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/service', $data);

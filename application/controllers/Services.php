@@ -23,15 +23,19 @@ class Services extends CI_Controller {
 		}
 
 		$data['services'] = $services;
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
-		$data['keywords'] = format_keywords($this->site_model->getKeywords());
-		$data['description'] = $this->site_model->getDescription()['description'];
+
+		init_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['keywords'] = $_SESSION['wrap']['keywords'];
+		$data['description'] = $_SESSION['wrap']['description'];
+		$data['marquee'] = $_SESSION['wrap']['marquee'];
+		$data['businessHours'] = $_SESSION['wrap']['businessHours'];
+		$data['businessInfo'] = $_SESSION['wrap']['businessInfo'];
+		$data['logo'] = $_SESSION['wrap']['logo'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Services';
-		$data['marquee'] = $this->site_model->getMarquee();
-		$data['logo'] = $this->image_model->getImages('Site', 'Logo', 0, 1)[0];
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
-		$data['businessHours'] = $this->site_model->getHours();
-		$data['businessInfo'] = $this->site_model->getBusinessInfo();
 
 		$this->load->view('layout/header', $data);
 		$this->load->view('services', $data);

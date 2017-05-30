@@ -25,9 +25,13 @@ class Admin_gallery extends CI_Controller {
 		}
 
 		$data['categories'] = $this->image_model->getGalleryCategories();
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Gallery';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/gallery', $data);
@@ -109,9 +113,12 @@ class Admin_gallery extends CI_Controller {
 		$config = $this->configurePagination($category, $total);
 		$this->pagination->initialize($config);
 
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Gallery';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$data['images'] = $this->image_model->getImages('gallery', $category, $start);
 

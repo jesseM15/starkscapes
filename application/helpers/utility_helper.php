@@ -120,3 +120,36 @@ if ( ! function_exists('format_keywords'))
 		return $keywords;
 	}
 }
+
+// ------------------------------------------------------------------------
+
+if ( ! function_exists('init_wrap_session'))
+{
+	/**
+	 * init_wrap_session
+	 *
+	 * Sets session variables for all of the variables that get
+	 * displayed on every page.  This allows for fewer database
+	 * queries as much of the data is redundant.
+	 *
+	 */
+	function init_wrap_session()
+	{
+		if (!isset($_SESSION['wrap']))
+		{
+			$CI =& get_instance();
+			$CI->load->model('site_model');
+			$_SESSION['wrap']['site_name'] = $CI->site_model->getSiteName()['site_name'];
+			$_SESSION['wrap']['keywords'] = format_keywords($CI->site_model->getKeywords());
+			$_SESSION['wrap']['description'] = $CI->site_model->getDescription()['description'];
+			$_SESSION['wrap']['marquee'] = $CI->site_model->getMarquee();
+			$_SESSION['wrap']['businessHours'] = $CI->site_model->getHours();
+			$_SESSION['wrap']['businessInfo'] = $CI->site_model->getBusinessInfo();
+
+			$CI->load->model('image_model');
+			$_SESSION['wrap']['logo'] = $CI->image_model->getImages('Site', 'Logo', 0, 1)[0];
+			$_SESSION['wrap']['background'] = $CI->image_model->getImages('Site', 'Background', 0, 1)[0];
+		}
+
+	}
+}

@@ -16,9 +16,12 @@ class Admin_metadata extends CI_Controller {
 
 	public function index()
 	{
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Metadata';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/metadata', $data);
@@ -73,9 +76,12 @@ class Admin_metadata extends CI_Controller {
 
 		$data['keywords'] = $this->site_model->getKeywords();
 
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Metadata - Keywords';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/keywords', $data);
@@ -94,9 +100,13 @@ class Admin_metadata extends CI_Controller {
 		$this->session->set_flashdata('error', validation_errors());
 
 		$data['description'] = $this->site_model->getDescription()['description'];
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Metadata - Description';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/description', $data);
@@ -114,9 +124,12 @@ class Admin_metadata extends CI_Controller {
 		}
 		$this->session->set_flashdata('error', validation_errors());
 
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Metadata - Site Name';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/name', $data);

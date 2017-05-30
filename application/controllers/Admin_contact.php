@@ -16,9 +16,12 @@ class Admin_contact extends CI_Controller {
 
 	public function index()
 	{
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Contact';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/contact', $data);
@@ -37,9 +40,13 @@ class Admin_contact extends CI_Controller {
 		$this->session->set_flashdata('error', validation_errors());
 
 		$data['contactMessage'] = phone_link_to_text($this->site_model->getContactMessage());
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Contact Message';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/message', $data);
@@ -58,9 +65,13 @@ class Admin_contact extends CI_Controller {
 		$this->session->set_flashdata('error', validation_errors());
 
 		$data['phone'] = $this->site_model->getPhone();
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Phone Number';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/phone', $data);
@@ -79,9 +90,13 @@ class Admin_contact extends CI_Controller {
 		$this->session->set_flashdata('error', validation_errors());
 
 		$data['email'] = $this->site_model->getEmail();
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Email';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/email', $data);
@@ -91,9 +106,13 @@ class Admin_contact extends CI_Controller {
 	public function contacts()
 	{
 		$data['contacts'] = $this->site_model->getContacts();
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Phone Number';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/contacts', $data);

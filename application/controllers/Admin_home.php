@@ -16,9 +16,12 @@ class Admin_home extends CI_Controller {
 
 	public function index()
 	{
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Home';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/home');
@@ -78,9 +81,12 @@ class Admin_home extends CI_Controller {
 
 		}
 
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Home - Carousel';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$data['images'] = $this->image_model->getImages('carousel', 'Carousel');
 
@@ -99,9 +105,13 @@ class Admin_home extends CI_Controller {
 			$this->home_model->setAbout(array('id' => 1, 'content' => $this->input->post('content')));
 			$this->session->set_flashdata('message', 'Saved.');
 		}
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Admin Home - About';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 		$data['about'] = $this->home_model->getAbout();
 
 		$this->load->view('admin/layout/header', $data);
@@ -156,9 +166,13 @@ class Admin_home extends CI_Controller {
 		}
 
 		$data['serviceAreas'] = $this->home_model->getServiceAreas();
-		$data['site_name'] = $this->site_model->getSiteName()['site_name'];
+
+		init_admin_wrap_session();
+
+		$data['site_name'] = $_SESSION['wrap']['site_name'];
+		$data['background'] = $_SESSION['wrap']['background'];
+
 		$data['page_title'] = 'Service Areas';
-		$data['background'] = $this->image_model->getImages('Site', 'Background', 0, 1)[0];
 
 		$this->load->view('admin/layout/header', $data);
 		$this->load->view('admin/service_areas');
